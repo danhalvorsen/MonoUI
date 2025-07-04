@@ -10,7 +10,10 @@
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "useDefineForClassFields": true,
+    "experimentalDecorators": true
+    
   },
   "include": ["src/**/*.ts", "src/**/*.js"]
 }

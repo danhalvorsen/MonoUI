@@ -5,11 +5,18 @@
   "main": "dist/mr-slider.js",
   "module": "dist/mr-slider.js",
   "types": "dist/mr-slider.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/mr-slider.js",
+      "require": "./dist/mr-slider.js"
+    }
+  },
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
-    "lit": "^3.3.0"
+    "lit": "^3.3.0",
+    "tsyringe": "^4.10.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0"

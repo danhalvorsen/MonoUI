@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2021",
     "module": "ESNext",
     "moduleResolution": "Node",
     "declaration": true,
@@ -8,7 +8,12 @@
     "rootDir": "src",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "useDefineForClassFields": true,
+    "lib": ["ES2021", "DOM"],
+    "types": []
   },
   "include": ["src/**/*.ts"]
 }

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "lit": "^3.3.0",
-    "tsyringe": "^4.7.0"
+    "tsyringe": "^4.10.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0"
