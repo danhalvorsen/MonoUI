@@ -3,6 +3,7 @@
     "plugin:lit/recommended"
   ],
   "devDependencies": {
-    "eslint-plugin-lit": "^2.1.1"
+    "eslint-plugin-lit": "^2.1.1",
+    "vite-plugin-progress": "^0.0.7"
   }
 }
