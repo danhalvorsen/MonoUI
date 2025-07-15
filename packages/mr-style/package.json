@@ -1,0 +1,35 @@
+{
+  "name": "mr-style",
+  "version": "0.2.0",
+  "type": "module",
+  "bin": {
+    "mr-style-cli": "./bin/cli.ts"
+  },
+  "exports": {
+    "./tokens/color": "./src/tokens/color.tokens.ts",
+    "./tokens/size": "./src/tokens/size.tokens.ts",
+    "./tokens/spacing": "./src/tokens/spacing.tokens.ts",
+    "./tokens/flex": "./src/tokens/flex.tokens.ts",
+    "./tokens/animation": "./src/tokens/animation.tokens.ts",
+    "./tokens/border": "./src/tokens/border.tokens.ts",
+    "./tokens/shadow": "./src/tokens/shadow.tokens.ts",
+    "./tokens/zindex": "./src/tokens/zindex.tokens.ts",
+    "./modules/hour-rect": "./src/modules/hour-rect.style.ts",
+    "./themes/dark": "./src/themes/dark.tokens.ts",
+    "./themes/light": "./src/themes/light.tokens.ts",
+    "./themes/contrast": "./src/themes/contrast.tokens.ts",
+    "./volume": "./src/volume/index.ts",
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.d.ts"
+    }
+  },
+  "devDependencies": {
+    "@eslint-community/eslint-utils": "^4.7.0",
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
+    "eslint": "^9.31.0",
+    "eslint-plugin-lit": "^2.1.1",
+    "eslint-plugin-lit-a11y": "^5.1.0"
+  }
+}

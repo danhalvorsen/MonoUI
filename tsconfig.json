@@ -1,8 +1,0 @@
-{
-  "extends": "./packages/mr-slider/tsconfig.json",
-  "files": [],
-  "include": [
-    "packages/**/*",
-    "apps/**/*"
-  ]
-}

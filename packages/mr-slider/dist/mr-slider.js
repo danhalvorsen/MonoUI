@@ -15,64 +15,55 @@ import { customElement, property } from 'lit/decorators.js';
 let MrSlider = class MrSlider extends LitElement {
     constructor() {
         super(...arguments);
-        /* ---------- reactive props (shadow-safe) ---------- */
-        Object.defineProperty(this, "value", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: 50
-        });
-        Object.defineProperty(this, "min", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: 0
-        });
-        Object.defineProperty(this, "max", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: 100
-        });
-        // No need for constructor unless you have custom logic
-        /* ---------- events ---------- */
+        this.value = 50;
+        this.min = 0;
+        this.max = 100;
         _MrSlider_onInput.set(this, (e) => {
-            this.value = Number(e.target.value);
-            this.dispatchEvent(new CustomEvent('change', { detail: this.value }));
+            const target = e.target;
+            this.value = Number(target.value);
+            this.dispatchEvent(new CustomEvent('change', {
+                detail: this.value,
+                bubbles: true
+            }));
         });
     }
-    /* ---------- render ---------- */
     render() {
-        console.log('render mr-slider', this.value, this.min, this.max);
         return html `
-      <input class="slider" type="range"
+      <input 
+        class="slider" 
+        type="range"
         .value=${String(this.value)}
         .min=${String(this.min)}
         .max=${String(this.max)}
-        @input=${__classPrivateFieldGet(this, _MrSlider_onInput, "f")} />
-      <span>${this.value}</span>
+        @input=${__classPrivateFieldGet(this, _MrSlider_onInput, "f")} 
+      />
+      <span class="value-display">${this.value}</span>
     `;
     }
 };
 _MrSlider_onInput = new WeakMap();
-/* ---------- styles ---------- */
-Object.defineProperty(MrSlider, "styles", {
-    enumerable: true,
-    configurable: true,
-    writable: true,
-    value: css `
-    :host { display:inline-block; width:200px; height:32px; }
-    .slider { width:100%; }
-  `
-});
+MrSlider.styles = css `
+    :host { 
+      display: inline-block; 
+      width: 200px; 
+      height: 32px; 
+    }
+    .slider { 
+      width: 100%; 
+    }
+    .value-display {
+      margin-left: 8px;
+      font-family: monospace;
+    }
+  `;
 __decorate([
-    property({ type: Number, reflect: true })
+    property({ type: Number })
 ], MrSlider.prototype, "value", void 0);
 __decorate([
-    property({ type: Number, reflect: true })
+    property({ type: Number })
 ], MrSlider.prototype, "min", void 0);
 __decorate([
-    property({ type: Number, reflect: true })
+    property({ type: Number })
 ], MrSlider.prototype, "max", void 0);
 MrSlider = __decorate([
     customElement('mr-slider')

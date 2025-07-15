@@ -3,41 +3,50 @@ import { customElement, property } from 'lit/decorators.js';
 
 @customElement('mr-slider')
 export class MrSlider extends LitElement {
-  /* ---------- styles ---------- */
-  static styles = css`
-    :host { display:inline-block; width:200px; height:32px; }
-    .slider { width:100%; }
-  `;
-
-  /* ---------- reactive props (shadow-safe) ---------- */
-  
-  @property({ type: Number, reflect: true })
+  @property({ type: Number })
   value = 50;
 
-  @property({ type: Number, reflect: true })
+  @property({ type: Number })
   min = 0;
 
-  @property({ type: Number, reflect: true })
+  @property({ type: Number })
   max = 100;
 
-  // No need for constructor unless you have custom logic
+  static styles = css`
+    :host { 
+      display: inline-block; 
+      width: 200px; 
+      height: 32px; 
+    }
+    .slider { 
+      width: 100%; 
+    }
+    .value-display {
+      margin-left: 8px;
+      font-family: monospace;
+    }
+  `;
 
-  /* ---------- events ---------- */
   #onInput = (e: Event) => {
-    this.value = Number((e.target as HTMLInputElement).value);
-    this.dispatchEvent(new CustomEvent('change', { detail: this.value }));
+    const target = e.target as HTMLInputElement;
+    this.value = Number(target.value);
+    this.dispatchEvent(new CustomEvent('change', { 
+      detail: this.value,
+      bubbles: true 
+    }));
   };
 
-  /* ---------- render ---------- */
   render() {
-    console.log('render mr-slider', this.value, this.min, this.max);    
     return html`
-      <input class="slider" type="range"
+      <input 
+        class="slider" 
+        type="range"
         .value=${String(this.value)}
         .min=${String(this.min)}
         .max=${String(this.max)}
-        @input=${this.#onInput} />
-      <span>${this.value}</span>
+        @input=${this.#onInput} 
+      />
+      <span class="value-display">${this.value}</span>
     `;
   }
 }

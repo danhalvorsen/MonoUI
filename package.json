@@ -1,9 +1,26 @@
 {
-  "extends": [
-    "plugin:lit/recommended"
+  "name": "mono-ui",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
   ],
+  "scripts": {
+    "build:all": "powershell -File scripts/build-simplified.ps1",
+    "build:apps": "powershell -Command \"Get-ChildItem apps -Directory | ForEach-Object { Set-Location $_.FullName; npm run build }\"",
+    "clean": "powershell -Command \"Get-ChildItem -Recurse -Directory | Where-Object { $_.Name -eq 'node_modules' } | Remove-Item -Recurse -Force; Get-ChildItem -Recurse -File | Where-Object { $_.Name -eq 'package-lock.json' } | Remove-Item -Force\"",
+    "lint": "powershell -Command \"Get-ChildItem apps,packages -Directory | ForEach-Object { Set-Location $_.FullName; npm run lint }\"",
+    "lint:fix": "powershell -Command \"Get-ChildItem apps,packages -Directory | ForEach-Object { Set-Location $_.FullName; npm run lint:fix }\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "devDependencies": {
-    "eslint-plugin-lit": "^2.1.1",
-    "vite-plugin-progress": "^0.0.7"
+    "@types/node": "^20.11.16",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2"
   }
 }

@@ -10,9 +10,16 @@
   },
   "dependencies": {
     "lit": "^3.3.0",
+    "reflect-metadata": "^0.2.2",
     "tsyringe": "^4.10.0"
   },
   "devDependencies": {
+    "@eslint-community/eslint-utils": "^4.7.0",
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
+    "eslint": "^9.31.0",
+    "eslint-plugin-lit": "^2.1.1",
+    "eslint-plugin-lit-a11y": "^5.1.0",
     "typescript": "^5.0.0"
   }
 }

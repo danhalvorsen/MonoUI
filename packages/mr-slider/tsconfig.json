@@ -11,9 +11,10 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
-    "useDefineForClassFields": true,
+    "useDefineForClassFields": false,
     "lib": ["ES2021", "DOM"],
-    "types": []
+    "types": [],
+    
   },
   "include": ["src/**/*.ts"]
 }
