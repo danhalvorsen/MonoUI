@@ -1,7 +1,7 @@
 // src/ruleCompilerOptions.ts
 
 interface TsConfig {
-  compilerOptions?: {
+  compilerOptions: {
     target?: string;
     module?: string;
     moduleResolution?: string;
@@ -19,8 +19,8 @@ function validateCompilerOptions(config: TsConfig): {
     return { valid: false, errors: ['Missing "compilerOptions"'] };
   }
 
-  if (options.target !== 'ES2021') {
-    errors.push(`Expected "target": "ES2021", got "${options.target}"`);
+  if (options.target?.toLowerCase() !== 'es2021') {
+    errors.push(`Expected "target": "ES2021" (case-insensitive), got "${options.target}"`);
   }
 
   // Accept both ESNext and NodeNext as valid module values
