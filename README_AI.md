@@ -1,53 +1,104 @@
-# MonoUI Monorepo Architecture Documentation
+# MonoUI Monorepo - Architecture and Development Guide
 
-## Core Principles
+## Core Architecture Principles
 
-1. **Independent Modules**
-   - Each package is a standalone unit that can be published independently
+1. **Package Independence**
+   - Each package is a standalone unit with its own:
+     - Dependencies (in package.json)
+     - Build configuration
+     - Test suite
+     - Documentation
    - No shared dependencies in root node_modules
-   - Each package manages its own dependencies and build configuration
+   - Clear boundaries between packages
 
 2. **Package Structure**
    ```
    package/
-   ├── src/              # Source code
-   ├── dist/             # Build output
+   ├── src/              # TypeScript source files
+   │   └── index.ts      # Main entry point
+   ├── dist/             # Compiled JavaScript (generated)
+   ├── scripts/          # Build and utility scripts
+   │   └── build.ts      # TypeScript build script
    ├── package.json      # Package configuration
-   └── tsconfig.json     # TypeScript configuration
+   ├── tsconfig.json    # TypeScript configuration
+   └── README.md        # Package documentation
    ```
 
-3. **Build Process**
-   - Each package has its own build script
-   - Root scripts coordinate builds but don't enforce them
-   - TypeScript compilation is handled per-package
+3. **Build System**
+   - TypeScript compilation with strict type checking
+   - Source maps for debugging
+   - Clean separation between source and compiled files
+   - Automated build process with proper output directory structure
 
-## Key Architecture Decisions
+## Technical Implementation Details
 
-### Dependency Management
-1. **Package-level Dependencies**
-   - Dependencies must be declared in their respective package.json
-   - Root package.json contains only monorepo-wide devDependencies
-   - No shared dependencies between packages
-   - Each package manages its own Lit dependencies
+### Build System Configuration
 
-2. **Build System**
-   - Vite for app builds
-   - TypeScript compilation per package
-   - No root tsconfig.json - each package has its own
-   - Use npm workspaces for package management
-   - **Module System**: ES modules (ESNext) with Node.js resolution
-   - **Key Module Settings**:
-     - `module: ESNext` in tsconfig.json
-     - `moduleResolution: Node`
-     - `target: ES2021`
-     - `esModuleInterop: true`
+1. **TypeScript Configuration**
+   - Each package has its own `tsconfig.json`
+   - Common configuration extends from root `tsconfig.base.json`
+   - Key compiler options:
+     ```json
+     {
+       "module": "NodeNext",
+       "moduleResolution": "NodeNext",
+       "target": "ES2022",
+       "strict": true,
+       "esModuleInterop": true,
+       "skipLibCheck": true,
+       "forceConsistentCasingInFileNames": true
+     }
+     ```
 
-### Package Structure
-1. **Packages**
-   - `mr-slider`: Lit 3 slider component
-   - `mr-basic`: Basic Lit components
-   - `mr-style`: Token-based design system
-     - Contains CSS tokens and design system variables
+2. **Build Process**
+   - Clean build directory
+   - TypeScript compilation
+   - Copy non-TypeScript assets
+   - Generate type definitions
+   - Set file permissions (for CLI tools)
+
+3. **Development Workflow**
+   - Watch mode for development
+   - Source maps for debugging
+   - Hot module replacement (HMR) for apps
+   - Linting and type checking in watch mode
+
+## Package Architecture
+
+### Core Packages
+
+1. **mr-style-cli**
+   - **Purpose**: Command-line tool for generating token services
+   - **Key Features**:
+     - Generates TypeScript services from design tokens
+     - Supports custom token formats
+     - Integrates with the design system
+   - **Build Process**:
+     - Compiles TypeScript to ESM
+     - Generates type definitions
+     - Creates executable CLI entry points
+
+2. **mr-style**
+   - **Purpose**: Token-based design system
+   - **Key Features**:
+     - Centralized design tokens
+     - Theme management
+     - Responsive design utilities
+
+3. **mr-slider**
+   - **Purpose**: Accessible, customizable slider component
+   - **Features**:
+     - Built with Lit 3
+     - Fully keyboard navigable
+     - Customizable styling
+
+4. **mr-basic**
+   - **Purpose**: Collection of foundational UI components
+   - **Features**:
+     - Button
+     - Input
+     - Card
+     - Other basic UI elements
      - No build step required - just a collection of design tokens
      - Used by other packages for consistent styling
    - Each package follows the same structure:
@@ -145,11 +196,59 @@
    - Use correct path aliases in vite.config.ts
    - Ensure consistent module format (ESM) throughout the build chain
 
-2. **Module Resolution**
-   - All packages must use ESM ("type": "module")
-   - Vite configuration must specify ESM output format
-   - Use proper path aliases for local package imports
-   - Avoid mixing CommonJS and ESM imports
+## Development Guidelines
+
+### Module Resolution
+- All packages use ES modules (`"type": "module"` in package.json)
+- Import paths must be explicit (use file extensions)
+- Use path aliases defined in tsconfig.json
+- Avoid mixing CommonJS and ESM imports
+
+### Code Style
+- Follow TypeScript best practices
+- Use ESLint and Prettier for consistent formatting
+- Document public APIs with JSDoc
+- Write unit tests for all non-trivial functionality
+
+### Testing Strategy
+- Unit tests with Vitest
+- Component tests with Web Test Runner
+- Integration tests for critical paths
+- Visual regression testing for UI components
+
+## CI/CD Pipeline
+
+### Build Process
+1. Install dependencies
+2. Lint and type check
+3. Run tests
+4. Build all packages
+5. Generate documentation
+6. Publish packages (on release)
+
+### Versioning
+- Semantic Versioning (SemVer)
+- Changesets for version management
+- Automated changelog generation
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Module Resolution Errors**
+   - Ensure all imports include file extensions
+   - Check tsconfig.json paths and baseUrl
+   - Verify package.json exports
+
+2. **Build Failures**
+   - Check TypeScript errors
+   - Verify all dependencies are installed
+   - Clean build directory and node_modules/.cache
+
+3. **Type Errors**
+   - Ensure types are properly exported
+   - Check for circular dependencies
+   - Update type definitions when API changes
    - In Lit 3, decorators are part of the core package but need proper aliasing
    - Vite configuration should use `conditions: ['esm']` to ensure ESM resolution
    - Do not use `external` for ESM modules unless absolutely necessary

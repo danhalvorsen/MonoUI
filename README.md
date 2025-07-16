@@ -6,14 +6,17 @@ This is a monorepo containing multiple independent packages and applications. Th
 
 ```
 mono-ui/
-├── apps/              # Demo applications
-│   └── basic-slider-demo/
-├── packages/          # Reusable UI components
-│   ├── mr-slider/    # Lit-based slider component
-│   ├── mr-basic/     # Basic UI components
-│   ├── mr-style/     # Token-based design system
-│   └── mr-style-cli/ # CLI tool for generating token services
-└── scripts/          # Build and utility scripts
+├── apps/                  # Demo applications
+│   └── basic-slider-demo/ # Example usage of UI components
+├── packages/              # Reusable UI components and tools
+│   ├── mr-slider/        # Lit-based slider component
+│   ├── mr-basic/         # Basic UI components
+│   ├── mr-style/         # Token-based design system
+│   └── mr-style-cli/     # CLI tool for generating token services
+│       ├── src/          # TypeScript source files
+│       ├── scripts/      # Build and utility scripts
+│       └── bin/          # CLI entry points
+└── scripts/              # Global build and utility scripts
 ```
 
 ## Key Features
@@ -24,13 +27,20 @@ mono-ui/
    - Each package can be published independently
    - Uses ES modules (ESNext) with TypeScript support
 
-2. **Monorepo Management**
-   - Root package.json manages workspace-wide operations
-   - Shared scripts for building all packages and apps
-   - Consistent TypeScript configuration across all modules
-   - PowerShell-based build scripts for Windows compatibility
+2. **Build System**
+   - TypeScript compilation with strict type checking
+   - Source maps for debugging
+   - Automated build process with proper output directory structure
+   - Clean separation between source and compiled files
+
+3. **Development Tools**
+   - ESLint for code quality
+   - Prettier for code formatting
+   - TypeScript for type safety
 
 ## Available Scripts
+
+### Root Level
 
 ```bash
 # Build all packages and apps
@@ -48,6 +58,46 @@ npm run lint
 # Fix linting issues
 npm run lint:fix
 ```
+
+### Package Level (e.g., in packages/mr-style-cli)
+
+```bash
+# Build the package
+npm run build
+
+# Clean build artifacts
+npm run clean
+
+# Run tests
+npm test
+
+# Lint the package
+npm run lint
+```
+
+## Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd mono-ui
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Build all packages**
+   ```bash
+   npm run build:all
+   ```
+
+4. **Run a specific app**
+   ```bash
+   cd apps/basic-slider-demo
+   npm run dev
+   ```
 
 ## Using the Design System (mr-style)
 

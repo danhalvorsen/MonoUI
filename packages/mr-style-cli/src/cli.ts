@@ -10,15 +10,13 @@ interface TokenServiceOptions {
   name: string;
   tokensPath: string;
   outputDir: string;
-  interfacePath: string;
 }
 
 export function generateTokenService({
   name,
   tokensPath,
   outputDir,
-  interfacePath,
-}: TokenServiceOptions) {
+}: Omit<TokenServiceOptions, 'interfacePath'>) {
   const project = new Project();
   const source = project.addSourceFileAtPath(tokensPath);
   const variable = source.getVariableDeclarationOrThrow('ColorTokens');
@@ -27,7 +25,7 @@ export function generateTokenService({
   const props = obj.getProperties();
   const classLines = [
     "import { injectable } from 'tsyringe';",
-    `import type { ${name} } from '${interfacePath}';`,
+    `import type { ${name} } from 'mr-style/tokens/${name.toLowerCase()}'`,
     "",
     "@injectable()",
     `export class ${name}Service implements ${name} {`
@@ -67,20 +65,21 @@ export function generateTokenService({
 async function main() {
   try {
     const args = process.argv.slice(2);
-    if (args.length < 2) {
-      console.error('Usage: mr-style-cli <token-name> <output-dir>');
+    if (args.length < 3) {
+      console.error('Usage: mr-style-cli <token-name> <interface-path> <output-dir>');
       process.exit(1);
     }
 
     const [tokenName, outputDir] = args;
     const tokensPath = path.resolve(__dirname, '../../mr-style/src/tokens', `${tokenName.toLowerCase()}.tokens.ts`);
-    const interfacePath = `mr-style/tokens/${tokenName.toLowerCase()}`;
+    
+    // Ensure the output directory exists
+    fs.mkdirSync(outputDir, { recursive: true });
 
     await generateTokenService({
       name: tokenName,
       tokensPath,
       outputDir,
-      interfacePath: `../../mr-style/src/tokens/${tokenName.toLowerCase()}.tokens`,
     });
   } catch (error) {
     console.error('Error:', error);
@@ -88,4 +87,5 @@ async function main() {
   }
 }
 
-main();
+// Export the main function for programmatic usage
+export { main };

@@ -7,29 +7,34 @@
     "declaration": true,
     "outDir": "dist",
     "rootDir": ".",
+    "sourceMap": true,
+    "composite": true,
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "lib": ["ES2022", "DOM"],
+    "lib": ["ES2022"],
     "types": ["node"],
     "allowJs": true,
     "paths": {
-      "@src/*": ["src/*"],
-      "@scripts/*": ["scripts/*"]
+      "@src/*": ["./src/*"],
+      "@scripts/*": ["./scripts/*"]
     },
-    "sourceMap": true,
     "inlineSources": true,
-    "composite": true
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.js",
     "scripts/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "exclude": ["node_modules", "dist", "**/*.d.ts"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
 }

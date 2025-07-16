@@ -2,58 +2,83 @@ import { promises as fs } from 'fs';
 import * as fsSync from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { execSync } from 'child_process';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Set up paths
-const rootDir = path.resolve(__dirname, '..');
+const rootDir = path.resolve(__dirname, '..', '..'); // Go up two levels from dist/scripts/build.js
 const distDir = path.join(rootDir, 'dist');
 const srcDir = path.join(rootDir, 'src');
 
+// Debug paths
+console.log('Root dir:', rootDir);
+console.log('Dist dir:', distDir);
+console.log('Source dir:', srcDir);
+
 async function main() {
   try {
-    console.log('Building mr-style-cli...');
+    console.log('Finalizing build...');
 
-    // Create dist directory if it doesn't exist
+    // Ensure dist directory and its subdirectories exist
     await fs.mkdir(distDir, { recursive: true });
+    await fs.mkdir(path.join(distDir, 'bin'), { recursive: true });
+    await fs.mkdir(path.join(distDir, 'scripts'), { recursive: true });
 
-    // Copy package.json to dist
+    // Read and process package.json
     const packageJsonPath = path.join(rootDir, 'package.json');
+    console.log('Reading package.json from:', packageJsonPath);
+    
+    if (!fsSync.existsSync(packageJsonPath)) {
+      throw new Error(`package.json not found at: ${packageJsonPath}`);
+    }
+    
     const packageJson = JSON.parse(await fs.readFile(packageJsonPath, 'utf-8'));
     
-    // Update package.json for distribution
-    delete packageJson.scripts;
-    delete packageJson.devDependencies;
+    // Create a clean package.json for distribution
+    const distPackageJson = {
+      name: packageJson.name,
+      version: packageJson.version,
+      type: packageJson.type,
+      bin: packageJson.bin,
+      exports: packageJson.exports,
+      dependencies: packageJson.dependencies || {},
+      peerDependencies: packageJson.peerDependencies || {}
+    };
+    
+    console.log('Creating dist package.json with:', JSON.stringify(distPackageJson, null, 2));
     
     // Write updated package.json to dist
     await fs.writeFile(
       path.join(distDir, 'package.json'),
-      JSON.stringify(packageJson, null, 2),
+      JSON.stringify(distPackageJson, null, 2),
       'utf-8'
     );
     
-    // Copy bin directory if it exists
-    try {
-      await fs.cp(
-        path.join(rootDir, 'bin'),
-        path.join(distDir, 'bin'),
-        { recursive: true }
-      );
-    } catch (error) {
-      console.log('No bin directory found, skipping...');
+    // Ensure bin directory exists in dist
+    await fs.mkdir(path.join(distDir, 'bin'), { recursive: true });
+    
+    // Copy bin file
+    const binSource = path.join(rootDir, 'bin', 'cli.js');
+    const binDest = path.join(distDir, 'bin', 'cli.js');
+    
+    if (fsSync.existsSync(binSource)) {
+      await fs.copyFile(binSource, binDest);
+      // Make the file executable
+      if (process.platform !== 'win32') {
+        fsSync.chmodSync(binDest, '755');
+      }
+    } else {
+      console.log('No bin/cli.js found, skipping...');
     }
 
-    // Copy bin file
-    const srcPath = path.join(__dirname, '..', 'src', 'cli.js');
-    const destPath = path.join(distDir, 'cli.js');
-    await fs.copyFile(srcPath, destPath);
-
-    // Make the output file executable
+    // Make the output file executable if it exists
     try {
-      fsSync.chmodSync(destPath, 0o755);
+      const destPath = path.join(distDir, 'cli.js');
+      if (fsSync.existsSync(destPath)) {
+        fsSync.chmodSync(destPath, 0o755);
+      }
     } catch (error) {
       console.error('Warning: Could not set executable permissions:', error);
     }
