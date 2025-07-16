@@ -1,8 +1,9 @@
-// vite.config.ts
+// vite.config.ts (used only for Vite dev/build, not tests)
+import { defineConfig } from 'vite';
 import progress from 'vite-plugin-progress';
 
-export default {
-  logLevel: 'info',       // keep detailed logs
-  clearScreen: false,     // don't wipe terminal
-  plugins: [progress()]   // ████ 87 %
-};
+export default defineConfig({
+  logLevel: 'info',
+  clearScreen: false,
+  plugins: [progress()]
+});

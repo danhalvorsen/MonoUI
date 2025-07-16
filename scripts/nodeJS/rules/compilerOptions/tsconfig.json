@@ -1,0 +1,26 @@
+// scripts/nodeJS/rules/compilerOptions/tsconfig.json
+{
+    "compilerOptions": {
+      "target": "ES2021",
+      "module": "ESNext",
+      "moduleResolution": "node",
+      "strict": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "skipLibCheck": true,
+      "types": ["vitest/globals", "chai"],
+      "baseUrl": ".",
+      "outDir": "dist",
+      "paths": {
+        "@src/*": ["src/*"]
+      }
+    },
+    "include": [
+      "src/**/*.ts",
+      "tests/**/*.ts"
+    ],
+    "exclude": [
+      "dist"
+    ]
+  }
+  
