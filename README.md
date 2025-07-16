@@ -11,7 +11,8 @@ mono-ui/
 ├── packages/          # Reusable UI components
 │   ├── mr-slider/    # Lit-based slider component
 │   ├── mr-basic/     # Basic UI components
-│   └── mr-style/     # Token-based design system
+│   ├── mr-style/     # Token-based design system
+│   └── mr-style-cli/ # CLI tool for generating token services
 └── scripts/          # Build and utility scripts
 ```
 

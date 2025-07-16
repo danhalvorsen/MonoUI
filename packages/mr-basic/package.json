@@ -2,11 +2,15 @@
   "name": "mr-basic",
   "version": "0.1.0",
   "description": "A basic web component demonstrating Lit reactive controllers with IoC via tsyringe.",
-  "main": "dist/mr-basic.js",
-  "module": "dist/mr-basic.js",
-  "types": "dist/mr-basic.d.ts",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix"
   },
   "dependencies": {
     "lit": "^3.3.0",

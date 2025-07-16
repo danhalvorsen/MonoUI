@@ -1,26 +1,33 @@
 {
   "name": "mono-ui",
   "version": "1.0.0",
-  "type": "module",
   "private": true,
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "build:all": "powershell -File scripts/build-simplified.ps1",
-    "build:apps": "powershell -Command \"Get-ChildItem apps -Directory | ForEach-Object { Set-Location $_.FullName; npm run build }\"",
-    "clean": "powershell -Command \"Get-ChildItem -Recurse -Directory | Where-Object { $_.Name -eq 'node_modules' } | Remove-Item -Recurse -Force; Get-ChildItem -Recurse -File | Where-Object { $_.Name -eq 'package-lock.json' } | Remove-Item -Force\"",
-    "lint": "powershell -Command \"Get-ChildItem apps,packages -Directory | ForEach-Object { Set-Location $_.FullName; npm run lint }\"",
-    "lint:fix": "powershell -Command \"Get-ChildItem apps,packages -Directory | ForEach-Object { Set-Location $_.FullName; npm run lint:fix }\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "validate-references": "cross-env NODE_OPTIONS='--loader ts-node/esm --no-warnings' ts-node --project ./scripts/tsconfig.json scripts/rule-references.ts",
+    "build": "powershell -ExecutionPolicy Bypass -File scripts/direct-build.ps1",
+    "build:apps": "echo 'Building apps only not yet implemented'",
+    "clean": "powershell -File scripts/cleanup.ps1",
+    "lint": "powershell -File scripts/lint-all.ps1",
+    "lint:fix": "powershell -File scripts/lint-all.ps1 --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "@types/node": "^20.11.16",
+    "@babel/parser": "^7.24.0",
+    "@types/glob": "^8.1.0",
+    "@types/node": "^20.11.0",
     "@typescript-eslint/eslint-plugin": "^6.18.0",
     "@typescript-eslint/parser": "^6.18.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.56.0",
+    "glob": "^10.1.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
-    "ts-node": "^10.9.2"
+    "vitest": "^1.2.0"
   }
 }
