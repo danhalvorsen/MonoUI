@@ -1,4 +1,3 @@
-
 {
   "compilerOptions": {
     "target": "ES2021",
@@ -12,8 +11,12 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["ES2021", "DOM"]
+    "lib": ["ES2021", "DOM"],
+    "baseUrl": ".",
+    "paths": {
+      "@packages/mr-piano/*": ["src/*"]
+    }
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["dist","node_modules"]
+  "include": ["src/**/*.ts", "tests/**/*.ts"],
+  "exclude": ["dist", "node_modules"]
 }
