@@ -1,9 +1,9 @@
 
 import { translate } from './geometryUtils';
 import { buildEdges } from './geometryUtils';
-import { KeyName, KeyRegistry } from './core/keyRegistry';
 import { IKey } from './core/interfaces';
-
+import { KeyName, KeyRegistry } from './core/keyregistry';
+ 
 export class KeyBuilder {
   static build(name: KeyName, dx = 0, dy = 0): IKey {
     const tmpl = KeyRegistry[name];
