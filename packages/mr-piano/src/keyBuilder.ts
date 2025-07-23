@@ -1,14 +1,18 @@
-import { PianoKey } from './keys.js';
-import { KeyTypes, KeyName } from './keyTypes.js';
-import type { IKey } from './interfaces.js';
+
+import { translate } from './geometryUtils';
+import { buildEdges } from './geometryUtils';
+import { KeyName, KeyRegistry } from './core/keyRegistry';
+import { IKey } from './core/interfaces';
 
 export class KeyBuilder {
-  static build(name: KeyName, x: number, y: number): IKey {
-    const key = new PianoKey(KeyTypes[name], x, y);
+  static build(name: KeyName, dx = 0, dy = 0): IKey {
+    const tmpl = KeyRegistry[name];
+    const verts = translate(tmpl.makeVertices(), dx, dy).map(([x,y]) => [x, y]) as [number, number][];
     return {
-      ...key,
-      vertices: key.vertices.map(([vx, vy]) => [vx, vy]) as [number, number][],
-      edges: key.edges.map(([a, b]) => [a, b]) as [number, number][],
+      name : tmpl.name,
+      fillStyle: tmpl.fillStyle,
+      vertices : verts,
+      edges    : buildEdges(verts)
     };
   }
 }

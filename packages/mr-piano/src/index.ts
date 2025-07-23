@@ -1,5 +1,7 @@
-// src/index.ts
+// src/index.ts  (barrel)
+export * from './core/keyRegistry.js'; 
+export * from './geometryUtils.js';
+export * from './core/whiteKey.js';
+export * from './core/blackKey.js';
 export * from './keyBuilder.js';
-export * from './keyTypes.js';
 export * from './octaveBuilder.js';
-export * from './interfaces.js';
