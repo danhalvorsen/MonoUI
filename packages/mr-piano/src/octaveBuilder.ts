@@ -1,6 +1,5 @@
-// src/octaveBuilder.ts
-import type { IKey } from './interfaces.js';
-import { KeyBuilder } from './keyBuilder.js';
+import { IKey } from "./core/interfaces";
+import { KeyBuilder } from "./keyBuilder";
 
 export class OctaveBuilder {
   whiteWidth = 23.5;

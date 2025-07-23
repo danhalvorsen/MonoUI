@@ -1,5 +1,4 @@
-
-import type { Point } from './keyTypes.js';
+import { Point } from "./core/interfaces";
 
 export function translate(
   vertices: readonly Point[],

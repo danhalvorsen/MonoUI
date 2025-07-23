@@ -1,4 +1,5 @@
-import { Point } from ".";
+
+import { Point } from "./core/interfaces";
 import { buildEdges, translate } from "./geometryUtils";
 
 // Add the KeyType type definition with fillStyle property
