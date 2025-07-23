@@ -16,6 +16,7 @@
     "dist"
   ],
   "scripts": {
+    "report": "ts-node scripts/generate-report.ts",
     "clean": "rimraf dist",
     "typecheck": "tsc -p tsconfig.json --emitDeclarationOnly",
     "build": "npm run clean && npm run typecheck && vite build",
