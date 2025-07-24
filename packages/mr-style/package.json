@@ -5,6 +5,7 @@
   "bin": {
     "mr-style-cli": "./bin/cli.ts"
   },
+
   "exports": {
     "./tokens/color": "./src/tokens/color.tokens.ts",
     "./tokens/size": "./src/tokens/size.tokens.ts",

@@ -1,0 +1,542 @@
+
+> mono-ui@1.0.0 build
+> powershell -ExecutionPolicy Bypass -File scripts/direct-build.ps1
+
+=== Starting Direct Build ===
+Cleaning up...
+
+> mono-ui@1.0.0 clean
+> powershell -File scripts/cleanup.ps1
+
+Starting cleanup process...
+Removing node_modules directories...
+Removing package-lock.json files...
+Cleanup completed successfully.
+Summary:
+- Removed 0 node_modules directories
+- Removed 0 package-lock.json files
+Installing root dependencies...
+
+added 1007 packages, and audited 1018 packages in 38s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+4 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+Building packages...
+Building file-operations...
+
+up to date, audited 1018 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Building json-operations...
+
+up to date, audited 1018 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> @mono/json-io@0.1.0 build
+> tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json
+
+Building mr-basic...
+
+up to date, audited 1018 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> mr-basic@0.1.0 build
+> tsc
+
+Building mr-image-processing...
+Building mr-loggging...
+
+up to date, audited 1018 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+4 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> @mr/logging@1.0.0 build
+> vite build
+
+[36mvite v5.4.19 [32mbuilding for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 4 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[36mindex.es.js  [39m[1m[2m1.96 kB[22m[1m[22m[2m Γöé gzip: 0.96 kB[22m[2m Γöé map: 5.37 kB[22m
+[2mdist/[22m[36mindex.umd.js  [39m[1m[2m1.98 kB[22m[1m[22m[2m Γöé gzip: 1.01 kB[22m[2m Γöé map: 5.21 kB[22m
+[32mΓ£ô built in 91ms[39m
+Building mr-piano...
+
+added 69 packages, and audited 995 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+2 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> mr-piano@0.1.0 build
+> npm run clean && npm run typecheck && vite build
+
+
+> mr-piano@0.1.0 clean
+> rimraf dist
+
+
+> mr-piano@0.1.0 typecheck
+> tsc -p tsconfig.json --emitDeclarationOnly
+
+[36mvite v5.4.19 [32mbuilding for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 8 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[36mmr-piano.es.js  [39m[1m[2m2.20 kB[22m[1m[22m[2m Γöé gzip: 0.86 kB[22m[2m Γöé map: 7.54 kB[22m
+[2mdist/[22m[36mmr-piano.umd.js  [39m[1m[2m1.85 kB[22m[1m[22m[2m Γöé gzip: 0.92 kB[22m[2m Γöé map: 7.25 kB[22m
+[32mΓ£ô built in 107ms[39m
+Building mr-slider...
+
+added 46 packages, and audited 972 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> mr-slider@0.1.0 build
+> vite build
+
+[36mvite v7.0.6 [32mbuilding for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 18 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[36mmr-slider.js  [39m[1m[2m23.32 kB[22m[1m[22m[2m Γöé gzip: 7.46 kB[22m
+[32mΓ£ô built in 178ms[39m
+Building mr-style...
+
+changed 1 package, and audited 972 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Building mr-style-cli...
+
+changed 2 packages, and audited 972 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> mr-style-cli@0.1.0 build
+> rimraf dist && tsc && node dist/scripts/build.js
+
+Root dir: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style-cli
+Dist dir: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style-cli\dist
+Source dir: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style-cli\src
+Finalizing build...
+Reading package.json from: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style-cli\package.json
+Creating dist package.json with: {
+  "name": "mr-style-cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "mr-style-cli": "./dist/bin/cli.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "dependencies": {
+    "ts-morph": "^19.0.0",
+    "tsyringe": "^4.8.0"
+  },
+  "peerDependencies": {
+    "mr-style": "*"
+  }
+}
+Build completed successfully
+Building pipeline-core...
+
+added 46 packages, and audited 972 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> @mr/pipeline-core@1.0.0 build
+> tsc -p tsconfig.json
+
+Building apps...
+Building basic-demo...
+Building basic-slider-demo...
+
+up to date, audited 972 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> basic-slider-demo@0.1.0 build
+> vite build
+
+[36mvite v7.0.6 [32mbuilding for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 22 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html               [39m[1m[2m 0.45 kB[22m[1m[22m[2m Γöé gzip: 0.30 kB[22m
+[2mdist/[22m[36massets/main-BsRU1I8o.js  [39m[1m[2m36.26 kB[22m[1m[22m[2m Γöé gzip: 9.88 kB[22m
+[32mΓ£ô built in 258ms[39m
+=== Build Completed Successfully ===
+
+> mono-ui@1.0.0 build
+> powershell -ExecutionPolicy Bypass -File scripts/direct-build.ps1
+
+=== Starting Direct Build ===
+Cleaning up...
+
+> mono-ui@1.0.0 clean
+> powershell -File scripts/cleanup.ps1
+
+Starting cleanup process...
+Removing node_modules directories...
+Successfully removed: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@eslint\config-array\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@eslint\config-array\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@eslint\eslintrc\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@eslint\eslintrc\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@humanfs\node\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@humanfs\node\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@humanwhocodes\config-array\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@humanwhocodes\config-array\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@isaacs\cliui\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@isaacs\cliui\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\auto-instrumentations-node\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\auto-instrumentations-node\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\core\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\core\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-logs-otlp-grpc\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-logs-otlp-grpc\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-logs-otlp-http\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-logs-otlp-http\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-logs-otlp-http\node_modules\@opentelemetry\otlp-transformer\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-logs-otlp-http\node_modules\@opentelemetry\otlp-transformer\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-logs-otlp-proto\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-logs-otlp-proto\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-logs-otlp-proto\node_modules\@opentelemetry\otlp-transformer\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-logs-otlp-proto\node_modules\@opentelemetry\otlp-transformer\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-metrics-otlp-grpc\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-metrics-otlp-grpc\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-metrics-otlp-http\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-metrics-otlp-http\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-metrics-otlp-proto\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-metrics-otlp-proto\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-prometheus\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-prometheus\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-trace-otlp-grpc\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-trace-otlp-grpc\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-trace-otlp-grpc\node_modules\@opentelemetry\otlp-transformer\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-trace-otlp-grpc\node_modules\@opentelemetry\otlp-transformer\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-trace-otlp-http\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-trace-otlp-http\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-trace-otlp-http\node_modules\@opentelemetry\otlp-transformer\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-trace-otlp-http\node_modules\@opentelemetry\otlp-transformer\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-trace-otlp-proto\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-trace-otlp-proto\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-trace-otlp-proto\node_modules\@opentelemetry\otlp-transformer\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-trace-otlp-proto\node_modules\@opentelemetry\otlp-transformer\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-zipkin\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\exporter-zipkin\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\instrumentation-bunyan\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\instrumentation-bunyan\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\instrumentation-grpc\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\instrumentation-grpc\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\instrumentation-http\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\instrumentation-http\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\otlp-proto-exporter-base\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\otlp-proto-exporter-base\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\otlp-transformer\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\otlp-transformer\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\propagator-b3\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\propagator-b3\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\propagator-jaeger\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\propagator-jaeger\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\resources\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\resources\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\sdk-logs\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\sdk-logs\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\sdk-metrics\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\sdk-metrics\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\sdk-node\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\sdk-node\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\sdk-trace-base\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\sdk-trace-base\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\sdk-trace-node\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@opentelemetry\sdk-trace-node\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@ts-morph\common\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@ts-morph\common\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@typescript-eslint\project-service\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\@typescript-eslint\project-service\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\body-parser\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\body-parser\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\cliui\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\cliui\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\dom5\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\dom5\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\eslint\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\eslint\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\eslint-plugin-lit-a11y\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\eslint-plugin-lit-a11y\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\express\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\express\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\fast-glob\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\fast-glob\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\finalhandler\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\finalhandler\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\flat-cache\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\flat-cache\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\glob\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\glob\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\normalize-package-data\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\normalize-package-data\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\npm-run-all\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\npm-run-all\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\pretty-format\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\pretty-format\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\rd\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\rd\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\read-pkg\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\read-pkg\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\resolve\test\resolver\symlinked\_\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\resolve\test\resolver\symlinked\_\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\resolve\test\shadowed_core\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\resolve\test\shadowed_core\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\rimraf\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\rimraf\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\rxjs\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\rxjs\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\send\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\send\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\send\node_modules\debug\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\send\node_modules\debug\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\string-width\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\string-width\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\string-width-cjs\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\string-width-cjs\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\tinyglobby\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\tinyglobby\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\vite\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\vite\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\vitest\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\vitest\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\wrap-ansi\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\wrap-ansi\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\wrap-ansi-cjs\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\wrap-ansi-cjs\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\yargs\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\node_modules\yargs\node_modules' because it does not exist.
+Successfully removed: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-basic\node_modules
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-basic\node_modules\@eslint\eslintrc\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-basic\node_modules\@eslint\eslintrc\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-basic\node_modules\@typescript-eslint\eslint-plugin\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-basic\node_modules\@typescript-eslint\eslint-plugin\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-basic\node_modules\eslint\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-basic\node_modules\eslint\node_modules' because it does not exist.
+Successfully removed: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-loggging\node_modules
+Successfully removed: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-piano\node_modules
+Successfully removed: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-slider\node_modules
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-slider\node_modules\@typescript-eslint\eslint-plugin\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-slider\node_modules\@typescript-eslint\eslint-plugin\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-slider\node_modules\eslint-plugin-lit-a11y\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-slider\node_modules\eslint-plugin-lit-a11y\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-slider\node_modules\eslint-plugin-lit-a11y\node_modules\eslint-plugin-lit\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-slider\node_modules\eslint-plugin-lit-a11y\node_modules\eslint-plugin-lit\node_modules' because it does not exist.
+Successfully removed: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style\node_modules
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style\node_modules\@eslint\eslintrc\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style\node_modules\@eslint\eslintrc\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style\node_modules\@typescript-eslint\eslint-plugin\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style\node_modules\@typescript-eslint\eslint-plugin\node_modules' because it does not exist.
+Warning: Failed to remove C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style\node_modules\eslint\node_modules: Cannot find path 'C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style\node_modules\eslint\node_modules' because it does not exist.
+Successfully removed: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style-cli\node_modules
+Removing package-lock.json files...
+Successfully removed: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\package-lock.json
+Cleanup completed successfully.
+Summary:
+- Removed 83 node_modules directories
+- Removed 1 package-lock.json files
+Installing root dependencies...
+
+added 1007 packages, and audited 1018 packages in 51s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+4 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+Building packages...
+Building file-operations...
+
+up to date, audited 1018 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Building json-operations...
+
+up to date, audited 1018 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> @mono/json-io@0.1.0 build
+> tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json
+
+Building mr-basic...
+
+up to date, audited 1018 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> mr-basic@0.1.0 build
+> tsc
+
+Building mr-image-processing...
+Building mr-loggging...
+
+up to date, audited 1018 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+4 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> @mr/logging@1.0.0 build
+> vite build
+
+[36mvite v5.4.19 [32mbuilding for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 4 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[36mindex.es.js  [39m[1m[2m1.96 kB[22m[1m[22m[2m Γöé gzip: 0.96 kB[22m[2m Γöé map: 5.37 kB[22m
+[2mdist/[22m[36mindex.umd.js  [39m[1m[2m1.98 kB[22m[1m[22m[2m Γöé gzip: 1.01 kB[22m[2m Γöé map: 5.21 kB[22m
+[32mΓ£ô built in 89ms[39m
+Building mr-piano...
+
+added 69 packages, and audited 995 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+2 moderate severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+> mr-piano@0.1.0 build
+> npm run clean && npm run typecheck && vite build
+
+
+> mr-piano@0.1.0 clean
+> rimraf dist
+
+
+> mr-piano@0.1.0 typecheck
+> tsc -p tsconfig.json --emitDeclarationOnly
+
+[36mvite v5.4.19 [32mbuilding for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 8 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[36mmr-piano.es.js  [39m[1m[2m2.20 kB[22m[1m[22m[2m Γöé gzip: 0.86 kB[22m[2m Γöé map: 7.54 kB[22m
+[2mdist/[22m[36mmr-piano.umd.js  [39m[1m[2m1.85 kB[22m[1m[22m[2m Γöé gzip: 0.92 kB[22m[2m Γöé map: 7.25 kB[22m
+[32mΓ£ô built in 113ms[39m
+Building mr-slider...
+
+added 46 packages, and audited 972 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> mr-slider@0.1.0 build
+> vite build
+
+[36mvite v7.0.6 [32mbuilding for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 18 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[36mmr-slider.js  [39m[1m[2m23.32 kB[22m[1m[22m[2m Γöé gzip: 7.46 kB[22m
+[32mΓ£ô built in 180ms[39m
+Building mr-style...
+
+changed 1 package, and audited 972 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Building mr-style-cli...
+
+changed 2 packages, and audited 972 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> mr-style-cli@0.1.0 build
+> rimraf dist && tsc && node dist/scripts/build.js
+
+Root dir: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style-cli
+Dist dir: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style-cli\dist
+Source dir: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style-cli\src
+Finalizing build...
+Reading package.json from: C:\Users\danha\source\repos\Web\Canvas\Basic\NewFunckingTry\packages\mr-style-cli\package.json
+Creating dist package.json with: {
+  "name": "mr-style-cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "mr-style-cli": "./dist/bin/cli.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "dependencies": {
+    "ts-morph": "^19.0.0",
+    "tsyringe": "^4.8.0"
+  },
+  "peerDependencies": {
+    "mr-style": "*"
+  }
+}
+Build completed successfully
+Building pipeline-core...
+
+added 46 packages, and audited 972 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> @mr/pipeline-core@1.0.0 build
+> tsc -p tsconfig.json
+
+Building apps...
+Building basic-demo...
+Building basic-slider-demo...
+
+up to date, audited 972 packages in 2s
+
+187 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+> basic-slider-demo@0.1.0 build
+> vite build
+
+[36mvite v7.0.6 [32mbuilding for production...[36m[39m
+transforming...
+[32mΓ£ô[39m 22 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html               [39m[1m[2m 0.45 kB[22m[1m[22m[2m Γöé gzip: 0.30 kB[22m
+[2mdist/[22m[36massets/main-BsRU1I8o.js  [39m[1m[2m36.26 kB[22m[1m[22m[2m Γöé gzip: 9.88 kB[22m
+[32mΓ£ô built in 260ms[39m
+=== Build Completed Successfully ===
+
+> mono-ui@1.0.0 build
+> powershell -ExecutionPolicy Bypass -File scripts/direct-build.ps1
+
+=== Starting Direct Build ===
+Cleaning up...
+
+> mono-ui@1.0.0 clean
+> powershell -File scripts/cleanup.ps1
+
+Starting cleanup process...
+Removing node_modules directories...

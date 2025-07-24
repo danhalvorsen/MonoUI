@@ -22,7 +22,6 @@
     "@babel/parser": "^7.24.0",
     "@types/chai": "^5.2.2",
     "@types/chai-as-promised": "^8.0.2",
-    "@types/glob": "^8.1.0",
     "@types/node": "^20.11.0",
     "@typescript-eslint/eslint-plugin": "^6.18.0",
     "@typescript-eslint/parser": "^6.18.0",
@@ -35,6 +34,6 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3",
     "vite-plugin-progress": "^0.0.7",
-    "vitest": "^1.6.1"
+    "vitest": "^3.2.4"
   }
 }

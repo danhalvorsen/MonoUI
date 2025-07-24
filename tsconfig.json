@@ -9,6 +9,7 @@
     "declaration": true,
     "sourceMap": true,
     "composite": true,
+    "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
       "@packages/*": ["packages/*/src"]

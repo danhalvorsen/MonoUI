@@ -1,0 +1,27 @@
+{
+    "name": "@mr/logging",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "dist/index.js",
+    "scripts": {
+        "dev": "ts-node src/demo.ts",
+        "build": "vite build",
+        "test": "vitest"
+    },
+    "dependencies": {
+        "@opentelemetry/api": "^1.8.0",
+        "@opentelemetry/auto-instrumentations-node": "^0.41.1",
+        "@opentelemetry/exporter-logs-otlp-grpc": "^0.41.0",
+        "@opentelemetry/resources": "^1.17.0",
+        "@opentelemetry/sdk-logs": "^0.203.0",
+        "@opentelemetry/sdk-node": "^0.203.0",
+        "@opentelemetry/sdk-trace-node": "^1.16.0",
+        "@opentelemetry/semantic-conventions": "^1.16.0"
+    },
+    "devDependencies": {
+        "ts-node": "^10.9.2",
+        "typescript": "^5.5.0",
+        "vite": "^5.2.0",
+        "vitest": "^0.34.0"
+    }
+}

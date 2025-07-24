@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist-test",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "types": ["node", "@playwright/test"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["test/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

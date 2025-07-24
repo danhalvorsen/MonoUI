@@ -1,0 +1,28 @@
+{
+  "name": "@mr/pipeline-core",
+  "version": "1.0.0",
+  "description": "Core pipeline execution framework with IoC, routing, and health checks",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "pipeline",
+    "ioc",
+    "tsyringe",
+    "routing",
+    "decorators"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.10.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vitest": "^3.2.4"
+  }
+}
