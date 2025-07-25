@@ -12,4 +12,3 @@ export * from './themes/light.tokens';
 export * from './themes/contrast.tokens';
 
 export * from './modules/hour-rect.style';
-export * from './volume/index';

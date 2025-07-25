@@ -1,25 +1,26 @@
 {
-    ""root"": true,
-    ""env"": {
-        ""browser"": true,
-        ""es2021"": true
+    "root": true,
+    "env": {
+      "browser": true,
+      "es2021": true
     },
-    ""extends"": [
-        ""plugin:@typescript-eslint/recommended"",
-        ""plugin:lit/recommended""
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:lit/recommended"
     ],
-    ""parser"": ""@typescript-eslint/parser"",
-    ""parserOptions"": {
-        ""ecmaVersion"": 2021,
-        ""sourceType"": ""module""
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module"
     },
-    ""plugins"": [
-        ""@typescript-eslint"",
-        ""lit""
+    "plugins": [
+      "@typescript-eslint",
+      "lit"
     ],
-    ""rules"": {
-        ""lit/no-bad-template-literals"": ""error"",
-        ""lit/no-template-shadow"": ""warn"",
-        ""lit/no-unused-expressions"": ""error""
+    "rules": {
+      "lit/no-bad-template-literals": "error",
+      "lit/no-template-shadow": "warn",
+      "lit/no-unused-expressions": "error"
     }
-}
+  }
+  

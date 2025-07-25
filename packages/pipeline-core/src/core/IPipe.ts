@@ -1,2 +1,7 @@
 import { IData } from './IData';
-export interface IPipe<TData extends IData = IData> { name: string; execute(data: TData): Promise<TData>; }
+import { Result } from '@mr/design-patterns';
+
+export interface IPipe<TInput extends IData, TOutput extends IData> {
+  name: string;
+  execute(input: TInput): Promise<Result<TOutput>>;
+}

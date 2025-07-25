@@ -1,3 +1,4 @@
+import "./setup"; // ensures reflect-metadata is loaded
 export * from './core/IData';
 export * from './core/IPipe';
 export * from './core/IPipeline';

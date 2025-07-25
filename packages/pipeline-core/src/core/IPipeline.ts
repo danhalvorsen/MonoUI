@@ -1,4 +1,8 @@
+// src/core/IPipeline.ts
 import { IData } from './IData';
 import { IPipe } from './IPipe';
 
-export interface IPipeline<TData extends IData = IData> { addPipe(pipe: IPipe<TData>): this; run(data: TData): Promise<TData>; }
+export interface IPipeline<TInput extends IData = IData, TOutput extends IData = TInput> {
+  addPipe<TNextOutput extends IData>(pipe: IPipe<TOutput, TNextOutput>): IPipeline<TInput, TNextOutput>;
+  run(initial: TInput): Promise<TOutput>;
+}

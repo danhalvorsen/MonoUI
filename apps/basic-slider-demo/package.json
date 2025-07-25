@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "lit": "^3.3.0",
-    "mr-slider": "../../packages/mr-slider",
-    "mr-basic": "../../packages/mr-basic"
+    "mr-slider": "file:../mr-slider",
+    "mr-basic":  "file:../mr-basic",
+    "mr-style":  "file:../mr-style"
   },
   "devDependencies": {
-    "vite": "^7.0.2",
-    "typescript": "^5.0.0"
+    "vite": "^7.0.2"
   }
 }

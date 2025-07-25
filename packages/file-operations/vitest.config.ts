@@ -1,16 +1,18 @@
-import { defineConfig } from 'vitest/config';
-import { resolve } from 'path';
-
-export default defineConfig({
-  test: {
-    globals: true,
-    environment: 'node',
-    setupFiles: ['./tests/setup.ts']
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "composite": true,
+    "noEmit": false,
+    "module": "ESNext",
+    "target": "ES2021",
+    "types": ["node"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@tests/*": ["./tests/*"]
+    }
   },
-  resolve: {
-    alias: [
-      { find: '@', replacement: resolve(__dirname, 'src') },
-      { find: '@tests', replacement: resolve(__dirname, 'tests') }
-    ]
-  }
-});
+  "include": ["src/**/*", "tests/**/*"]
+}

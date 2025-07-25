@@ -19,9 +19,17 @@ export function generateTokenService({
 }: Omit<TokenServiceOptions, 'interfacePath'>) {
   const project = new Project();
   const source = project.addSourceFileAtPath(tokensPath);
-  const variable = source.getVariableDeclarationOrThrow('ColorTokens');
-  const obj = variable.getInitializerIfKindOrThrow(SyntaxKind.ObjectLiteralExpression);
 
+  // Try to match a variable name containing the requested token name
+  const variable = source.getVariableDeclarations().find(v =>
+    v.getName().toLowerCase().includes(name.toLowerCase())
+  ) ?? source.getVariableDeclarations()[0];
+
+  if (!variable) {
+    throw new Error(`No token variable found in ${tokensPath}`);
+  }
+
+  const obj = variable.getInitializerIfKindOrThrow(SyntaxKind.ObjectLiteralExpression);
   const props = obj.getProperties();
   const classLines = [
     "import { injectable } from 'tsyringe';",
@@ -34,21 +42,20 @@ export function generateTokenService({
   for (const prop of props) {
     if (prop.getKind() === SyntaxKind.PropertyAssignment) {
       const property = prop.asKindOrThrow(SyntaxKind.PropertyAssignment);
-      const name = property.getName();
+      const propName = property.getName();
       const initializer = property.getInitializer();
-      
       if (initializer) {
         const value = initializer.getText();
-        classLines.push(`  ${name} = ${value};`);
+        classLines.push(`  ${propName} = ${value};`);
       } else {
-        console.warn(`Skipping property ${name} - no initializer found`);
+        console.warn(`Skipping property ${propName} - no initializer found`);
       }
     } else if (prop.getKind() === SyntaxKind.SpreadAssignment) {
       console.warn('Skipping spread assignment in token definition');
     } else if (prop.getKind() === SyntaxKind.ShorthandPropertyAssignment) {
       const shorthand = prop.asKindOrThrow(SyntaxKind.ShorthandPropertyAssignment);
-      const name = shorthand.getName();
-      classLines.push(`  ${name} = ${name};`); // For shorthand properties like { a, b }
+      const propName = shorthand.getName();
+      classLines.push(`  ${propName} = ${propName};`);
     } else {
       console.warn(`Skipping unsupported property kind: ${prop.getKindName()}`);
     }
@@ -65,27 +72,20 @@ export function generateTokenService({
 async function main() {
   try {
     const args = process.argv.slice(2);
-    if (args.length < 3) {
-      console.error('Usage: mr-style-cli <token-name> <interface-path> <output-dir>');
+    if (args.length < 2) {
+      console.error('Usage: mr-style-cli <token-name> <output-dir>');
       process.exit(1);
     }
 
     const [tokenName, outputDir] = args;
     const tokensPath = path.resolve(__dirname, '../../mr-style/src/tokens', `${tokenName.toLowerCase()}.tokens.ts`);
-    
-    // Ensure the output directory exists
     fs.mkdirSync(outputDir, { recursive: true });
 
-    await generateTokenService({
-      name: tokenName,
-      tokensPath,
-      outputDir,
-    });
+    await generateTokenService({ name: tokenName, tokensPath, outputDir });
   } catch (error) {
     console.error('Error:', error);
     process.exit(1);
   }
 }
 
-// Export the main function for programmatic usage
 export { main };

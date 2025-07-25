@@ -3,37 +3,34 @@
   "version": "0.1.0",
   "type": "module",
   "bin": {
-    "mr-style-cli": "./dist/bin/cli.js"
+    "mr-style-cli": "./dist/cli.es.js"
   },
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "import": "./dist/cli.es.js",
       "types": "./dist/index.d.ts"
     }
   },
-  "scripts": {
-    "build": "rimraf dist && tsc && node dist/scripts/build.js",
-    "clean": "rimraf dist",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
-    "typecheck": "tsc --noEmit"
-  },
+"scripts": {
+  "build": "vite build && tsc --emitDeclarationOnly",
+  "test": "vitest",
+  "clean": "rimraf dist"
+},
   "files": [
     "dist"
   ],
   "dependencies": {
     "ts-morph": "^19.0.0",
-    "tsyringe": "^4.8.0"
-  },
-  "peerDependencies": {
-    "mr-style": "*"
+    "tsyringe": "^4.8.0",
+    "mr-style": "file:../mr-style"
   },
   "devDependencies": {
+    "vite": "^5.0.0",
+    "vitest": "^2.0.0",
+    "rimraf": "^3.0.2",
     "@types/node": "^20.11.0",
     "@typescript-eslint/eslint-plugin": "^6.18.0",
     "@typescript-eslint/parser": "^6.18.0",
-    "eslint": "^8.56.0",
-    "rimraf": "^3.0.2",
-    "typescript": "^5.3.3"
+    "eslint": "^8.56.0"
   }
 }
