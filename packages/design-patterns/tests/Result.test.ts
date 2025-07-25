@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { Result } from "@src";
+import { Result } from "../src/result/Result";
 
 describe("Result Pattern", () => {
   it("should create a success result", () => {

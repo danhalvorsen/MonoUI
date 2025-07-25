@@ -1,18 +1,18 @@
+// File: packages/file-operations/tsconfig.json
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "declaration": true,
     "outDir": "dist",
-    "rootDir": "src",
-    "composite": true,
-    "noEmit": false,
-    "module": "ESNext",
-    "target": "ES2021",
-    "types": ["node"],
-    "paths": {
-      "@/*": ["./src/*"],
-      "@tests/*": ["./tests/*"]
-    }
+    "rootDir": ".",                // <-- was "src"
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*", "tests/**/*"]
+  "include": ["src/**/*", "tests/**/*"],  // test files included
+  "exclude": ["dist", "node_modules"]
 }

@@ -1,4 +1,5 @@
 // src/index.ts  (barrel)
+export * from './core/interfaces.js'; 
 export * from './core/keyregistry.js'; 
 export * from './geometryUtils.js';
 export * from './core/whiteKey.js';

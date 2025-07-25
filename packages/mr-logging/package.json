@@ -6,7 +6,8 @@
     "scripts": {
         "dev": "ts-node src/demo.ts",
         "build": "vite build",
-        "test": "vitest"
+        "test": "vitest",
+         "coverage": "vitest run --coverage --config vitest.config.ts"
     },
     "dependencies": {
         "@opentelemetry/api": "^1.8.0",

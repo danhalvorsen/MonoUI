@@ -1,5 +1,5 @@
-import { IKey } from "./core/interfaces";
-import { KeyBuilder } from "./keyBuilder";
+import { IKey } from "./core/interfaces.js";
+import { KeyBuilder } from "./keyBuilder.js";
 
 export class OctaveBuilder {
   whiteWidth = 23.5;

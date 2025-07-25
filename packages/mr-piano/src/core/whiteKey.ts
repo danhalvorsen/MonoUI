@@ -1,6 +1,5 @@
-// src/core/WhiteKey.ts
-import { BaseKey } from "./basekey";
-import { Point } from "./interfaces";
+import { BaseKey } from "./basekey.js";
+import { Point } from "./interfaces.js";
 
 const W = 23.5, BOD = 90, BACK = 150, CUT = 8;
 

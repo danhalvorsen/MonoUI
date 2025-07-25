@@ -1,18 +1,18 @@
-{
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "declaration": true,
-    "outDir": "dist",
-    "rootDir": "src",
-    "composite": true,
-    "noEmit": false,
-    "module": "ESNext",
-    "target": "ES2021",
-    "types": ["node"],
-    "paths": {
-      "@/*": ["./src/*"],
-      "@tests/*": ["./tests/*"]
-    }
+// File: packages/file-operations/vitest.config.ts
+import { defineConfig } from 'vitest/config';
+import path from 'path';
+
+export default defineConfig({
+  // No "extends" in TS — instead, just manually configure
+  test: {
+    globals: true,
+    environment: 'node',
+    setupFiles: ['./tests/setup.ts'],
   },
-  "include": ["src/**/*", "tests/**/*"]
-}
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@tests': path.resolve(__dirname, 'tests'),
+    },
+  },
+});

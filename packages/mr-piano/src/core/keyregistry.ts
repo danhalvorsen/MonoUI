@@ -1,7 +1,7 @@
 // src/core/KeyRegistry.ts
-import { WhiteKey } from './whiteKey';
-import { BlackKey } from './blackKey';
-import { IKeyTemplate } from './interfaces';
+import { WhiteKey } from './whiteKey.js';
+import { BlackKey } from './blackKey.js';
+import { IKeyTemplate } from './interfaces.js';
 
 export const KeyRegistry: Record<string, IKeyTemplate> = {
   C : new WhiteKey('C',  false, true ),

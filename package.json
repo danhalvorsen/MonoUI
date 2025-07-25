@@ -11,7 +11,7 @@
     "build": "npm run build --workspaces",
     "build:packages": "npm run build --workspace packages/*",
     "build:apps": "npm run build --workspace apps/*",
-    "test": "vitest run --workspaces --no-file-parallelism"
+    "test": "npm run test --workspaces"
   },
   "devDependencies": {
     "@babel/parser": "^7.24.0",
