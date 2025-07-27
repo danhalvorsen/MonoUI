@@ -1,22 +1,30 @@
-import { defineConfig } from 'vite';
-import path from 'path';
+// File: packages/cqrs/vite.config.ts
+import { defineConfig } from "vite";
+import { resolve } from "path";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
-      name: 'MrCQRS',
+      entry: resolve(__dirname, "src/index.ts"),
+      name: "MrCQRS",
       fileName: (format) => `index.${format}.js`,
-      formats: ['es']
+      formats: ["es"],
     },
-    outDir: 'dist',
+    outDir: "dist",
     sourcemap: true,
     emptyOutDir: true,
-    target: 'es2021'
+    target: "node20",
+    rollupOptions: {
+      external: ["node:module"],
+      output: { preserveModules: true, preserveModulesRoot: "src" },
+    },
+    minify: false,
   },
-  test: {
-    globals: true,
-    environment: 'node',
-    include: ['tests/**/*.test.ts']
-  }
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src"),
+      "@packages/design-patterns": resolve(__dirname, "../design-patterns/src"), 
+    },
+  },
 });

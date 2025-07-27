@@ -1,14 +1,14 @@
-// File: packages/pipes/code-maintenance-pipe/GenerateBarrelPipe/src/GenerateBarrelPipe.ts
+ 
 import { IPipe } from "@mr/pipeline-core";
-import { IData } from "@mr/pipeline-core";
+import { IData } from "@packages/pipeline-core";
 import fs from "fs";
 import path from "path";
 import { Project } from "ts-morph";
-
+ 
 export interface GenerateBarrelData extends IData {
   context: {
-    targetDir: string;
-    fileCount?: number;
+    targetDir: string;   // Directory where we generate index.ts
+    fileCount?: number;  // Optional: count of processed files
   };
 }
 
@@ -30,7 +30,7 @@ export class GenerateBarrelPipe implements IPipe<GenerateBarrelData, GenerateBar
       const hasExports = sourceFile.getExportedDeclarations().size > 0;
 
       if (hasExports) {
-        exports.push(`export * from './${baseName}';`);
+        exports.push(`export * from './${baseName}.js';`);
       }
     }
 

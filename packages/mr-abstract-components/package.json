@@ -12,13 +12,18 @@
     }
   },
   "scripts": {
-    "build": "tsc"
+    "build": "vite build",
+    "dev": "vite",
+    "test": "vitest --config vitest.config.ts",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "tsyringe": "^4.10.0"
   },
   "devDependencies": {
-    "vitest": "^3.2.4"
+    "vite": "^5.0.0",
+    "vitest": "^3.2.4",
+    "typescript": "^5.5.0"
   },
   "keywords": [
     "mixed-reality",

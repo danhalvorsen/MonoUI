@@ -1,6 +1,6 @@
 import { DependencyContainer, container } from "tsyringe";
-import { ICommand } from "./ICommand";
-import { ICommandHandler } from "./ICommandHandler";
+import { ICommand } from "./ICommand.js";
+import { ICommandHandler } from "./ICommandHandler.js";
 import { IPipeline } from "@mr/pipeline-core";
 import { Result } from "@mr/design-patterns";
 

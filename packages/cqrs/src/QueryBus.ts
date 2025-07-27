@@ -1,6 +1,6 @@
 import { DependencyContainer, container } from "tsyringe";
-import { IQuery } from "./IQuery";
-import { IQueryHandler } from "./IQueryHandler";
+import { IQuery } from "./IQuery.js";
+import { IQueryHandler } from "./IQueryHandler.js";
 import { IPipeline } from "@mr/pipeline-core";
 import { Result } from "@mr/design-patterns";
 
