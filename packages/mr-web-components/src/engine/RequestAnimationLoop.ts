@@ -1,8 +1,5 @@
-import { AnimationLoop } from "mr-abstract-components";
+import { AnimationLoop } from 'mr-abstract-components';
 
-/**
- * Simple requestAnimationFrame based animation loop.
- */
 export class RequestAnimationLoop implements AnimationLoop {
   private running = false;
   private lastTime = 0;

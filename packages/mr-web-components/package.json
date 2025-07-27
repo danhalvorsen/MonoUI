@@ -1,13 +1,14 @@
 {
-  "name": "mr-web-compoents",
+  "name": "mr-web-components",
   "version": "0.1.0",
   "description": "mr-web-compoents with IoC via tsyringe.",
   "type": "module",
-  "main": "dist/index.js",
   "module": "dist/index.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "vite build",
+    "types": "tsc --emitDeclarationOnly --declaration --declarationMap --project tsconfig.json",
     "clean": "rm -rf dist",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix"
@@ -16,8 +17,8 @@
     "lit": "^3.3.0",
     "reflect-metadata": "^0.2.2",
     "tsyringe": "^4.10.0",
-    "mr-abstract-components": "file:../mr-abstract-components", 
-    "mr-style": "file:../mr-style"
+    "mr-abstract-components": "*",
+    "mr-style": "*"
   },
   "devDependencies": {
     "@eslint-community/eslint-utils": "^4.7.0",

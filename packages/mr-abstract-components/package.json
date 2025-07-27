@@ -12,7 +12,8 @@
     }
   },
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && npm run types",
+    "types": "tsc --emitDeclarationOnly --declaration --declarationMap --project tsconfig.json",
     "dev": "vite",
     "test": "vitest --config vitest.config.ts",
     "coverage": "vitest run --coverage"

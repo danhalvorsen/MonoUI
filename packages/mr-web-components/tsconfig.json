@@ -1,10 +1,8 @@
-//tsconfig for mr-web-components
 {
   "compilerOptions": {
-  "forceConsistentCasingInFileNames": true,
-    "target": "ES2021",
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "forceConsistentCasingInFileNames":true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "declaration": true,
     "outDir": "dist",
     "rootDir": "src",
