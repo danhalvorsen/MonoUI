@@ -4,8 +4,8 @@ import { CanvasEngine, IVisualObject } from 'mr-abstract-components';
 import { RequestAnimationLoop } from "./RequestAnimationLoop.js";
 import { Rectangle } from '../visualObjects/rectangle.js';
 
-@customElement('canvas-engine')
-export class CanvasEngineElement
+@customElement('html-canvas')
+export class HtmlCanvas
   extends LitElement
   implements CanvasEngine<CanvasRenderingContext2D>
 {
@@ -23,6 +23,14 @@ export class CanvasEngineElement
 
   @property({ type: Number }) width = 300;
   @property({ type: Number }) height = 150;
+  
+  // Property to add visual objects declaratively or programmatically
+  @property({ type: Array, attribute: false })
+  objects: IVisualObject<CanvasRenderingContext2D>[] = [];
+  
+  // String attribute for adding objects via JSON (for declarative HTML usage)
+  @property({ type: String, attribute: 'objects-json' })
+  objectsJson: string = '';
 
   @query('canvas')
   private _canvas!: HTMLCanvasElement;
@@ -43,6 +51,39 @@ export class CanvasEngineElement
   disconnectedCallback(): void {
     super.disconnectedCallback();
     this._loop.stop();
+  }
+
+  updated(changedProperties: Map<string | number | symbol, unknown>): void {
+    super.updated(changedProperties);
+    
+    // Handle objects property changes
+    if (changedProperties.has('objects')) {
+      this._syncObjectsFromProperty();
+    }
+    
+    // Handle objects-json attribute changes
+    if (changedProperties.has('objectsJson')) {
+      this._syncObjectsFromJson();
+    }
+  }
+
+  private _syncObjectsFromProperty(): void {
+    // Clear current objects and add new ones from the objects property
+    this._objects = [...this.objects];
+  }
+
+  private _syncObjectsFromJson(): void {
+    if (this.objectsJson) {
+      try {
+        const objectsData = JSON.parse(this.objectsJson);
+        // This would need a factory pattern to recreate objects from JSON
+        // For now, we'll just log the parsed data
+        console.log('Objects from JSON:', objectsData);
+        // TODO: Implement object factory to create IVisualObject instances from JSON
+      } catch (error) {
+        console.error('Failed to parse objects-json:', error);
+      }
+    }
   }
 
   firstUpdated(): void {
@@ -66,6 +107,14 @@ export class CanvasEngineElement
 
   add(obj: IVisualObject<CanvasRenderingContext2D>): void {
     this._objects.push(obj);
+    // Keep the reactive property in sync
+    this.objects = [...this._objects];
+  }
+
+  // Convenient method to add multiple objects at once
+  addObjects(objects: IVisualObject<CanvasRenderingContext2D>[]): void {
+    this._objects.push(...objects);
+    this.objects = [...this._objects];
   }
 
   // Overloads to remain compatible with HTMLElement.remove()
@@ -74,7 +123,11 @@ export class CanvasEngineElement
   remove(obj?: IVisualObject<CanvasRenderingContext2D>): void {
     if (obj) {
       const idx = this._objects.indexOf(obj);
-      if (idx >= 0) this._objects.splice(idx, 1);
+      if (idx >= 0) {
+        this._objects.splice(idx, 1);
+        // Keep the reactive property in sync
+        this.objects = [...this._objects];
+      }
     } else {
       super.remove();
     }
@@ -82,6 +135,8 @@ export class CanvasEngineElement
 
   clear(): void {
     this._objects.length = 0;
+    // Keep the reactive property in sync
+    this.objects = [];
     if (this._ctx) this._ctx.clearRect(0, 0, this.width, this.height);
   }
 
@@ -156,4 +211,4 @@ export class CanvasEngineElement
   }
 }
 
-export type Canvas2DEngine = CanvasEngineElement;
+export type Canvas2DEngine = HtmlCanvas;
