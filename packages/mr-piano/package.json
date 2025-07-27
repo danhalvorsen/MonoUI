@@ -1,31 +1,32 @@
 {
   "name": "mr-piano",
   "version": "0.1.0",
-  "description": "Typed piano keyboard geometry (2D) for canvas/Three.js",
   "type": "module",
-  "main": "dist/mr-piano.umd.js",
-  "module": "dist/mr-piano.es.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/mr-piano.es.js",
-      "require": "./dist/mr-piano.umd.js",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     }
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "clean": "rimraf dist",
     "typecheck": "tsc -p tsconfig.json --emitDeclarationOnly",
-    "build": "npm run clean && npm run typecheck && vite build",
+    "build": "npm run clean && tsc -p tsconfig.json",
     "dev": "vite",
-    "test": "vitest"
+    "test": "vitest --config vite.config.ts",
+    "lint": "eslint . --ext .ts"
+  },
+  "files": ["dist"],
+  "dependencies": {
+    
   },
   "devDependencies": {
-    "rimraf": "^6.0.1",
-    "typescript": "^5.4.0",
+    "typescript": "^5.5.0",
     "vite": "^5.0.0",
-    "vitest": "^3.2.4"
+    "vitest": "^1.5.0",
+    "eslint": "^8.56.0",
+    "rimraf": "^5.0.0"
   }
 }

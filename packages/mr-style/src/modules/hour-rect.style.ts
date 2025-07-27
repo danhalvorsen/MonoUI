@@ -1,4 +1,4 @@
-import { css } from 'lit';
+import { css, unsafeCSS } from 'lit';
 import { ColorTokens as C } from '../tokens/color.tokens';
 import { SizeTokens as S } from '../tokens/size.tokens';
 import { SpacingTokens as SP } from '../tokens/spacing.tokens';
@@ -7,8 +7,8 @@ import { FlexTokens as F } from '../tokens/flex.tokens';
 export const hourRectStyles = css`
   :host {
     display: inline-block;
-    width: ${S.hourWidth};
-    margin: 0 ${SP.hourMarginX};
+    width: ${unsafeCSS(S.hourWidth)};
+    margin: 0 ${unsafeCSS(SP.hourMarginX)};
     vertical-align: bottom;
   }
   .bar {
@@ -22,11 +22,11 @@ export const hourRectStyles = css`
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background: ${C.tooltipBg};
-    color: ${C.tooltipText};
+    background: ${unsafeCSS(C.tooltipBg)};
+    color: ${unsafeCSS(C.tooltipText)};
     font-size: 0.75rem;
-    padding: ${SP.tooltipPadding};
-    border-radius: ${SP.tooltipRadius};
+    padding: ${unsafeCSS(SP.tooltipPadding)};
+    border-radius: ${unsafeCSS(SP.tooltipRadius)};
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s;
@@ -35,8 +35,8 @@ export const hourRectStyles = css`
     opacity: 1;
   }
   .flex-center {
-    display: ${F.displayFlex};
-    justify-content: ${F.justifyCenter};
-    align-items: ${F.alignCenter};
+    display: ${unsafeCSS(F.displayFlex)};
+    justify-content: ${unsafeCSS(F.justifyCenter)};
+    align-items: ${unsafeCSS(F.alignCenter)};
   }
 `;

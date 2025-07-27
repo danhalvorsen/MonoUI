@@ -5,7 +5,7 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "declaration": true,
-    "outDir": "dist",
+    "declarationDir": "dist",          // <-- Generate types in dist
     "rootDir": ".",
     "sourceMap": true,
     "composite": true,
@@ -28,10 +28,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "src/**/*.ts",
-    "scripts/**/*.ts"
-  ],
+  "include": ["src/**/*.ts", "scripts/**/*.ts"],
   "exclude": ["node_modules", "dist", "**/*.d.ts"],
   "ts-node": {
     "esm": true,

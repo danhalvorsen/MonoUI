@@ -13,9 +13,12 @@ export interface CalculatorData extends IData {
 export class SumPipe extends Pipe<CalculatorData> {
   constructor() {
     super("SumPipe", async (data) => {
-      const sum = data.context.numbers.reduce((a, b) => a + b, 0);
+      const numbers = data.context.numbers;
+      if (!Array.isArray(numbers)) throw new Error("context.numbers must be an array");
+
+      const sum = numbers.reduce((acc, n) => acc + n, 0);
       data.context.sum = sum;
-      data.context.steps = [...(data.context.steps || []), `Summed to ${sum}`];
+      data.context.steps = [...(data.context.steps ?? []), `Summed to ${sum}`];
       return data;
     });
   }

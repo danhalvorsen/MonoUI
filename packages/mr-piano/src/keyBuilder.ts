@@ -1,8 +1,8 @@
 
-import { translate } from './geometryUtils';
-import { buildEdges } from './geometryUtils';
-import { IKey } from './core/interfaces';
-import { KeyName, KeyRegistry } from './core/keyregistry';
+import { translate } from './geometryUtils.js';
+import { buildEdges } from './geometryUtils.js';
+import { IKey } from './core/interfaces.js';
+import { KeyName, KeyRegistry } from './core/keyregistry.js';
  
 export class KeyBuilder {
   static build(name: KeyName, dx = 0, dy = 0): IKey {

@@ -1,4 +1,4 @@
-import { Point } from "./core/interfaces";
+import { Point } from "./core/interfaces.js";
 
 export function translate(
   vertices: readonly Point[],

@@ -1,6 +1,6 @@
 
-import { Point } from "./core/interfaces";
-import { buildEdges, translate } from "./geometryUtils";
+import { Point } from "./core/interfaces.js";
+import { buildEdges, translate } from "./geometryUtils.js";
 
 // Add the KeyType type definition with fillStyle property
 type KeyType = {

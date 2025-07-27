@@ -1,0 +1,26 @@
+{
+  "name": "mr-threejs-components",
+  "version": "0.1.0",
+  "description": "mr-web-compoents with IoC via tsyringe.",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.10.0",
+    "mr-abstract-components": "file:../mr-abstract-components"
+  },
+  "devDependencies": {
+    "@eslint-community/eslint-utils": "^4.7.0",
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
+    "eslint": "^9.31.0"
+  }
+}

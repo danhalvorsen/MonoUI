@@ -1,16 +1,18 @@
+// File: packages/file-operations/vitest.config.ts
 import { defineConfig } from 'vitest/config';
-import { resolve } from 'path';
+import path from 'path';
 
 export default defineConfig({
+  // No "extends" in TS — instead, just manually configure
   test: {
     globals: true,
     environment: 'node',
-    setupFiles: ['./tests/setup.ts']
+    setupFiles: ['./tests/setup.ts'],
   },
   resolve: {
-    alias: [
-      { find: '@', replacement: resolve(__dirname, 'src') },
-      { find: '@tests', replacement: resolve(__dirname, 'tests') }
-    ]
-  }
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@tests': path.resolve(__dirname, 'tests'),
+    },
+  },
 });

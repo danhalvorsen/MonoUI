@@ -21,3 +21,4 @@ Thumbs.db
 # Others
 .env
 **/tsconfig.build.tsbuildinfo
+packages/mr-slider/dist/mr-slider.js

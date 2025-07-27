@@ -1,22 +1,25 @@
 {
   "compilerOptions": {
     "target": "ES2021",
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "declaration": true,
     "declarationMap": true,
-    "strict": true,
     "outDir": "dist",
-    "rootDir": ".",
+    "rootDir": "src",
+    "sourceMap": true,
+    "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["ES2021", "DOM"],
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@packages/mr-piano/*": ["src/*"]
-    }
+      "@/*": ["./src/*"]
+    },
+    "composite": true
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts"],
-  "exclude": ["dist", "node_modules"]
+  "include": ["src"],
+  "exclude": ["tests", "node_modules", "dist"]
 }

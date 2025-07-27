@@ -1,15 +1,23 @@
 {
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
     "target": "ES2020",
-    "module": "CommonJS",
+    "module": "NodeNext",                 // FIX: must match moduleResolution
+    "moduleResolution": "NodeNext",
+    "baseUrl": ".",                       // FIX: needed for paths to work
     "declaration": true,
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "types": ["node"],
+    "paths": {
+      "@src/*": ["src/*"],
+      "@mr/design-patterns": ["../../design-patterns/src"]
+    }
   },
-  "include": ["src"],
+  "include": ["src", "src/types"],
   "exclude": ["node_modules", "dist"]
 }

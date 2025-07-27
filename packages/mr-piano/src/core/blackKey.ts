@@ -1,7 +1,7 @@
 // src/core/BlackKey.ts
 
-import { BaseKey } from './basekey';
-import { Point } from './interfaces';
+import { BaseKey } from './basekey.js';
+import { Point } from './interfaces.js';
  
 export class BlackKey extends BaseKey {
   readonly name: string;

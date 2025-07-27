@@ -1,6 +1,6 @@
 {
   "name": "@mr/pipeline-core",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Core pipeline execution framework with IoC, routing, and health checks",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -18,11 +18,11 @@
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
+    "@mr/design-patterns": "*",
     "reflect-metadata": "^0.2.2",
     "tsyringe": "^4.10.0"
   },
   "devDependencies": {
-    "typescript": "^5.4.0",
     "vitest": "^3.2.4"
   }
 }

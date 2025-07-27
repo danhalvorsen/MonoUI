@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
+    "rootDir": "src",
     "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": true,
@@ -9,12 +10,18 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
     "declaration": true,
-    "types": ["vite/client"],
+    "types": [
+      "vite/client"
+    ],
     "typeRoots": [
       "./node_modules/@types",
       "./src/types"
     ]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
