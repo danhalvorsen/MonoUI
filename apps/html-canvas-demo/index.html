@@ -14,7 +14,7 @@
         justify-content: center;
         background: #222;
       }
-      canvas-engine {
+      html-canvas {
         width: 640px;
         height: 400px;
         border: 5px solid #555;
@@ -22,9 +22,10 @@
     </style>
   </head>
   <body>
-    <h1>Demo</h1>
-    <!-- The custom element renders its own <canvas> internally -->
-    <canvas-engine></canvas-engine>
+    <h1>HtmlCanvas Demo</h1>
+    <!-- The new HtmlCanvas component with improved API -->
+    <!-- You can now add objects via properties or programmatically -->
+    <html-canvas id="myCanvas" width="640" height="400"></html-canvas>
 
     <script type="module" src="./src/main.ts"></script>
   </body>
