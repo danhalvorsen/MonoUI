@@ -1,6 +1,6 @@
-import { AnimationLoop } from "./AnimationLoop.js";
+import { IAnimationLoop } from "./AnimationLoop.js";
 
-export class RAFLoop implements AnimationLoop {
+export class RAFLoop implements IAnimationLoop {
   private last = 0;
   private running = false;
   private fns: ((dt: number) => void)[] = [];

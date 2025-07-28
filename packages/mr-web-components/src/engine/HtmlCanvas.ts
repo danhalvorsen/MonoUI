@@ -1,13 +1,14 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { CanvasEngine, IVisualObject } from 'mr-abstract-components';
+import { ICanvasEngine, IVisualObject } from 'mr-abstract-components';
 import { RequestAnimationLoop } from "./RequestAnimationLoop.js";
-import { Rectangle } from '../visualObjects/rectangle.js';
+import { Rectangle } from '../visualObjects/Rectangle.js';
+import { DragController, type DragControllerHost, type IDraggableVisualObject } from '../controllers/DragController.js';
 
 @customElement('html-canvas')
 export class HtmlCanvas
   extends LitElement
-  implements CanvasEngine<CanvasRenderingContext2D>
+  implements ICanvasEngine<CanvasRenderingContext2D>, DragControllerHost
 {
   static styles = css`
     :host {
@@ -37,6 +38,31 @@ export class HtmlCanvas
   private _ctx!: CanvasRenderingContext2D;
   private _objects: IVisualObject<CanvasRenderingContext2D>[] = [];
   private _loop = new RequestAnimationLoop();
+  private _dragController = new DragController(this);
+  
+  // DragControllerHost interface implementation
+  get canvas(): HTMLCanvasElement { return this._canvas; }
+  
+  getObjectAt(x: number, y: number): IDraggableVisualObject | null {
+    // Check objects in reverse order (top to bottom)
+    for (let i = this._objects.length - 1; i >= 0; i--) {
+      const obj = this._objects[i];
+      
+      // Check if object implements DraggableObject interface
+      if ('x' in obj && 'y' in obj && 'width' in obj && 'height' in obj) {
+        const draggableObj = obj as unknown as IDraggableVisualObject;
+        
+        // Check if point is within object bounds
+        if (x >= draggableObj.position.x && 
+            x <= draggableObj.position.x + draggableObj.size.width &&
+            y >= draggableObj.position.y && 
+            y <= draggableObj.position.y + draggableObj.size.height) {
+          return draggableObj;
+        }
+      }
+    }
+    return null;
+  }
 
   get context(): CanvasRenderingContext2D {
     return this._ctx;
@@ -98,7 +124,7 @@ export class HtmlCanvas
     console.log('Canvas click event listener added');
 
     // Add rectangles to the canvas with IDs
-    console.log(`CanvasEngineElement firstUpdated`);
+    console.log(`HtmlCanvas firstUpdated`);
     const rect1 = new Rectangle(50, 50, '#3498db', 100, 100, { x: 0, y: 0 }, undefined, 'Rect1');
     this.add(rect1);
     const rect2 = new Rectangle(50,50, '#1498db', 200, 100, { x: 0, y: 0 }, undefined, 'Rect2');

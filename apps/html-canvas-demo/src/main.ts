@@ -13,9 +13,34 @@ document.addEventListener('DOMContentLoaded', () => {
   if (canvas) {
     console.log('HtmlCanvas component found!');
     
-    // Example 1: Programmatic API - Add objects via the add() method
-    const rect1 = new Rectangle(100, 80, '#3498db', 150, 100, { x: 0, y: 0 }, undefined, 'ProgrammaticRect1');
-    const rect2 = new Rectangle(100, 80, '#e74c3c', 300, 150, { x: 0, y: 0 }, undefined, 'ProgrammaticRect2');
+    // Example 1: Draggable Rectangles with Callbacks
+    const rect1 = new Rectangle(100, 80, '#3498db', 150, 100, { x: 0, y: 0 }, undefined, 'DraggableRect1');
+    const rect2 = new Rectangle(100, 80, '#e74c3c', 300, 150, { x: 0, y: 0 }, undefined, 'DraggableRect2');
+    
+    // Add drag event callbacks to demonstrate functionality
+    rect1.onDragStart = (event) => {
+      console.log(`Started dragging ${rect1.id}`);
+      rect1.color = '#2980b9'; // Darker blue when dragging
+    };
+    
+    rect1.onDrag = (event, deltaX, deltaY) => {
+      console.log(`Dragging ${rect1.id}: delta(${deltaX.toFixed(1)}, ${deltaY.toFixed(1)})`);
+    };
+    
+    rect1.onDragEnd = (event) => {
+      console.log(`Finished dragging ${rect1.id} at position (${rect1.x}, ${rect1.y})`);
+      rect1.color = '#3498db'; // Back to original color
+    };
+    
+    rect2.onDragStart = (event) => {
+      console.log(`Started dragging ${rect2.id}`);
+      rect2.color = '#c0392b'; // Darker red when dragging
+    };
+    
+    rect2.onDragEnd = (event) => {
+      console.log(`Finished dragging ${rect2.id}`);
+      rect2.color = '#e74c3c'; // Back to original color
+    };
     
     canvas.add(rect1);
     canvas.add(rect2);

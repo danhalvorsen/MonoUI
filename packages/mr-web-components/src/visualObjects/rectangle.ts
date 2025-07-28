@@ -1,16 +1,34 @@
-import { Vector2 } from "./Vector2.js";
+import type { Vector2 } from "./Vector2.js";
 import { IVisualObject } from 'mr-abstract-components';
-
+import type { IDraggableVisualObject } from 'mr-abstract-components';
 import type { ISelectionBehavior } from 'mr-abstract-components';
 
 import { injectable, inject } from 'tsyringe';
 
 @injectable()
-export class Rectangle implements IVisualObject<CanvasRenderingContext2D> {
+export class Rectangle implements IVisualObject<CanvasRenderingContext2D>, IDraggableVisualObject {
   public id: string;
   public position: Vector2;
   public velocity: Vector2;
   private selectionBehavior?: ISelectionBehavior<CanvasRenderingContext2D>;
+  
+  // IDraggableVisualObject properties
+  public isDraggable: boolean = true;
+  public onDragStart?: (event: MouseEvent) => void;
+  public onDrag?: (event: MouseEvent, deltaX: number, deltaY: number) => void;
+  public onDragEnd?: (event: MouseEvent) => void;
+  
+  // Required size property for IDraggableVisualObject
+  get size(): { width: number; height: number } {
+    return { width: this.width, height: this.height };
+  }
+  
+  //  interface bridge properties
+  get x(): number { return this.position.x; }
+  set x(value: number) { this.position = { x: value, y: this.position.y }; }
+  
+  get y(): number { return this.position.y; }
+  set y(value: number) { this.position = { x: this.position.x, y: value }; }
 
   constructor(
     public width: number,
@@ -55,4 +73,3 @@ export class Rectangle implements IVisualObject<CanvasRenderingContext2D> {
     if (this.selectionBehavior) this.selectionBehavior.selected = val;
   }
 }
-
