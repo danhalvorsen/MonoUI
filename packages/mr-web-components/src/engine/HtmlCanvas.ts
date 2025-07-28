@@ -1,15 +1,13 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { ICanvasEngine, IVisualObject } from 'mr-abstract-components';
+import { IVisualObject, IDraggableVisualObject } from 'mr-abstract-components';
 import { RequestAnimationLoop } from "./RequestAnimationLoop.js";
 import { Rectangle } from '../visualObjects/Rectangle.js';
-import { DragController, type DragControllerHost, type IDraggableVisualObject } from '../controllers/DragController.js';
+import { DragController } from '../controllers/DragController.js';
 
 @customElement('html-canvas')
-export class HtmlCanvas
-  extends LitElement
-  implements ICanvasEngine<CanvasRenderingContext2D>, DragControllerHost
-{
+export class HtmlCanvas extends LitElement
+  {
   static styles = css`
     :host {
       display: block;
@@ -38,7 +36,14 @@ export class HtmlCanvas
   private _ctx!: CanvasRenderingContext2D;
   private _objects: IVisualObject<CanvasRenderingContext2D>[] = [];
   private _loop = new RequestAnimationLoop();
-  private _dragController = new DragController(this);
+  private _dragController = new DragController();
+  
+  constructor() {
+    super();
+    // Properly connect the DragController to Lit's reactive controller system
+    this._dragController.setHost(this);
+    this.addController(this._dragController);
+  }
   
   // DragControllerHost interface implementation
   get canvas(): HTMLCanvasElement { return this._canvas; }
@@ -48,16 +53,24 @@ export class HtmlCanvas
     for (let i = this._objects.length - 1; i >= 0; i--) {
       const obj = this._objects[i];
       
-      // Check if object implements DraggableObject interface
-      if ('x' in obj && 'y' in obj && 'width' in obj && 'height' in obj) {
+      // Check if object implements IDraggableVisualObject interface
+      // Look for position, size properties and isDraggable flag
+      if (obj && 
+          typeof obj === 'object' && 
+          'position' in obj && 
+          'size' in obj && 
+          'isDraggable' in obj) {
         const draggableObj = obj as unknown as IDraggableVisualObject;
         
-        // Check if point is within object bounds
-        if (x >= draggableObj.position.x && 
-            x <= draggableObj.position.x + draggableObj.size.width &&
-            y >= draggableObj.position.y && 
-            y <= draggableObj.position.y + draggableObj.size.height) {
-          return draggableObj;
+        // Only consider objects that are actually draggable
+        if (draggableObj.isDraggable !== false) {
+          // Check if point is within object bounds
+          if (x >= draggableObj.position.x && 
+              x <= draggableObj.position.x + draggableObj.size.width &&
+              y >= draggableObj.position.y && 
+              y <= draggableObj.position.y + draggableObj.size.height) {
+            return draggableObj;
+          }
         }
       }
     }
@@ -119,16 +132,15 @@ export class HtmlCanvas
     if (!ctx) throw new Error('Failed to get 2D context');
     this._ctx = ctx;
 
-    // Add click event listener
-    this._canvas.addEventListener('click', (event) => this._handleClick(event));
-    console.log('Canvas click event listener added');
+    // Mouse events are now handled by DragController
+    console.log('Canvas initialized - mouse events handled by DragController');
 
-    // Add rectangles to the canvas with IDs
-    console.log(`HtmlCanvas firstUpdated`);
-    const rect1 = new Rectangle(50, 50, '#3498db', 100, 100, { x: 0, y: 0 }, undefined, 'Rect1');
-    this.add(rect1);
-    const rect2 = new Rectangle(50,50, '#1498db', 200, 100, { x: 0, y: 0 }, undefined, 'Rect2');
-    this.add(rect2);
+    // // Add rectangles to the canvas with IDs
+    // console.log(`HtmlCanvas firstUpdated`);
+    // const rect1 = new Rectangle(50, 50, '#3498db', 100, 100, { x: 0, y: 0 }, undefined, 'Rect1');
+    // this.add(rect1);
+    // const rect2 = new Rectangle(50,50, '#1498db', 200, 100, { x: 0, y: 0 }, undefined, 'Rect2');
+    // this.add(rect2);
   }
 
   add(obj: IVisualObject<CanvasRenderingContext2D>): void {

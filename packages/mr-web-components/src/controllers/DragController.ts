@@ -1,24 +1,30 @@
 import { ReactiveController, ReactiveControllerHost } from 'lit';
-import { IDraggableVisualObject } from 'mr-abstract-components';    
-export interface DragControllerHost extends ReactiveControllerHost {
+import { IDraggableVisualObject } from 'mr-abstract-components';
+
+// Type for hosts that can work with DragController
+export type DragCapableHost = ReactiveControllerHost & {
   canvas?: HTMLCanvasElement;
   getObjectAt?(x: number, y: number): IDraggableVisualObject | null;
-}
+};
 
 export class DragController implements ReactiveController {
-  private host?: DragControllerHost;
+  private host?: DragCapableHost;
   private isDragging = false;
   private dragTarget: IDraggableVisualObject | null = null;
   private lastMouseX = 0;
   private lastMouseY = 0;
   private dragStartX = 0;
   private dragStartY = 0;
+  private mouseDownX = 0;
+  private mouseDownY = 0;
+  private hasSignificantMovement = false;
+  private static readonly DRAG_THRESHOLD = 3; // pixels
 
-  constructor(host?: DragControllerHost) {
+  constructor(host?: DragCapableHost) {
     if (host) this.setHost(host);
   }
 
-  setHost(host: DragControllerHost) {
+  setHost(host: DragCapableHost) {
     this.host = host;
     if (this.host) {
       this.host.addController(this);
@@ -78,26 +84,20 @@ export class DragController implements ReactiveController {
       console.log('❌ DragController: No target found at mouse position');
     }
     
-    if (target && target.isDraggable !== false) {
-      this.isDragging = true;
+    if (target) {
+      // Always track the target for potential drag or selection
       this.dragTarget = target;
       this.lastMouseX = mouseX;
       this.lastMouseY = mouseY;
+      this.mouseDownX = mouseX;
+      this.mouseDownY = mouseY;
       this.dragStartX = target.position.x;
       this.dragStartY = target.position.y;
+      this.hasSignificantMovement = false;
       
-      console.log(`🚀 DragController: Starting drag operation`);
-      console.log(`📌 DragController: Initial position (${this.dragStartX}, ${this.dragStartY})`);
-
-      // Call drag start callback
-      if (target.onDragStart) {
-        console.log('📞 DragController: Calling onDragStart callback');
-        target.onDragStart(event);
-      }
-
-      // Change cursor to indicate dragging
-      this.host.canvas!.style.cursor = 'grabbing';
-      console.log('👆 DragController: Cursor changed to grabbing');
+      console.log(`🎯 DragController: Target acquired for potential drag/selection`);
+      console.log(`📌 DragController: Initial mouse position (${mouseX.toFixed(1)}, ${mouseY.toFixed(1)})`);
+      console.log(`📌 DragController: Initial object position (${this.dragStartX}, ${this.dragStartY})`);
       
       // Prevent default to avoid text selection
       event.preventDefault();
@@ -105,11 +105,7 @@ export class DragController implements ReactiveController {
   };
 
   private handleMouseMove = (event: MouseEvent) => {
-    if (!this.isDragging || !this.dragTarget || !this.host?.canvas) {
-      // Only log if we're supposed to be dragging but something is missing
-      if (this.isDragging) {
-        console.log('⚠️ DragController: Mouse move but missing drag target or canvas');
-      }
+    if (!this.dragTarget || !this.host?.canvas) {
       return;
     }
 
@@ -120,52 +116,90 @@ export class DragController implements ReactiveController {
     const mouseX = (event.clientX - rect.left) * scaleX;
     const mouseY = (event.clientY - rect.top) * scaleY;
 
-    const deltaX = mouseX - this.lastMouseX;
-    const deltaY = mouseY - this.lastMouseY;
+    // Check if we've moved enough to start dragging
+    const totalDeltaX = mouseX - this.mouseDownX;
+    const totalDeltaY = mouseY - this.mouseDownY;
+    const totalDistance = Math.sqrt(totalDeltaX * totalDeltaX + totalDeltaY * totalDeltaY);
     
-    // Only log significant movements to avoid spam
-    if (Math.abs(deltaX) > 0.5 || Math.abs(deltaY) > 0.5) {
-      console.log(`🔄 DragController: Dragging - delta(${deltaX.toFixed(1)}, ${deltaY.toFixed(1)}) new pos(${(this.dragTarget.position.x + deltaX).toFixed(1)}, ${(this.dragTarget.position.y + deltaY).toFixed(1)})`);
+    if (!this.hasSignificantMovement && totalDistance > DragController.DRAG_THRESHOLD) {
+      // Start dragging - we've moved beyond the threshold
+      this.hasSignificantMovement = true;
+      this.isDragging = true;
+      
+      console.log(`🚀 DragController: Starting drag operation (moved ${totalDistance.toFixed(1)}px)`);
+      
+      // Call drag start callback
+      if (this.dragTarget.onDragStart && this.dragTarget.isDraggable !== false) {
+        console.log('📞 DragController: Calling onDragStart callback');
+        this.dragTarget.onDragStart(event);
+      }
+      
+      // Change cursor to indicate dragging
+      this.host.canvas!.style.cursor = 'grabbing';
     }
+    
+    if (this.isDragging && this.dragTarget.isDraggable !== false) {
+      // Continue dragging
+      const deltaX = mouseX - this.lastMouseX;
+      const deltaY = mouseY - this.lastMouseY;
+      
+      // Only log significant movements to avoid spam
+      if (Math.abs(deltaX) > 0.5 || Math.abs(deltaY) > 0.5) {
+        console.log(`🔄 DragController: Dragging - delta(${deltaX.toFixed(1)}, ${deltaY.toFixed(1)}) new pos(${(this.dragTarget.position.x + deltaX).toFixed(1)}, ${(this.dragTarget.position.y + deltaY).toFixed(1)})`);
+      }
 
-    // Update object position
-    this.dragTarget.position.x += deltaX;
-    this.dragTarget.position.y += deltaY;
+      // Update object position
+      this.dragTarget.position.x += deltaX;
+      this.dragTarget.position.y += deltaY;
 
+      // Call drag callback
+      if (this.dragTarget.onDrag) {
+        this.dragTarget.onDrag(event, deltaX, deltaY);
+      }
+
+      // Request host update
+      this.host.requestUpdate();
+    }
+    
     // Update last mouse position
     this.lastMouseX = mouseX;
     this.lastMouseY = mouseY;
-
-    // Call drag callback
-    if (this.dragTarget.onDrag) {
-      this.dragTarget.onDrag(event, deltaX, deltaY);
-    }
-
-    // Request host update
-    this.host.requestUpdate();
   };
 
   private handleMouseUp = (event: MouseEvent) => {
     console.log('🔴 DragController: Mouse up event');
     
-    if (!this.isDragging || !this.dragTarget) {
-      console.log('ℹ️ DragController: Mouse up but not currently dragging');
+    if (!this.dragTarget) {
+      console.log('ℹ️ DragController: Mouse up but no target');
       return;
     }
     
-    const finalX = this.dragTarget.position.x;
-    const finalY = this.dragTarget.position.y;
-    const totalDeltaX = finalX - this.dragStartX;
-    const totalDeltaY = finalY - this.dragStartY;
-    
-    console.log(`🏁 DragController: Ending drag operation`);
-    console.log(`📊 DragController: Total movement - delta(${totalDeltaX.toFixed(1)}, ${totalDeltaY.toFixed(1)})`);
-    console.log(`📍 DragController: Final position (${finalX.toFixed(1)}, ${finalY.toFixed(1)})`);
+    if (this.isDragging && this.hasSignificantMovement) {
+      // Complete drag operation
+      const finalX = this.dragTarget.position.x;
+      const finalY = this.dragTarget.position.y;
+      const totalDeltaX = finalX - this.dragStartX;
+      const totalDeltaY = finalY - this.dragStartY;
+      
+      console.log(`🏁 DragController: Ending drag operation`);
+      console.log(`📊 DragController: Total movement - delta(${totalDeltaX.toFixed(1)}, ${totalDeltaY.toFixed(1)})`);
+      console.log(`📍 DragController: Final position (${finalX.toFixed(1)}, ${finalY.toFixed(1)})`);
 
-    // Call drag end callback
-    if (this.dragTarget.onDragEnd) {
-      console.log('📞 DragController: Calling onDragEnd callback');
-      this.dragTarget.onDragEnd(event);
+      // Call drag end callback
+      if (this.dragTarget.onDragEnd) {
+        console.log('📞 DragController: Calling onDragEnd callback');
+        this.dragTarget.onDragEnd(event);
+      }
+    } else {
+      // Handle as click/selection - no significant movement occurred
+      console.log('👆 DragController: Handling as click/selection (no significant movement)');
+      
+      // Toggle selection if the object has selection behavior
+      if ('selected' in this.dragTarget) {
+        const selectable = this.dragTarget as any;
+        selectable.selected = !selectable.selected;
+        console.log(`🎯 DragController: Selection toggled to ${selectable.selected} for ${this.dragTarget.constructor?.name || 'Object'}`);
+      }
     }
 
     // Reset cursor
@@ -174,14 +208,17 @@ export class DragController implements ReactiveController {
       console.log('👆 DragController: Cursor reset to default');
     }
 
-    // Reset drag state
-    const draggedObjectInfo = `${this.dragTarget.constructor.name || 'Object'}`;
+    // Reset all state
+    const targetInfo = `${this.dragTarget.constructor?.name || 'Object'}`;
     this.isDragging = false;
     this.dragTarget = null;
     this.lastMouseX = 0;
     this.lastMouseY = 0;
+    this.mouseDownX = 0;
+    this.mouseDownY = 0;
+    this.hasSignificantMovement = false;
     
-    console.log(`✅ DragController: Drag state reset for ${draggedObjectInfo}`);
+    console.log(`✅ DragController: State reset for ${targetInfo}`);
 
     // Request host update
     this.host?.requestUpdate();

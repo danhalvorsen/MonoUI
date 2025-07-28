@@ -1,0 +1,21 @@
+{
+  "name": "@mr/pipeline-drag-operations",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Composable drag operations built on pipeline-core",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@mr/pipeline-core": "*",
+    "@mr/design-patterns": "*",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4",
+    "vite": "^5.0.0"
+  }
+}
