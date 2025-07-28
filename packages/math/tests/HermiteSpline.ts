@@ -1,6 +1,6 @@
 import { Vector3 } from "../src/implementations/Vector3";
-import { vector3HermiteFn } from "../src/implementations/interpolation/hermiteInterpolation/vector3HermiteFn";
-import { HermiteInterpolationStrategy } from "../src/implementations/interpolation/hermiteInterpolation/HermiteInterpolationStrategy.1";
+import { Vector3HermiteFn } from "../src/implementations/interpolation/hermiteInterpolation/vector3HermiteFn";
+import { HermiteInterpolationStrategy } from "../src/implementations/interpolation/hermiteInterpolation/HermiteInterpolationStrategy";
 import { describe, it, expect } from "vitest";
 import { HermiteSpline } from "../src/implementations/interpolation/hermiteInterpolation/HermiteSpline";
 
@@ -20,7 +20,7 @@ describe("HermiteSpline<Vector3>", () => {
   ];
 
   const tangentStrategy = new FiniteDifferenceTangentStrategy();
-  const interpolationStrategy = new HermiteInterpolationStrategy<Vector3>(vector3HermiteFn);
+  const interpolationStrategy = new HermiteInterpolationStrategy<Vector3>(Vector3HermiteFn);
   const spline = new HermiteSpline<Vector3>(controlPoints, tangentStrategy, interpolationStrategy);
 
   it("evaluates the spline at t = 0", () => {

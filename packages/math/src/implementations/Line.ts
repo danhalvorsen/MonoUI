@@ -30,4 +30,14 @@ export class Line<T extends IVector<T>> implements ILine<T>{
     const clampedT = Math.max(0, Math.min(1, t));
     return this.getPoint(clampedT);
   }
+
+  intersect(other: ILine<T>): T | null {
+    const p = this.A, r = this.B.subtract(this.A);
+    const q = other.A, s = other.B.subtract(other.A);
+    const rxs = r.cross(s), q_p = q.subtract(p);
+    if (rxs.z === 0) return null;
+    const t = q_p.cross(s).z / rxs.z;
+    const u = q_p.cross(r).z / rxs.z;
+    return (t>=0 && t<=1 && u>=0 && u<=1) ? this.getPoint(t) : null;
+  }
 }
