@@ -1,7 +1,7 @@
 import { IVisualObject } from "./IVisualObject.js";
 
 
-export interface CanvasEngine<C> {
+export interface ICanvasEngine<C> {
   readonly context: C;
   add(obj: IVisualObject<C>): void;
   remove(obj: IVisualObject<C>): void;

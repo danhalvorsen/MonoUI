@@ -1,0 +1,20 @@
+{
+  "name": "@my-graphics/math",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  }
+}

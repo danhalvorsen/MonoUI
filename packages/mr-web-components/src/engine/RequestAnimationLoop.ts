@@ -1,6 +1,6 @@
-import { AnimationLoop } from 'mr-abstract-components';
+import { IAnimationLoop } from 'mr-abstract-components';
 
-export class RequestAnimationLoop implements AnimationLoop {
+export class RequestAnimationLoop implements IAnimationLoop {
   private running = false;
   private lastTime = 0;
   private callbacks: Array<(dt: number) => void> = [];

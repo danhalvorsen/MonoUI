@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { CanvasEngineElement } from '../src/engine/CanvasEngineElement';
+import { HtmlCanvas } from '../src/engine/HtmlCanvas.js';
 
-describe('CanvasEngineElement', () => {
+describe('HtmlCanvas', () => {
   it('should initialize canvas context', async () => {
-    const el = new CanvasEngineElement();
+    const el = new HtmlCanvas();
     document.body.appendChild(el);
     await el.updateComplete; // ensure Lit updates
     expect(el.context).not.toBeUndefined();
