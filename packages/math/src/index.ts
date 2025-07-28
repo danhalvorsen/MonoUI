@@ -6,6 +6,8 @@ export { Transform as Transformer } from './implementations/Transform';
 
 export { BoundingBox2D } from './implementations/BoundingBox';
 export { Line } from './implementations/Line';
+ 
+export { Rectangle } from './implementations/Rectangle';
 
 export { LinearInterpolator3D } from './interpolation/LinearInterpolator3D';
 export { CatmullRomSpline3D } from './interpolation/CatmullRomSpline3D';
@@ -18,6 +20,8 @@ export type { IBoundingBox } from './interfaces/IBoundingBox';
 export type { IInterpolator } from './interfaces/IInterpolator';
 export type { ISpline } from './interpolation/ISpline';
 export type { ITransform } from './interfaces/ITransform';
+export type { IMesh } from './interfaces/IMesh';
+export type { IRectangle } from './interfaces/IRectangle';
 export type {
   Point2,
   Point3,

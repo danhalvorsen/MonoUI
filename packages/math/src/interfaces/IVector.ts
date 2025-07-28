@@ -5,7 +5,12 @@ export interface IVector<T> {
 
   add(v: T): T;
   subtract(v: T): T;
+
+  /**
+   * Multiply this vector uniformly by a scalar.
+   */
   scale(scalar: number): T;
+
   dot(v: T): number;
   length(): number;
   normalize(): T;
@@ -22,5 +27,8 @@ export interface IVector<T> {
   equals(v: T, tolerance?: number): boolean;
   toArray(): number[];
 
+  /**
+   * @deprecated use scale(...) instead
+   */
   multiplyScalar(scalar: number): T;
 }

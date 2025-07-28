@@ -1,7 +1,7 @@
 import { HermiteSegment } from "./HermiteSegment";
 import { Vector3 } from "../../Vector3";
 
-export const vector3HermiteFn = (seg: HermiteSegment<Vector3>, t: number): Vector3 => {
+export const Vector3HermiteFn = (seg: HermiteSegment<Vector3>, t: number): Vector3 => {
     const t2 = t * t;
     const t3 = t2 * t;
 

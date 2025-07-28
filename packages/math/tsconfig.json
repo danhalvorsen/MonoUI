@@ -10,7 +10,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "noEmitOnError": true,
-    "types": []
+    "types": ["vitest/globals"]
   },
   "include": ["src"]
 }
