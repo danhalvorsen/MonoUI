@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, vi, type MockedFunction } from 'vitest';
-import { DragController, IDraggableVisualObject, type DragControllerHost } from '../DragController.js';
+import { DragController, DragCapableHost, IDraggableVisualObject } from '../DragController.js';
+import { ReactiveControllerHost } from 'lit';
 
 // Mock HTML elements
 class MockCanvas extends EventTarget {
@@ -27,11 +28,12 @@ class MockCanvas extends EventTarget {
   removeEventListener = vi.fn();
 }
 
-// Mock DragControllerHost
-class MockHost implements DragControllerHost {
+// Mock DragCapableHost
+class MockHost implements DragCapableHost {
   canvas = new MockCanvas() as unknown as HTMLCanvasElement;
   controllers = new Set();
 
+  // ReactiveControllerHost methods
   addController = vi.fn((controller) => {
     this.controllers.add(controller);
   });
@@ -43,6 +45,7 @@ class MockHost implements DragControllerHost {
   requestUpdate = vi.fn();
   updateComplete = Promise.resolve(true);
 
+  // DragCapableHost optional method
   getObjectAt = vi.fn();
 }
 

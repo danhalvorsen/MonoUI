@@ -22,3 +22,659 @@ Thumbs.db
  
 packages/mr-slider/dist/mr-slider.js
 **/tsconfig.build.tsbuildinfo
+.vscode/chrome-debug/BrowserMetrics-spare.pma
+.vscode/chrome-debug/CrashpadMetrics-active.pma
+.vscode/chrome-debug/first_party_sets.db
+.vscode/chrome-debug/first_party_sets.db-journal
+.vscode/chrome-debug/Last Browser
+.vscode/chrome-debug/Last Version
+.vscode/chrome-debug/Local State
+.vscode/chrome-debug/Variations
+.vscode/chrome-debug/AmountExtractionHeuristicRegexes/3/heuristic_regexes.binarypb
+.vscode/chrome-debug/AmountExtractionHeuristicRegexes/3/manifest.json
+.vscode/chrome-debug/AmountExtractionHeuristicRegexes/3/_metadata/verified_contents.json
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AD
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AF
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AG
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AL
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AO
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AS
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AT
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AU
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AX
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/AZ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BA
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BB
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BD
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BF
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BG
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BH
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BI
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BJ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BN
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BO
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BQ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BS
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BT
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BW
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BY
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/BZ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CA
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CC
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CD
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CF
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CG
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CH
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CI
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CL
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CN
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CO
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CU
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CV
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CX
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CY
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/CZ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/DE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/DJ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/DK
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/DM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/DO
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/DZ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/EC
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/EE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/EG
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/EH
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/ER
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/ES
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/ET
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/FI
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/FJ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/FM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/FO
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/FR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GA
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GB
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GD
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GF
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GG
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GH
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GL
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GN
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GP
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GQ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GT
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GW
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/GY
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/HK
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/HN
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/HR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/HT
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/HU
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/ID
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/IE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/IL
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/IM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/IN
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/IQ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/IR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/IS
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/IT
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/JE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/JM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/JO
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/JP
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/KE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/KG
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/KH
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/KI
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/KM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/KN
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/KP
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/KR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/KW
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/KY
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/KZ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/LA
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/LB
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/LC
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/LI
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/LK
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/LR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/LS
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/LT
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/LU
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/LV
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/LY
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MA
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/manifest.json
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MD
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/ME
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MG
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MH
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MK
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/ML
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MN
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MP
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MQ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MS
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MU
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MV
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MW
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MX
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MY
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/MZ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/NA
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/NC
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/NE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/NG
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/NI
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/NL
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/NO
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/NP
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/NR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/NU
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/NZ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/OM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/PA
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/PE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/PF
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/PG
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/PH
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/PK
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/PL
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/PR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/PS
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/PT
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/PW
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/PY
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/QA
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/RE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/RO
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/RS
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/RU
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/RW
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SA
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SB
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SC
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SD
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SH
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SI
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SJ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SK
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SL
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SN
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SO
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SS
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/ST
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SV
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SY
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/SZ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TC
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TD
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TG
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TH
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TJ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TK
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TL
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TN
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TO
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TR
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TT
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TV
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TW
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/TZ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/UA
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/UG
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/US
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/UY
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/UZ
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/VC
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/VE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/VG
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/VI
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/VN
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/VU
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/WF
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/WS
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/XK
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/YE
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/YT
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/ZA
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/ZM
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/ZW
+.vscode/chrome-debug/AutofillStates/2025.6.13.84507/_metadata/verified_contents.json
+.vscode/chrome-debug/BrowserMetrics/BrowserMetrics-6887C0E0-A900.pma
+.vscode/chrome-debug/CertificateRevocation/9937/crl-set
+.vscode/chrome-debug/CertificateRevocation/9937/LICENSE
+.vscode/chrome-debug/CertificateRevocation/9937/manifest.json
+.vscode/chrome-debug/CertificateRevocation/9937/_metadata/verified_contents.json
+.vscode/chrome-debug/CookieReadinessList/2024.11.26.0/cookie-readiness-list.json
+.vscode/chrome-debug/CookieReadinessList/2024.11.26.0/LICENSE
+.vscode/chrome-debug/CookieReadinessList/2024.11.26.0/manifest.json
+.vscode/chrome-debug/CookieReadinessList/2024.11.26.0/_metadata/verified_contents.json
+.vscode/chrome-debug/Crashpad/metadata
+.vscode/chrome-debug/Crashpad/settings.dat
+.vscode/chrome-debug/Crowd Deny/2025.7.28.243/manifest.json
+.vscode/chrome-debug/Crowd Deny/2025.7.28.243/Preload Data
+.vscode/chrome-debug/Crowd Deny/2025.7.28.243/_metadata/verified_contents.json
+.vscode/chrome-debug/Default/Account Web Data
+.vscode/chrome-debug/Default/Account Web Data-journal
+.vscode/chrome-debug/Default/Affiliation Database
+.vscode/chrome-debug/Default/Affiliation Database-journal
+.vscode/chrome-debug/Default/BookmarkMergedSurfaceOrdering
+.vscode/chrome-debug/Default/BrowsingTopicsSiteData
+.vscode/chrome-debug/Default/BrowsingTopicsSiteData-journal
+.vscode/chrome-debug/Default/BrowsingTopicsState
+.vscode/chrome-debug/Default/DIPS
+.vscode/chrome-debug/Default/Favicons
+.vscode/chrome-debug/Default/Favicons-journal
+.vscode/chrome-debug/Default/heavy_ad_intervention_opt_out.db
+.vscode/chrome-debug/Default/heavy_ad_intervention_opt_out.db-journal
+.vscode/chrome-debug/Default/History
+.vscode/chrome-debug/Default/History-journal
+.vscode/chrome-debug/Default/LOCK
+.vscode/chrome-debug/Default/LOG
+.vscode/chrome-debug/Default/LOG.old
+.vscode/chrome-debug/Default/Login Data
+.vscode/chrome-debug/Default/Login Data For Account
+.vscode/chrome-debug/Default/Login Data For Account-journal
+.vscode/chrome-debug/Default/Login Data-journal
+.vscode/chrome-debug/Default/Network Action Predictor
+.vscode/chrome-debug/Default/Network Action Predictor-journal
+.vscode/chrome-debug/Default/passkey_enclave_state
+.vscode/chrome-debug/Default/Preferences
+.vscode/chrome-debug/Default/PreferredApps
+.vscode/chrome-debug/Default/README
+.vscode/chrome-debug/Default/Secure Preferences
+.vscode/chrome-debug/Default/ServerCertificate
+.vscode/chrome-debug/Default/ServerCertificate-journal
+.vscode/chrome-debug/Default/SharedStorage
+.vscode/chrome-debug/Default/Shortcuts
+.vscode/chrome-debug/Default/Shortcuts-journal
+.vscode/chrome-debug/Default/Top Sites
+.vscode/chrome-debug/Default/Top Sites-journal
+.vscode/chrome-debug/Default/trusted_vault.pb
+.vscode/chrome-debug/Default/Web Data
+.vscode/chrome-debug/Default/Web Data-journal
+.vscode/chrome-debug/Default/AutofillStrikeDatabase/LOCK
+.vscode/chrome-debug/Default/AutofillStrikeDatabase/LOG
+.vscode/chrome-debug/Default/AutofillStrikeDatabase/LOG.old
+.vscode/chrome-debug/Default/BudgetDatabase/LOCK
+.vscode/chrome-debug/Default/BudgetDatabase/LOG
+.vscode/chrome-debug/Default/BudgetDatabase/LOG.old
+.vscode/chrome-debug/Default/Cache/Cache_Data/data_0
+.vscode/chrome-debug/Default/Cache/Cache_Data/data_1
+.vscode/chrome-debug/Default/Cache/Cache_Data/data_2
+.vscode/chrome-debug/Default/Cache/Cache_Data/data_3
+.vscode/chrome-debug/Default/Cache/Cache_Data/f_000002
+.vscode/chrome-debug/Default/Cache/Cache_Data/f_000003
+.vscode/chrome-debug/Default/Cache/Cache_Data/f_000004
+.vscode/chrome-debug/Default/Cache/Cache_Data/f_000006
+.vscode/chrome-debug/Default/Cache/Cache_Data/f_000007
+.vscode/chrome-debug/Default/Cache/Cache_Data/index
+.vscode/chrome-debug/Default/ClientCertificates/LOCK
+.vscode/chrome-debug/Default/ClientCertificates/LOG
+.vscode/chrome-debug/Default/ClientCertificates/LOG.old
+.vscode/chrome-debug/Default/Code Cache/js/0b885c280605fe79_0
+.vscode/chrome-debug/Default/Code Cache/js/1b01b9398f884cd8_0
+.vscode/chrome-debug/Default/Code Cache/js/1f767b7d0bc8a702_0
+.vscode/chrome-debug/Default/Code Cache/js/6e716480b4630f10_0
+.vscode/chrome-debug/Default/Code Cache/js/39c31d24f4905baf_0
+.vscode/chrome-debug/Default/Code Cache/js/87b09ca32d2f87bc_0
+.vscode/chrome-debug/Default/Code Cache/js/162c549d0e4e57ca_0
+.vscode/chrome-debug/Default/Code Cache/js/2052a38a7871c4ec_0
+.vscode/chrome-debug/Default/Code Cache/js/6849314b5f245379_0
+.vscode/chrome-debug/Default/Code Cache/js/968858413c94a1a6_0
+.vscode/chrome-debug/Default/Code Cache/js/ba678a2fbd8c358c_0
+.vscode/chrome-debug/Default/Code Cache/js/e08acb10ed409b97_0
+.vscode/chrome-debug/Default/Code Cache/js/f3a8824aebc4cedd_0
+.vscode/chrome-debug/Default/Code Cache/js/index
+.vscode/chrome-debug/Default/Code Cache/js/index-dir/the-real-index
+.vscode/chrome-debug/Default/Code Cache/wasm/index
+.vscode/chrome-debug/Default/Code Cache/wasm/index-dir/the-real-index
+.vscode/chrome-debug/Default/DawnGraphiteCache/data_0
+.vscode/chrome-debug/Default/DawnGraphiteCache/data_1
+.vscode/chrome-debug/Default/DawnGraphiteCache/data_2
+.vscode/chrome-debug/Default/DawnGraphiteCache/data_3
+.vscode/chrome-debug/Default/DawnGraphiteCache/index
+.vscode/chrome-debug/Default/DawnWebGPUCache/data_0
+.vscode/chrome-debug/Default/DawnWebGPUCache/data_1
+.vscode/chrome-debug/Default/DawnWebGPUCache/data_2
+.vscode/chrome-debug/Default/DawnWebGPUCache/data_3
+.vscode/chrome-debug/Default/DawnWebGPUCache/index
+.vscode/chrome-debug/Default/Download Service/EntryDB/LOCK
+.vscode/chrome-debug/Default/Download Service/EntryDB/LOG
+.vscode/chrome-debug/Default/Download Service/EntryDB/LOG.old
+.vscode/chrome-debug/Default/Extension Rules/000003.log
+.vscode/chrome-debug/Default/Extension Rules/CURRENT
+.vscode/chrome-debug/Default/Extension Rules/LOCK
+.vscode/chrome-debug/Default/Extension Rules/LOG
+.vscode/chrome-debug/Default/Extension Rules/MANIFEST-000001
+.vscode/chrome-debug/Default/Extension Scripts/000003.log
+.vscode/chrome-debug/Default/Extension Scripts/CURRENT
+.vscode/chrome-debug/Default/Extension Scripts/LOCK
+.vscode/chrome-debug/Default/Extension Scripts/LOG
+.vscode/chrome-debug/Default/Extension Scripts/MANIFEST-000001
+.vscode/chrome-debug/Default/Extension State/000003.log
+.vscode/chrome-debug/Default/Extension State/CURRENT
+.vscode/chrome-debug/Default/Extension State/LOCK
+.vscode/chrome-debug/Default/Extension State/LOG
+.vscode/chrome-debug/Default/Extension State/LOG.old
+.vscode/chrome-debug/Default/Extension State/MANIFEST-000001
+.vscode/chrome-debug/Default/Feature Engagement Tracker/AvailabilityDB/LOCK
+.vscode/chrome-debug/Default/Feature Engagement Tracker/AvailabilityDB/LOG
+.vscode/chrome-debug/Default/Feature Engagement Tracker/AvailabilityDB/LOG.old
+.vscode/chrome-debug/Default/Feature Engagement Tracker/EventDB/LOCK
+.vscode/chrome-debug/Default/Feature Engagement Tracker/EventDB/LOG
+.vscode/chrome-debug/Default/Feature Engagement Tracker/EventDB/LOG.old
+.vscode/chrome-debug/Default/GCM Store/000003.log
+.vscode/chrome-debug/Default/GCM Store/CURRENT
+.vscode/chrome-debug/Default/GCM Store/LOCK
+.vscode/chrome-debug/Default/GCM Store/LOG
+.vscode/chrome-debug/Default/GCM Store/LOG.old
+.vscode/chrome-debug/Default/GCM Store/MANIFEST-000001
+.vscode/chrome-debug/Default/GPUCache/data_0
+.vscode/chrome-debug/Default/GPUCache/data_1
+.vscode/chrome-debug/Default/GPUCache/data_2
+.vscode/chrome-debug/Default/GPUCache/data_3
+.vscode/chrome-debug/Default/GPUCache/index
+.vscode/chrome-debug/Default/Local Storage/leveldb/000003.log
+.vscode/chrome-debug/Default/Local Storage/leveldb/CURRENT
+.vscode/chrome-debug/Default/Local Storage/leveldb/LOCK
+.vscode/chrome-debug/Default/Local Storage/leveldb/LOG
+.vscode/chrome-debug/Default/Local Storage/leveldb/LOG.old
+.vscode/chrome-debug/Default/Local Storage/leveldb/MANIFEST-000001
+.vscode/chrome-debug/Default/Network/Cookies
+.vscode/chrome-debug/Default/Network/Cookies-journal
+.vscode/chrome-debug/Default/Network/Network Persistent State
+.vscode/chrome-debug/Default/Network/NetworkDataMigrated
+.vscode/chrome-debug/Default/Network/Reporting and NEL
+.vscode/chrome-debug/Default/Network/Reporting and NEL-journal
+.vscode/chrome-debug/Default/Network/TransportSecurity
+.vscode/chrome-debug/Default/Network/Trust Tokens
+.vscode/chrome-debug/Default/Network/Trust Tokens-journal
+.vscode/chrome-debug/Default/PersistentOriginTrials/LOCK
+.vscode/chrome-debug/Default/PersistentOriginTrials/LOG
+.vscode/chrome-debug/Default/PersistentOriginTrials/LOG.old
+.vscode/chrome-debug/Default/Safe Browsing Network/NetworkDataMigrated
+.vscode/chrome-debug/Default/Safe Browsing Network/Safe Browsing Cookies
+.vscode/chrome-debug/Default/Safe Browsing Network/Safe Browsing Cookies-journal
+.vscode/chrome-debug/Default/Segmentation Platform/SegmentInfoDB/LOCK
+.vscode/chrome-debug/Default/Segmentation Platform/SegmentInfoDB/LOG
+.vscode/chrome-debug/Default/Segmentation Platform/SegmentInfoDB/LOG.old
+.vscode/chrome-debug/Default/Segmentation Platform/SignalDB/LOCK
+.vscode/chrome-debug/Default/Segmentation Platform/SignalDB/LOG
+.vscode/chrome-debug/Default/Segmentation Platform/SignalDB/LOG.old
+.vscode/chrome-debug/Default/Segmentation Platform/SignalStorageConfigDB/LOCK
+.vscode/chrome-debug/Default/Segmentation Platform/SignalStorageConfigDB/LOG
+.vscode/chrome-debug/Default/Segmentation Platform/SignalStorageConfigDB/LOG.old
+.vscode/chrome-debug/Default/Service Worker/Database/000003.log
+.vscode/chrome-debug/Default/Service Worker/Database/CURRENT
+.vscode/chrome-debug/Default/Service Worker/Database/LOCK
+.vscode/chrome-debug/Default/Service Worker/Database/LOG
+.vscode/chrome-debug/Default/Service Worker/Database/LOG.old
+.vscode/chrome-debug/Default/Service Worker/Database/MANIFEST-000001
+.vscode/chrome-debug/Default/Service Worker/ScriptCache/2cc80dabc69f58b6_0
+.vscode/chrome-debug/Default/Service Worker/ScriptCache/4cb013792b196a35_0
+.vscode/chrome-debug/Default/Service Worker/ScriptCache/4cb013792b196a35_1
+.vscode/chrome-debug/Default/Service Worker/ScriptCache/index
+.vscode/chrome-debug/Default/Service Worker/ScriptCache/index-dir/the-real-index
+.vscode/chrome-debug/Default/Session Storage/000003.log
+.vscode/chrome-debug/Default/Session Storage/CURRENT
+.vscode/chrome-debug/Default/Session Storage/LOCK
+.vscode/chrome-debug/Default/Session Storage/LOG
+.vscode/chrome-debug/Default/Session Storage/LOG.old
+.vscode/chrome-debug/Default/Session Storage/MANIFEST-000001
+.vscode/chrome-debug/Default/Sessions/Session_13398200734689913
+.vscode/chrome-debug/Default/Sessions/Session_13398200803120303
+.vscode/chrome-debug/Default/Sessions/Tabs_13398200735017222
+.vscode/chrome-debug/Default/Sessions/Tabs_13398200803416446
+.vscode/chrome-debug/Default/Shared Dictionary/db
+.vscode/chrome-debug/Default/Shared Dictionary/db-journal
+.vscode/chrome-debug/Default/Shared Dictionary/cache/index
+.vscode/chrome-debug/Default/Shared Dictionary/cache/index-dir/the-real-index
+.vscode/chrome-debug/Default/Site Characteristics Database/000003.log
+.vscode/chrome-debug/Default/Site Characteristics Database/CURRENT
+.vscode/chrome-debug/Default/Site Characteristics Database/LOCK
+.vscode/chrome-debug/Default/Site Characteristics Database/LOG
+.vscode/chrome-debug/Default/Site Characteristics Database/LOG.old
+.vscode/chrome-debug/Default/Site Characteristics Database/MANIFEST-000001
+.vscode/chrome-debug/Default/Sync Data/LevelDB/000003.log
+.vscode/chrome-debug/Default/Sync Data/LevelDB/CURRENT
+.vscode/chrome-debug/Default/Sync Data/LevelDB/LOCK
+.vscode/chrome-debug/Default/Sync Data/LevelDB/LOG
+.vscode/chrome-debug/Default/Sync Data/LevelDB/LOG.old
+.vscode/chrome-debug/Default/Sync Data/LevelDB/MANIFEST-000001
+.vscode/chrome-debug/Default/WebStorage/QuotaManager
+.vscode/chrome-debug/Default/WebStorage/QuotaManager-journal
+.vscode/chrome-debug/Default/chrome_cart_db/LOCK
+.vscode/chrome-debug/Default/chrome_cart_db/LOG
+.vscode/chrome-debug/Default/chrome_cart_db/LOG.old
+.vscode/chrome-debug/Default/commerce_subscription_db/LOCK
+.vscode/chrome-debug/Default/commerce_subscription_db/LOG
+.vscode/chrome-debug/Default/commerce_subscription_db/LOG.old
+.vscode/chrome-debug/Default/discounts_db/LOCK
+.vscode/chrome-debug/Default/discounts_db/LOG
+.vscode/chrome-debug/Default/discounts_db/LOG.old
+.vscode/chrome-debug/Default/optimization_guide_hint_cache_store/LOCK
+.vscode/chrome-debug/Default/optimization_guide_hint_cache_store/LOG
+.vscode/chrome-debug/Default/optimization_guide_hint_cache_store/LOG.old
+.vscode/chrome-debug/Default/parcel_tracking_db/LOCK
+.vscode/chrome-debug/Default/parcel_tracking_db/LOG
+.vscode/chrome-debug/Default/parcel_tracking_db/LOG.old
+.vscode/chrome-debug/Default/shared_proto_db/000003.log
+.vscode/chrome-debug/Default/shared_proto_db/CURRENT
+.vscode/chrome-debug/Default/shared_proto_db/LOCK
+.vscode/chrome-debug/Default/shared_proto_db/LOG
+.vscode/chrome-debug/Default/shared_proto_db/LOG.old
+.vscode/chrome-debug/Default/shared_proto_db/MANIFEST-000001
+.vscode/chrome-debug/Default/shared_proto_db/metadata/000003.log
+.vscode/chrome-debug/Default/shared_proto_db/metadata/CURRENT
+.vscode/chrome-debug/Default/shared_proto_db/metadata/LOCK
+.vscode/chrome-debug/Default/shared_proto_db/metadata/LOG
+.vscode/chrome-debug/Default/shared_proto_db/metadata/LOG.old
+.vscode/chrome-debug/Default/shared_proto_db/metadata/MANIFEST-000001
+.vscode/chrome-debug/FileTypePolicies/67/download_file_types.pb
+.vscode/chrome-debug/FileTypePolicies/67/manifest.json
+.vscode/chrome-debug/FileTypePolicies/67/_metadata/verified_contents.json
+.vscode/chrome-debug/FirstPartySetsPreloaded/2025.7.24.0/LICENSE
+.vscode/chrome-debug/FirstPartySetsPreloaded/2025.7.24.0/manifest.json
+.vscode/chrome-debug/FirstPartySetsPreloaded/2025.7.24.0/sets.json
+.vscode/chrome-debug/FirstPartySetsPreloaded/2025.7.24.0/_metadata/verified_contents.json
+.vscode/chrome-debug/GrShaderCache/data_0
+.vscode/chrome-debug/GrShaderCache/data_1
+.vscode/chrome-debug/GrShaderCache/data_2
+.vscode/chrome-debug/GrShaderCache/data_3
+.vscode/chrome-debug/GrShaderCache/f_000001
+.vscode/chrome-debug/GrShaderCache/index
+.vscode/chrome-debug/GraphiteDawnCache/data_0
+.vscode/chrome-debug/GraphiteDawnCache/data_1
+.vscode/chrome-debug/GraphiteDawnCache/data_2
+.vscode/chrome-debug/GraphiteDawnCache/data_3
+.vscode/chrome-debug/GraphiteDawnCache/index
+.vscode/chrome-debug/MEIPreload/1.0.7.1744928549/manifest.json
+.vscode/chrome-debug/MEIPreload/1.0.7.1744928549/preloaded_data.pb
+.vscode/chrome-debug/MEIPreload/1.0.7.1744928549/_metadata/verified_contents.json
+.vscode/chrome-debug/MediaFoundationWidevineCdm/x64/1.0.2738.0/Google.Widevine.CDM.dll
+.vscode/chrome-debug/MediaFoundationWidevineCdm/x64/1.0.2738.0/manifest.json
+.vscode/chrome-debug/MediaFoundationWidevineCdm/x64/1.0.2738.0/_metadata/verified_contents.json
+.vscode/chrome-debug/OnDeviceHeadSuggestModel/20250716.785234264.14/cr_en-us_500000_index.bin
+.vscode/chrome-debug/OnDeviceHeadSuggestModel/20250716.785234264.14/manifest.json
+.vscode/chrome-debug/OnDeviceHeadSuggestModel/20250716.785234264.14/_metadata/verified_contents.json
+.vscode/chrome-debug/OpenCookieDatabase/2024.10.17.0/LICENSE
+.vscode/chrome-debug/OpenCookieDatabase/2024.10.17.0/manifest.json
+.vscode/chrome-debug/OpenCookieDatabase/2024.10.17.0/open_cookie_database.json
+.vscode/chrome-debug/OpenCookieDatabase/2024.10.17.0/_metadata/verified_contents.json
+.vscode/chrome-debug/OptimizationHints/526/manifest.json
+.vscode/chrome-debug/OptimizationHints/526/optimization-hints.pb
+.vscode/chrome-debug/OptimizationHints/526/_metadata/verified_contents.json
+.vscode/chrome-debug/OriginTrials/1.0.0.17/manifest.json
+.vscode/chrome-debug/OriginTrials/1.0.0.17/_metadata/verified_contents.json
+.vscode/chrome-debug/PKIMetadata/1380/crs.pb
+.vscode/chrome-debug/PKIMetadata/1380/ct_config.pb
+.vscode/chrome-debug/PKIMetadata/1380/kp_pinslist.pb
+.vscode/chrome-debug/PKIMetadata/1380/manifest.json
+.vscode/chrome-debug/PKIMetadata/1380/_metadata/verified_contents.json
+.vscode/chrome-debug/PrivacySandboxAttestationsPreloaded/2025.6.16.0/manifest.json
+.vscode/chrome-debug/PrivacySandboxAttestationsPreloaded/2025.6.16.0/privacy-sandbox-attestations.dat
+.vscode/chrome-debug/PrivacySandboxAttestationsPreloaded/2025.6.16.0/_metadata/verified_contents.json
+.vscode/chrome-debug/ProbabilisticRevealTokenRegistry/2025.2.18.1/LICENSE
+.vscode/chrome-debug/ProbabilisticRevealTokenRegistry/2025.2.18.1/manifest.json
+.vscode/chrome-debug/ProbabilisticRevealTokenRegistry/2025.2.18.1/prt_domains.json
+.vscode/chrome-debug/ProbabilisticRevealTokenRegistry/2025.2.18.1/_metadata/verified_contents.json
+.vscode/chrome-debug/SSLErrorAssistant/7/manifest.json
+.vscode/chrome-debug/SSLErrorAssistant/7/ssl_error_assistant.pb
+.vscode/chrome-debug/SSLErrorAssistant/7/_metadata/verified_contents.json
+.vscode/chrome-debug/SafetyTips/3076/manifest.json
+.vscode/chrome-debug/SafetyTips/3076/safety_tips.pb
+.vscode/chrome-debug/SafetyTips/3076/_metadata/verified_contents.json
+.vscode/chrome-debug/ShaderCache/data_0
+.vscode/chrome-debug/ShaderCache/data_1
+.vscode/chrome-debug/ShaderCache/data_2
+.vscode/chrome-debug/ShaderCache/data_3
+.vscode/chrome-debug/ShaderCache/index
+.vscode/chrome-debug/Subresource Filter/Indexed Rules/36/9.58.0/Ruleset Data
+.vscode/chrome-debug/Subresource Filter/Unindexed Rules/9.58.0/Filtering Rules
+.vscode/chrome-debug/Subresource Filter/Unindexed Rules/9.58.0/LICENSE.txt
+.vscode/chrome-debug/Subresource Filter/Unindexed Rules/9.58.0/manifest.json
+.vscode/chrome-debug/Subresource Filter/Unindexed Rules/9.58.0/_metadata/verified_contents.json
+.vscode/chrome-debug/ThirdPartyModuleList64/2018.8.8.0/manifest.json
+.vscode/chrome-debug/ThirdPartyModuleList64/2018.8.8.0/module_list_proto
+.vscode/chrome-debug/ThirdPartyModuleList64/2018.8.8.0/_metadata/verified_contents.json
+.vscode/chrome-debug/TpcdMetadata/2025.7.27.1/manifest.json
+.vscode/chrome-debug/TpcdMetadata/2025.7.27.1/metadata.pb
+.vscode/chrome-debug/TpcdMetadata/2025.7.27.1/_metadata/verified_contents.json
+.vscode/chrome-debug/TrustTokenKeyCommitments/2025.5.15.1/keys.json
+.vscode/chrome-debug/TrustTokenKeyCommitments/2025.5.15.1/LICENSE
+.vscode/chrome-debug/TrustTokenKeyCommitments/2025.5.15.1/manifest.json
+.vscode/chrome-debug/TrustTokenKeyCommitments/2025.5.15.1/_metadata/verified_contents.json
+.vscode/chrome-debug/ZxcvbnData/3/english_wikipedia.txt
+.vscode/chrome-debug/ZxcvbnData/3/female_names.txt
+.vscode/chrome-debug/ZxcvbnData/3/male_names.txt
+.vscode/chrome-debug/ZxcvbnData/3/manifest.json
+.vscode/chrome-debug/ZxcvbnData/3/passwords.txt
+.vscode/chrome-debug/ZxcvbnData/3/ranked_dicts
+.vscode/chrome-debug/ZxcvbnData/3/surnames.txt
+.vscode/chrome-debug/ZxcvbnData/3/us_tv_and_film.txt
+.vscode/chrome-debug/ZxcvbnData/3/_metadata/verified_contents.json
+.vscode/chrome-debug/component_crx_cache/3eb16d6c28b502ac4cfee8f4a148df05f4d93229fa36a71db8b08d06329ff18a
+.vscode/chrome-debug/component_crx_cache/16b2393dca340c6896708361f7e499874a490f9849e0f9ca8fbdbda6aec21532
+.vscode/chrome-debug/component_crx_cache/38c89b12bb20a8f2751c9c7cd2e31c173a47af08c115e1ecccc2f5151a2cf2c6
+.vscode/chrome-debug/component_crx_cache/44c97a8527ef50cab95a16c5e78cd321cbdf315726823afe7e0482af9eb18319
+.vscode/chrome-debug/component_crx_cache/53cf0a62db37790f84c9d436e4b5a9073bd770c308ee297e20efbadc28249d43
+.vscode/chrome-debug/component_crx_cache/56c21927faa028be6ce18c931660eec37e41da4bfbfd47cafa48350f828c0dbd
+.vscode/chrome-debug/component_crx_cache/288b7662b440e69a120bb2253d383cfd968e7c039800312595e007c7e21a5d1b
+.vscode/chrome-debug/component_crx_cache/452fc25b522f1e7f6c6e0b90e0cace50d3abab9faa181d4df4068f0caeb22cbb
+.vscode/chrome-debug/component_crx_cache/831faa9e9d6295bb4969020664f48973e9b8c8bb322bd4aeaa5ac54bcb696979
+.vscode/chrome-debug/component_crx_cache/2638e3c2d1fa1d417bfdc31dd21bc938f106d3b436a6488b41b014ca9e2b7541
+.vscode/chrome-debug/component_crx_cache/4497d8060d0e53c12b4403aa9ebe7e827d4880bae3f4139a26a4feb7ed64c4a2
+.vscode/chrome-debug/component_crx_cache/15335e5e45db72828ff3226e84eccf2e71a4f7f51da7392fb2e3e24348ecff28
+.vscode/chrome-debug/component_crx_cache/545666a4efd056351597bb386aea1368105ededc976ed5650d8682daab9f37ff
+.vscode/chrome-debug/component_crx_cache/953969d8ce784f0b3c94317f147792886bc5d9f6423ddf8617961238219a4492
+.vscode/chrome-debug/component_crx_cache/a3dacd50f7c50b03c69ac3a5a24967e55f59b6596e295d33f3c76a12211fd389
+.vscode/chrome-debug/component_crx_cache/a8a79d350c2a5e3bc36226633a8e0bed0dfab184e77f38fc8f0820ebacf8eafc
+.vscode/chrome-debug/component_crx_cache/b9c8fa0dbca7e64987049b556dab42ddb744fe7cd0bef2dd71cf433d6fcc5c3d
+.vscode/chrome-debug/component_crx_cache/c900ba9a2d8318263fd43782ee6fd5fb50bad78bf0eb2c972b5922c458af45ed
+.vscode/chrome-debug/component_crx_cache/d14862c37d3467e92edd042be7e41218babd7cc3208031cbba17266cbc201a99
+.vscode/chrome-debug/component_crx_cache/e444ba601ac72b669514e6788bc458ac6b4a3f4400f18ad9b297a84eb27009e5
+.vscode/chrome-debug/component_crx_cache/eff5c457ecca4e8809fa3106698969a935bd593de366a7c0048c398a59136969
+.vscode/chrome-debug/component_crx_cache/f7dd291984095c875cf829760c12fc0d837da58d22366201bd26fcb6d68ca567
+.vscode/chrome-debug/component_crx_cache/fdecf3eb3750c0780782281c2ca726a897d99b21e9ebacd8ae3e21cf1a231787
+.vscode/chrome-debug/component_crx_cache/metadata.json
+.vscode/chrome-debug/extensions_crx_cache/metadata.json
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-af.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-as.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-be.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-bg.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-bn.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-cs.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-cu.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-cy.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-da.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-de-1901.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-de-1996.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-de-ch-1901.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-el.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-en-gb.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-en-us.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-es.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-et.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-eu.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-fr.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-ga.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-gl.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-gu.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-hi.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-hr.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-hu.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-hy.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-it.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-ka.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-kn.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-la.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-lt.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-lv.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-ml.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-mn-cyrl.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-mr.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-mul-ethi.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-nb.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-nl.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-nn.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-or.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-pa.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-pt.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-ru.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-sk.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-sl.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-sq.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-sv.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-ta.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-te.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-tk.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-uk.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/hyph-und-ethi.hyb
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/manifest.json
+.vscode/chrome-debug/hyphen-data/120.0.6050.0/_metadata/verified_contents.json
+.vscode/chrome-debug/optimization_guide_model_store/13/E6DC4029A1E4B4C1/D85AEF08AADFDDB4/model-info.pb
+.vscode/chrome-debug/optimization_guide_model_store/13/E6DC4029A1E4B4C1/D85AEF08AADFDDB4/model.tflite
+.vscode/chrome-debug/optimization_guide_model_store/15/E6DC4029A1E4B4C1/77CBFFC6416BB93C/model-info.pb
+.vscode/chrome-debug/optimization_guide_model_store/15/E6DC4029A1E4B4C1/77CBFFC6416BB93C/model.tflite
+.vscode/chrome-debug/optimization_guide_model_store/15/E6DC4029A1E4B4C1/77CBFFC6416BB93C/override_list.pb.gz
+.vscode/chrome-debug/optimization_guide_model_store/15/E6DC4029A1E4B4C1/77CBFFC6416BB93C/VERSION.txt
+.vscode/chrome-debug/optimization_guide_model_store/2/E6DC4029A1E4B4C1/708B5E2E18D0003A/model-info.pb
+.vscode/chrome-debug/optimization_guide_model_store/2/E6DC4029A1E4B4C1/708B5E2E18D0003A/model.tflite
+.vscode/chrome-debug/optimization_guide_model_store/20/E6DC4029A1E4B4C1/86AA4C5E97DAFA03/model-info.pb
+.vscode/chrome-debug/optimization_guide_model_store/20/E6DC4029A1E4B4C1/86AA4C5E97DAFA03/model.tflite
+.vscode/chrome-debug/optimization_guide_model_store/24/E6DC4029A1E4B4C1/1591603ABC98F889/enus_denylist_encoded_241007.txt
+.vscode/chrome-debug/optimization_guide_model_store/24/E6DC4029A1E4B4C1/1591603ABC98F889/model-info.pb
+.vscode/chrome-debug/optimization_guide_model_store/24/E6DC4029A1E4B4C1/1591603ABC98F889/model.tflite
+.vscode/chrome-debug/optimization_guide_model_store/24/E6DC4029A1E4B4C1/1591603ABC98F889/vocab_en-us.txt
+.vscode/chrome-debug/optimization_guide_model_store/25/E6DC4029A1E4B4C1/473BD8B1E87E3AFC/model-info.pb
+.vscode/chrome-debug/optimization_guide_model_store/25/E6DC4029A1E4B4C1/473BD8B1E87E3AFC/model.tflite
+.vscode/chrome-debug/optimization_guide_model_store/25/E6DC4029A1E4B4C1/473BD8B1E87E3AFC/visual_model_desktop.tflite
+.vscode/chrome-debug/optimization_guide_model_store/26/E6DC4029A1E4B4C1/4358F641E12E909D/model-info.pb
+.vscode/chrome-debug/optimization_guide_model_store/26/E6DC4029A1E4B4C1/4358F641E12E909D/model.tflite
+.vscode/chrome-debug/optimization_guide_model_store/45/E6DC4029A1E4B4C1/1AEA843E6BC26AE2/model-info.pb
+.vscode/chrome-debug/optimization_guide_model_store/45/E6DC4029A1E4B4C1/1AEA843E6BC26AE2/model.tflite
+.vscode/chrome-debug/optimization_guide_model_store/9/E6DC4029A1E4B4C1/F7C34663B790F928/model-info.pb
+.vscode/chrome-debug/optimization_guide_model_store/9/E6DC4029A1E4B4C1/F7C34663B790F928/model.tflite
+.vscode/chrome-debug/segmentation_platform/ukm_db
+.vscode/chrome-debug/segmentation_platform/ukm_db-wal
