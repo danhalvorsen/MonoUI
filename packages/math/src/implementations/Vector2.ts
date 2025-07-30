@@ -1,4 +1,4 @@
-import { IVector } from '../interfaces/IVector';
+import { IVector } from '../interfaces/IVector.js';
 
 export class Vector2 implements IVector<Vector2> {
   constructor(

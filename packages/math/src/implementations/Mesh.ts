@@ -1,7 +1,7 @@
-import { IMesh } from '../interfaces/IMesh';
-import { IVector } from '../interfaces/IVector';
-import { ILine } from '../interfaces/ILine';
-import { Line } from './Line';
+import { IMesh } from '../interfaces/IMesh.js';
+import { IVector } from '../interfaces/IVector.js';
+import { ILine } from '../interfaces/ILine.js';
+import { Line } from './Line.js';
 
 /**
  * A polygonal mesh implementation consisting of closed loops.

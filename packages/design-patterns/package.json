@@ -17,5 +17,9 @@
     "build": "vite build && tsc --emitDeclarationOnly",
     "test": "vitest run --config vitest.config.ts",
     "test:watch": "vitest --watch --config vitest.config.ts"
+  },
+  "devDependencies": {
+    "vite": "^5.4.19",
+    "vitest": "^2.1.9"
   }
 }

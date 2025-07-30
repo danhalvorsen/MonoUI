@@ -1,8 +1,8 @@
-import { IMatrix } from '../interfaces/IMatrix';
-import { Vector2 } from '../implementations/Vector2';
-import { Vector3 } from '../implementations/Vector3';
-import { ITransform } from '../interfaces/ITransform';
-import { Matrix } from './Matrix4';
+import { IMatrix } from '../interfaces/IMatrix.js';
+import { Vector2 } from '../implementations/Vector2.js';
+import { Vector3 } from '../implementations/Vector3.js';
+import { ITransform } from '../interfaces/ITransform.js';
+import { Matrix } from './Matrix4.js';
 
 export class Transform implements ITransform {
   private matrix: IMatrix;

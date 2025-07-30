@@ -1,4 +1,4 @@
-import { IVector } from './IVector';
+import { IVector } from './IVector.js';
 
 export interface ILine<T extends IVector<T>> {
   A: T;

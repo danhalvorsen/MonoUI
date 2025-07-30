@@ -1,5 +1,5 @@
-import { IInterpolationStrategy } from "../../../interfaces/IInterpolationStrategy";
-import { HermiteSegment } from "./HermiteSegment";
+import { IInterpolationStrategy } from "../../../interfaces/IInterpolationStrategy.js";
+import { HermiteSegment } from "./HermiteSegment.js";
 
 export class HermiteInterpolationStrategy<T> implements IInterpolationStrategy<T, number> {
   constructor(private readonly interpolateFn: (segment: HermiteSegment<T>, t: number) => T) {}

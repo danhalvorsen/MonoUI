@@ -1,7 +1,8 @@
 // File: packages/pipeline-core/src/core/Pipe.ts
-import { IPipe } from './IPipe';
-import { IData } from './IData';
+ 
 import { Result } from '@mr/design-patterns';
+import { IData } from './IData';
+import { IPipe } from './IPipe';
 
 export class Pipe<TData extends IData> implements IPipe<TData, TData> {
   constructor(
@@ -14,3 +15,4 @@ export class Pipe<TData extends IData> implements IPipe<TData, TData> {
     return Result.ok(result);
   }
 }
+

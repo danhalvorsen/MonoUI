@@ -1,5 +1,5 @@
 import { Vector3 } from "three";
-import { IInterpolator } from "../interfaces/IInterpolator";
+import { IInterpolator } from "../interfaces/IInterpolator.js";
  
 export class LinearInterpolator3D implements IInterpolator<Vector3> {
   private _elapsed = 0;

@@ -1,7 +1,7 @@
-import { IControlPointStrategy } from "../../../interfaces/IControlPointStrategy";
-import { IInterpolationStrategy } from "../../../interfaces/IInterpolationStrategy";
-import { ISpline } from "../../../interpolation/ISpline";
-import { HermiteSegment } from "./HermiteSegment";
+import { IControlPointStrategy } from "../../../interfaces/IControlPointStrategy.js";
+import { IInterpolationStrategy } from "../../../interfaces/IInterpolationStrategy.js";
+import { ISpline } from "../../../interpolation/ISpline.js";
+import { HermiteSegment } from "./HermiteSegment.js";
 
 export class HermiteSpline<T> implements ISpline<T> {
     constructor(

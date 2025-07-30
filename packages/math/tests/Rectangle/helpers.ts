@@ -1,11 +1,11 @@
 // File: packages/math/tests/Rectangle/helpers.ts
-import { Vector2 } from '../../src/implementations/Vector2';
-import { Line    } from '../../src/implementations/Line';
-import { Mesh    } from '../../src/implementations/Mesh';
+import { Vector2 } from '../../src/implementations/Vector2.js';
+import { Line    } from '../../src/implementations/Line.js';
+import { Mesh    } from '../../src/implementations/Mesh.js';
 import {
   IRectangle,
   ILine,
-} from '../../src/types/interfaces';
+} from '../../src/types/interfaces.js';
 // Make sure the file exists and exports IRectangle and ILine.
 
 export const DEFAULT_TOL = 1e-10;

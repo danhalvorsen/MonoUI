@@ -13,42 +13,52 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 import { injectable, inject } from 'tsyringe';
 import { MouseController } from './MouseController';
 let DragController = class DragController {
+    mouse;
+    host;
+    dragging = false;
+    startX = 0;
+    startY = 0;
     constructor(mouse) {
         this.mouse = mouse;
-        this.dragging = false;
-        this.startX = 0;
-        this.startY = 0;
-        this.onDown = (e) => {
-            this.dragging = true;
-            this.startX = e.clientX - this.host.offsetLeft;
-            this.startY = e.clientY - this.host.offsetTop;
-        };
-        this.onUp = () => {
-            this.dragging = false;
-        };
-        this.onMove = () => {
-            if (!this.dragging)
-                return;
-            const x = this.mouse.x - this.startX;
-            const y = this.mouse.y - this.startY;
-            this.host.style.left = `${x}px`;
-            this.host.style.top = `${y}px`;
-        };
     }
     setHost(host) {
+        if (!(host instanceof HTMLElement)) {
+            throw new Error('DragController host must be an HTMLElement');
+        }
         this.host = host;
     }
     hostConnected() {
-        this.host.style.position = 'absolute';
-        this.host.addEventListener('pointerdown', this.onDown);
-        window.addEventListener('pointerup', this.onUp);
-        window.addEventListener('pointermove', this.onMove);
+        if (!this.host.style.position || this.host.style.position === 'static') {
+            this.host.style.position = 'absolute';
+        }
+        this.host.addEventListener('pointerdown', this.onDown, { passive: false });
+        window.addEventListener('pointerup', this.onUp, { passive: true });
+        window.addEventListener('pointermove', this.onMove, { passive: true });
     }
     hostDisconnected() {
         this.host.removeEventListener('pointerdown', this.onDown);
         window.removeEventListener('pointerup', this.onUp);
         window.removeEventListener('pointermove', this.onMove);
     }
+    onDown = (e) => {
+        e.preventDefault(); // prevent text selection
+        this.dragging = true;
+        this.startX = e.clientX - this.host.offsetLeft;
+        this.startY = e.clientY - this.host.offsetTop;
+    };
+    onUp = () => {
+        this.dragging = false;
+    };
+    onMove = () => {
+        if (!this.dragging)
+            return;
+        if (this.mouse?.x == null || this.mouse?.y == null)
+            return;
+        const x = this.mouse.x - this.startX;
+        const y = this.mouse.y - this.startY;
+        this.host.style.left = `${x}px`;
+        this.host.style.top = `${y}px`;
+    };
 };
 DragController = __decorate([
     injectable(),

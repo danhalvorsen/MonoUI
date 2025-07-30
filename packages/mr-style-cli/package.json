@@ -11,26 +11,26 @@
       "types": "./dist/index.d.ts"
     }
   },
-"scripts": {
-  "build": "vite build && tsc --emitDeclarationOnly",
-  "test": "vitest",
-  "clean": "rimraf dist"
-},
+  "scripts": {
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "test": "vitest",
+    "clean": "rimraf dist"
+  },
   "files": [
     "dist"
   ],
   "dependencies": {
+    "mr-style": "workspace:*",
     "ts-morph": "^19.0.0",
-    "tsyringe": "^4.8.0",
-    "mr-style": "file:../mr-style"
+    "tsyringe": "^4.8.0"
   },
   "devDependencies": {
-    "vite": "^5.0.0",
-    "vitest": "^2.0.0",
-    "rimraf": "^3.0.2",
     "@types/node": "^20.11.0",
     "@typescript-eslint/eslint-plugin": "^6.18.0",
     "@typescript-eslint/parser": "^6.18.0",
-    "eslint": "^8.56.0"
+    "eslint": "^8.56.0",
+    "rimraf": "^3.0.2",
+    "vite": "^5.4.19",
+    "vitest": "^2.1.9"
   }
 }

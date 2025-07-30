@@ -1,7 +1,7 @@
-import { DependencyContainer, container } from "tsyringe";
 import { IData } from "./IData";
 import { IPipeline } from "./IPipeline";
 import { IPipelineHost } from "./IPipelineHost";
+import { DependencyContainer, container } from "tsyringe";
 
 export class PipelineHost<TData extends IData = IData> implements IPipelineHost {
     private pipelines = new Map<string, IPipeline<TData>>();
@@ -12,7 +12,7 @@ export class PipelineHost<TData extends IData = IData> implements IPipelineHost 
       try {
         registered = this.ioc.resolveAll<IPipeline<TData>>("RoutablePipelines");
       } catch {
-        // No pipelines registered under the token – that's fine, we'll just start empty
+        // No pipelines registered under the token â€“ that's fine, we'll just start empty
       }
       for (const p of registered) this.pipelines.set(p.constructor.name, p);
     }

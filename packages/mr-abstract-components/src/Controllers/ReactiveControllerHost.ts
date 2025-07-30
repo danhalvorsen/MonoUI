@@ -1,0 +1,13 @@
+import { ReactiveController } from "lit";
+import { IReactiveController } from "./IReactiveController.js";
+
+ 
+export interface ReactiveControllerHost {
+ 
+    addController(controller: IReactiveController): void;
+    removeController(controller: IReactiveController): void;
+    requestUpdate(): void;
+    readonly updateComplete: Promise<boolean>;
+}
+
+;

@@ -1,23 +1,16 @@
 {
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
-    "target": "ES2020",
-    "module": "NodeNext",                 // FIX: must match moduleResolution
+    "target": "ES2022",
+    "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "baseUrl": ".",                       // FIX: needed for paths to work
-    "declaration": true,
     "outDir": "dist",
     "rootDir": "src",
-    "strict": true,
+    "declaration": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "types": ["node"],
-    "paths": {
-      "@src/*": ["src/*"],
-      "@mr/design-patterns": ["../../design-patterns/src"]
-    }
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
   },
-  "include": ["src", "src/types"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

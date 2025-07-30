@@ -1,5 +1,5 @@
-import { IVector } from './IVector';
-import { ILine } from './ILine';
+import { IVector } from './IVector.js';
+import { ILine } from './ILine.js';
 
 /**
  * A polygonal mesh consisting of closed loops.

@@ -6,17 +6,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { injectable } from 'tsyringe';
 let ScaleController = class ScaleController {
-    constructor() {
-        this.scale = 1;
-        this.onWheel = (e) => {
-            e.preventDefault();
-            this.scale += e.deltaY > 0 ? -0.1 : 0.1;
-            if (this.scale < 0.1)
-                this.scale = 0.1;
-            this.applyScale();
-            this.host.requestUpdate();
-        };
-    }
+    host;
+    scale = 1;
     setHost(host) {
         this.host = host;
     }
@@ -27,6 +18,14 @@ let ScaleController = class ScaleController {
     hostDisconnected() {
         this.host.removeEventListener('wheel', this.onWheel);
     }
+    onWheel = (e) => {
+        e.preventDefault();
+        this.scale += e.deltaY > 0 ? -0.1 : 0.1;
+        if (this.scale < 0.1)
+            this.scale = 0.1;
+        this.applyScale();
+        this.host.requestUpdate();
+    };
     applyScale() {
         this.host.style.transform = `scale(${this.scale})`;
         this.host.style.transformOrigin = 'top left';

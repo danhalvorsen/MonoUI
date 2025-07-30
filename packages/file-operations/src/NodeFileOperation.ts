@@ -1,6 +1,7 @@
-import { readFileSync, writeFileSync, existsSync } from 'fs';
-import { IFileOperation } from './IFileOperation';
+﻿import { existsSync, readFileSync, writeFileSync } from "fs";
+import { IFileOperation } from "./IFileOperation.js";
 
+ 
 export class NodeFileOperation implements IFileOperation {
   read(path: string): string {
     if (!existsSync(path)) throw new Error(`File not found: ${path}`);
@@ -15,3 +16,4 @@ export class NodeFileOperation implements IFileOperation {
     return existsSync(path);
   }
 }
+

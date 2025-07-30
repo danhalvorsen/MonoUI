@@ -1,5 +1,5 @@
-import { Vector3 } from '../implementations/Vector3';
-import { IControlPointStrategy } from '../interfaces/IControlPointStrategy';
+import { Vector3 } from '../implementations/Vector3.js';
+import { IControlPointStrategy } from '../interfaces/IControlPointStrategy.js';
 
 export class FiniteDifferenceTangentStrategy implements IControlPointStrategy<Vector3> {
 estimate(points: Vector3[], index: number): Vector3 {

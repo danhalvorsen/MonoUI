@@ -7,12 +7,14 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     include: ['tests/**/*.test.ts'],
-    setupFiles: ['./tests/setup.ts'],
   },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
-      '@packages/design-patterns': resolve(__dirname, '../design-patterns/src'),
+      '@mr/design-patterns': resolve(__dirname, '../design-patterns/src'),
     },
+  },
+  optimizeDeps: {
+    include: ['reflect-metadata', 'tsyringe'],
   },
 });

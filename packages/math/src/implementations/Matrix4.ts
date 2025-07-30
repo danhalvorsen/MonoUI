@@ -1,4 +1,4 @@
-import { IMatrix } from '../interfaces/IMatrix';
+import { IMatrix } from '../interfaces/IMatrix.js';
 
 export class Matrix implements IMatrix {
   public static translation(tx: number, ty: number): Matrix {

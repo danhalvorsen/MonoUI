@@ -6,15 +6,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { injectable } from 'tsyringe';
 let MouseController = class MouseController {
-    constructor() {
-        this.x = 0;
-        this.y = 0;
-        this.onMove = (e) => {
-            this.x = e.clientX;
-            this.y = e.clientY;
-            this.host.requestUpdate();
-        };
-    }
+    x = 0;
+    y = 0;
+    host;
     setHost(host) {
         this.host = host;
     }
@@ -24,6 +18,11 @@ let MouseController = class MouseController {
     hostDisconnected() {
         this.host.removeEventListener('pointermove', this.onMove);
     }
+    onMove = (e) => {
+        this.x = e.clientX;
+        this.y = e.clientY;
+        this.host.requestUpdate();
+    };
 };
 MouseController = __decorate([
     injectable()

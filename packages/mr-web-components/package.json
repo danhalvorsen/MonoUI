@@ -7,7 +7,7 @@
   "main": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "vite build && npm run types",
+    "build": "tsc -p tsconfig.json  && npm run types",
     "types": "tsc --emitDeclarationOnly --declaration --declarationMap --project tsconfig.json",
     "clean": "rm -rf dist",
     "lint": "eslint src/**/*.ts",
@@ -23,23 +23,25 @@
   },
   "dependencies": {
     "lit": "^3.3.0",
+    "mr-abstract-components": "workspace:*",
+    "mr-style": "workspace:*",
+    "my-graphics/math": "workspace:*",  
     "reflect-metadata": "^0.2.2",
-    "tsyringe": "^4.10.0",
-    "mr-abstract-components": "*",
-    "mr-style": "*"
+    "tsyringe": "^4.10.0"
   },
   "devDependencies": {
     "@eslint-community/eslint-utils": "^4.7.0",
+    "@playwright/test": "^1.47.0",
+    "@types/node": "^22.0.0",
     "@typescript-eslint/eslint-plugin": "^8.37.0",
     "@typescript-eslint/parser": "^8.37.0",
+    "@vitest/coverage-v8": "^2.1.9",
+    "@vitest/ui": "^2.1.9",
     "eslint": "^9.31.0",
     "eslint-plugin-lit": "^2.1.1",
     "eslint-plugin-lit-a11y": "^5.1.0",
-    "vitest": "^2.0.0",
-    "@vitest/ui": "^2.0.0",
-    "@vitest/coverage-v8": "^2.0.0",
     "jsdom": "^25.0.0",
-    "@playwright/test": "^1.47.0",
-    "@types/node": "^22.0.0"
+    "vite": "^5.4.19",
+    "vitest": "^2.1.9"
   }
 }

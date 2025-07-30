@@ -1,6 +1,6 @@
 // File: tests/Vector3.test.ts
 import { describe, it, expect, beforeEach } from 'vitest';
-import { Vector3 } from '../src/implementations/Vector3'
+import { Vector3 } from '../src/implementations/Vector3.js'
 
 // Reusable comparison helper
 function expectVectorCloseTo(

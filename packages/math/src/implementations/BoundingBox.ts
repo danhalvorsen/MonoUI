@@ -1,5 +1,5 @@
-import { IBoundingBox } from '../interfaces/IBoundingBox';
-import { Vector2 } from './Vector2';
+import { IBoundingBox } from '../interfaces/IBoundingBox.js';
+import { Vector2 } from './Vector2.js';
 
 export class BoundingBox2D implements IBoundingBox {
   constructor(

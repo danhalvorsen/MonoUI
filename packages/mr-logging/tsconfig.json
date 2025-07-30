@@ -1,27 +1,18 @@
+// File: packages/mr-basic/tsconfig.json
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
     "rootDir": "src",
-    "moduleResolution": "node",
+    "outDir": "dist",
     "strict": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "dist",
     "declaration": true,
-    "types": [
-      "vite/client"
-    ],
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/types"
-    ]
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["tests", "node_modules"]
 }

@@ -1,7 +1,7 @@
 // File: packages/math/tests/Rectangle/IRectangle.test.ts
 import { describe, it, expect } from 'vitest';
-import { Vector2 } from '../../src/implementations/Vector2';
-import { makeRect } from './helpers';
+import { Vector2 } from '../../src/implementations/Vector2.js';
+import { makeRect } from './helpers.js';
 
 describe('IRectangle basic geometry operations', () => {
   const insidePoint   = new Vector2(5, 5);

@@ -1,7 +1,7 @@
 
 import { describe, it, expect, beforeEach } from 'vitest';
-import { Matrix } from '../src/implementations/Matrix4';
-import { IMatrix } from '../src/interfaces/IMatrix';
+import { Matrix } from '../src/implementations/Matrix4.js';
+import { IMatrix } from '../src/interfaces/IMatrix.js';
 
 // 🔧 Helper for tolerance-based float comparison
 function float32Equal(

@@ -1,5 +1,5 @@
 // src/exporters/ConsoleExporter.ts
-import { ILogExporter } from "../interfaces/ILogExporter";
+import { ILogExporter } from "../interfaces/ILogExporter.js";
 
 export class ConsoleExporter implements ILogExporter {
   exportLog(level: string, message: string, attributes: Record<string, any> = {}): void {

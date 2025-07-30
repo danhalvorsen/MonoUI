@@ -1,7 +1,7 @@
  
-import { ISpline } from "../../interpolation/ISpline";
-import { IInterpolator } from "../../interfaces/IInterpolator";
-import { Vector3 } from "../Vector3";
+import { ISpline } from "../../interpolation/ISpline.js";
+import { IInterpolator } from "../../interfaces/IInterpolator.js";
+import { Vector3 } from "../Vector3.js";
 
 export class SplineInterpolator3D implements IInterpolator<Vector3> {
   private _elapsed = 0;

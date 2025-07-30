@@ -1,7 +1,7 @@
-import { Matrix } from '../src/implementations/Matrix4'
+import { Matrix } from '../src/implementations/Matrix4.js'
 import { describe, expect, it } from 'vitest';
-import { Vector2 } from '../src/implementations/Vector2';
-import { Transform } from '../src/implementations/Transform';
+import { Vector2 } from '../src/implementations/Vector2.js';
+import { Transform } from '../src/implementations/Transform.js';
 
 describe('Transform.transformVec2', () => {
   it('should apply a 2x2 rotation matrix to a vector', () => {

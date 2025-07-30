@@ -1,13 +1,13 @@
+// File: packages/mr-basic/src/mr-basic.ts
 import 'reflect-metadata';
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { autoInjectable, inject } from 'tsyringe';
-import { ScaleController } from './controllers/ScaleController';
-import { MouseController } from './controllers/MouseController';
-import { DragController } from './controllers/DragController';
+import { container, inject } from 'tsyringe';
+import { ScaleController } from './controllers/ScaleController.js';
+import { MouseController } from './controllers/MouseController.js';
+import { DragController } from './controllers/DragController.js';
 
 @customElement('mr-basic')
-@autoInjectable()
 export class MrBasic extends LitElement {
   static styles = css`
     :host {
@@ -20,24 +20,29 @@ export class MrBasic extends LitElement {
     }
   `;
 
-  constructor(
-    @inject(ScaleController) private scaleController?: ScaleController,
-    @inject(MouseController) private mouseController?: MouseController,
-    @inject(DragController) private dragController?: DragController
-  ) {
-    super();
-    this.scaleController?.setHost(this);
-    this.mouseController?.setHost(this);
-    this.dragController?.setHost(this);
+  private scaleController!: ScaleController;
+  private mouseController!: MouseController;
+  private dragController!: DragController;
 
-    this.addController(this.scaleController!);
-    this.addController(this.mouseController!);
-    this.addController(this.dragController!);
+  constructor() {
+    super();
+    // Resolve dependencies from the container
+    this.scaleController = container.resolve(ScaleController);
+    this.mouseController = container.resolve(MouseController);
+    this.dragController = container.resolve(DragController);
+
+    // Bind host after resolution
+    this.scaleController.setHost(this);
+    this.mouseController.setHost(this);
+    this.dragController.setHost(this);
+
+    // Add controllers to Lit lifecycle
+    this.addController(this.scaleController);
+    this.addController(this.mouseController);
+    this.addController(this.dragController);
   }
 
   render() {
     return html`<slot></slot>`;
   }
 }
-
-export { ScaleController, MouseController, DragController };

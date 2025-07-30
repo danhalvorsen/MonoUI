@@ -1,6 +1,6 @@
 // File: packages/math/tests/Rectangle/Rectangle.union.test.ts
 import { describe, it, expect } from 'vitest';
-import { Rectangle, Vector2 } from '../../dist/index';
+import { Rectangle, Vector2 } from '../../dist/index.js';
 
 describe('Rectangle.union – concrete implementation', () => {
   const cases: Array<[

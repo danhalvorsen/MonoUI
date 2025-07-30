@@ -9,5 +9,4 @@ export * from "./IPhysicObject.js";
 export * from "./SelectionBehavior.js";
 export * from "./ICanvasEngine.js";
 export * from "./IVisualObject.js";
-export * from "./IDraggableVisualObject.js";
 export * from "./IDragBehavior.js";

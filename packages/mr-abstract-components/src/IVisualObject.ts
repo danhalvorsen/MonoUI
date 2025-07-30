@@ -1,8 +1,20 @@
-export interface IVisualObject<C = unknown> {
+import { Vector2 } from "@my-graphics/math";
+
+export interface IVisualObject {
   id: string;
   selected?: boolean;
-  position: { x: number; y: number };
 
+  // Position & size for hit-testing & drag
+  position: { x: number; y: number };
+  size: { width: number; height: number };
+
+  // Dragging support
+  isDraggable?: boolean;
+  onDragStart?: (event: MouseEvent) => void;
+  onDrag?: (event: MouseEvent, dx: number, dy: number) => void;
+  onDragEnd?: (event: MouseEvent) => void;
+
+  // Render/update
   update(dt: number): void;
-  render(ctx: C): void;
+  render(ctx: unknown): void;
 }

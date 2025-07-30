@@ -1,3 +1,4 @@
-export * from './IFileOperation';
-export * from './MockFileOperation';
-export * from './NodeFileOperation';
+﻿ export * from './IFileOperation.js';
+ export * from './NodeFileOperation.js';
+ export * from './MockFileOperation.js';    
+ 

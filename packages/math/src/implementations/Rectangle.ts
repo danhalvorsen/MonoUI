@@ -1,8 +1,8 @@
-import { IRectangle } from '../interfaces/IRectangle';
-import { IMesh } from '../interfaces/IMesh';
-import { Line } from './Line';
-import { Vector2 } from './Vector2';
-import { Mesh } from './Mesh';
+import { IRectangle } from '../interfaces/IRectangle.js';
+import { IMesh } from '../interfaces/IMesh.js';
+import { Line } from './Line.js';
+import { Vector2 } from './Vector2.js';
+import { Mesh } from './Mesh.js';
 
 // Default floating-point tolerance for geometric operations
 const DEFAULT_TOLERANCE = 1e-10;
@@ -16,6 +16,12 @@ export class Rectangle implements IRectangle<Vector2> {
     const br = new Vector2(tr.x, bl.y), tl = new Vector2(bl.x, tr.y);
     this.vertices = [bl, br, tr, tl];
     this.edges = [ new Line(bl,br), new Line(br,tr), new Line(tr,tl), new Line(tl,bl) ];
+  }
+  get width(): number {
+    return this.vertices[2].x - this.vertices[0].x;
+  }
+  get height(): number {
+    return this.vertices[2].y - this.vertices[0].y;
   }
 
   contains(pt: Vector2, tolerance: number = DEFAULT_TOLERANCE): boolean {

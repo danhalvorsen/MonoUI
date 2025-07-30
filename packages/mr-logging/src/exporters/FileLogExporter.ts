@@ -1,6 +1,6 @@
 // src/exporters/FileLogExporter.ts
 import { promises as fs } from "fs";
-import { ILogExporter } from "../interfaces/ILogExporter";
+import { ILogExporter } from "../interfaces/ILogExporter.js";
 import path from "path";
 
 export class FileLogExporter implements ILogExporter {

@@ -15,7 +15,8 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "types": ["node", "vitest"]
+    "types": ["node", "vitest"],
+    "skipLibCheck": true
   },
   "include": ["src", "tests"],           // include tests too
   "exclude": ["node_modules", "dist"]

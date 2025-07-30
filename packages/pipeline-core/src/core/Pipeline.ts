@@ -1,7 +1,6 @@
-// src/core/Pipeline.ts
-import { IPipe } from './IPipe';
-import { IData } from './IData';
-import { IPipeline } from './IPipeline';
+import { IData } from "./IData";
+import { IPipe } from "./IPipe";
+import { IPipeline } from "./IPipeline";
 
 export class Pipeline<TInput extends IData = IData, TOutput extends IData = TInput>
   implements IPipeline<TInput, TOutput> {
@@ -11,7 +10,13 @@ export class Pipeline<TInput extends IData = IData, TOutput extends IData = TInp
   addPipe<TNextOutput extends IData>(
     pipe: IPipe<TOutput, TNextOutput>
   ): Pipeline<TInput, TNextOutput> {
-    this.steps.push((d: TOutput) => pipe.execute(d));
+    this.steps.push(async (d: TOutput) => {
+      const result = await pipe.execute(d);
+      if (!result.isSuccess) {
+        throw new Error(result.errors?.join(', ') || 'Pipeline execution failed');
+      }
+      return result.value!;
+    });
     return this as unknown as Pipeline<TInput, TNextOutput>;
   }
 
@@ -23,3 +28,4 @@ export class Pipeline<TInput extends IData = IData, TOutput extends IData = TInp
     return result as TOutput;
   }
 }
+

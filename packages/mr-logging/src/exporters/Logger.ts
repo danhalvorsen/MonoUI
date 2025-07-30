@@ -1,4 +1,4 @@
-import { ILogExporter } from "../interfaces/ILogExporter";
+import { ILogExporter } from "../interfaces/ILogExporter.js";
 
 export class Logger {
   private exporters: ILogExporter[];

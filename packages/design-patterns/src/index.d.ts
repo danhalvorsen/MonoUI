@@ -1,1 +1,2 @@
-export * from './result/Result';
+﻿export * from 'from '.js';
+

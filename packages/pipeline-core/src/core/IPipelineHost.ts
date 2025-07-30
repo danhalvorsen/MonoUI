@@ -6,3 +6,4 @@ export interface IPipelineHost<TData extends IData = IData> {
   execute(pipelineName: string, data: TData): Promise<TData>;
   getRegistered(): string[];
 }
+

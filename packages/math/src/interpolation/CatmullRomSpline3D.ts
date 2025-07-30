@@ -1,5 +1,5 @@
-import { Vector3 } from '../implementations/Vector3';
-import { ISpline } from './ISpline';
+import { Vector3 } from '../implementations/Vector3.js';
+import { ISpline } from './ISpline.js';
 
 export class CatmullRomSpline3D implements ISpline<Vector3> {
   constructor(private points: Vector3[]) {

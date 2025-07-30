@@ -1,5 +1,6 @@
-import { IFileOperation } from './IFileOperation';
+﻿import { IFileOperation } from "./IFileOperation.js";
 
+ 
 export class MockFileOperation implements IFileOperation {
   private files = new Map<string, string>();
 
@@ -20,3 +21,4 @@ export class MockFileOperation implements IFileOperation {
     this.files.set(path, content);
   }
 }
+

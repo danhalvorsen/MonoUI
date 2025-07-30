@@ -1,5 +1,5 @@
-import { ILine } from "../interfaces/ILine";
-import { IVector } from "../interfaces/IVector";
+import { ILine } from "../interfaces/ILine.js";
+import { IVector } from "../interfaces/IVector.js";
 
 export class Line<T extends IVector<T>> implements ILine<T>{
   constructor(

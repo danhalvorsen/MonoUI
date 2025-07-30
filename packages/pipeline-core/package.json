@@ -18,11 +18,13 @@
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
-    "@mr/design-patterns": "*",
+    "@mr/design-patterns": "workspace:*",
     "reflect-metadata": "^0.2.2",
     "tsyringe": "^4.10.0"
   },
   "devDependencies": {
-    "vitest": "^3.2.4"
+    "vite": "^5.4.19",
+    "vitest": "^2.1.9"
   }
 }
+

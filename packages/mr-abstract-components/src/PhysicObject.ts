@@ -3,18 +3,29 @@
  * Updated: BoundingRectangle now accepts a Rect in its constructor instead of separate x/y/width/height
  */
  
-import { IPhysicObject, Vector2, normalize, add, mul } from "./IPhysicObject.js";
-import { injectable } from "tsyringe";
+import { Rectangle, Vector2 } from "@my-graphics/math";
+import { IPhysicObject } from "./IPhysicObject.js";
+ 
 
-@injectable()
 export class PhysicObject implements IPhysicObject {
+  public _position: Vector2;
+  public _velocity: Vector2;
+  public _acceleration: Vector2;
+  public mass: number = 1;
+  public boundardRectangle: Rectangle = new Rectangle(new Vector2(0, 0), new Vector2(0, 0));
+
   constructor(
-    public readonly mass: number = 1.0,
-    private _position: Vector2,
-    private _velocity: Vector2 = { x: 0, y: 0 },
-    private _acceleration: Vector2 = { x: 0, y: 0 }
+    position: Vector2,
+    velocity: Vector2,
+    acceleration: Vector2,
+    width: number,
+    height: number
   ) {
-    if (mass <= 0) throw new Error("Mass must be positive");
+  
+    this._position = position;
+    this._velocity = velocity;
+    this._acceleration = acceleration;
+    this.boundardRectangle = new Rectangle(new Vector2(0, 0), new Vector2(width, height));
   }
 
   get position(): Vector2 { return this._position; }
@@ -22,12 +33,16 @@ export class PhysicObject implements IPhysicObject {
   get acceleration(): Vector2 { return this._acceleration; }
   set acceleration(a: Vector2) { this._acceleration = a; }
 
-  get direction(): Vector2 { return normalize(this._velocity); }
+  get direction(): Vector2 { return this._velocity.normalize(); }
+
+  get width(): number { return this.boundardRectangle.width; }
+  get height(): number { return this.boundardRectangle.height; }  
+
 
   update(dt: number): void {
     if (dt <= 0 || !Number.isFinite(dt)) return;
-    this._velocity = add(this._velocity, mul(this._acceleration, dt));
-    this._position = add(this._position, mul(this._velocity, dt));
+    this._velocity = this._velocity.add(this._acceleration.scale(dt));
+    this._position = this._position.add(this._velocity.scale(dt));
   }
 
   protected setVelocity(v: Vector2): void { this._velocity = v; }

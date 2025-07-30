@@ -1,7 +1,7 @@
 import { Vector2, Vector3 } from "three";
-import { Matrix } from "../Matrix4";
-import { IMatrix } from "../../interfaces/IMatrix";
-import { ITransform } from "../../interfaces/ITransform";
+import { Matrix } from "../Matrix4.js";
+import { IMatrix } from "../../interfaces/IMatrix.js";
+import { ITransform } from "../../interfaces/ITransform.js";
 
 export class Transform implements ITransform {
   private matrix: IMatrix;

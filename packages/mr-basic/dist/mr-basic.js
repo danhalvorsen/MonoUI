@@ -7,34 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
+// File: packages/mr-basic/src/mr-basic.ts
 import 'reflect-metadata';
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { autoInjectable, inject } from 'tsyringe';
-import { ScaleController } from './controllers/ScaleController';
-import { MouseController } from './controllers/MouseController';
-import { DragController } from './controllers/DragController';
+import { container } from 'tsyringe';
+import { ScaleController } from './controllers/ScaleController.js';
+import { MouseController } from './controllers/MouseController.js';
+import { DragController } from './controllers/DragController.js';
 let MrBasic = class MrBasic extends LitElement {
-    constructor(scaleController, mouseController, dragController) {
-        super();
-        this.scaleController = scaleController;
-        this.mouseController = mouseController;
-        this.dragController = dragController;
-        this.scaleController?.setHost(this);
-        this.mouseController?.setHost(this);
-        this.dragController?.setHost(this);
-        this.addController(this.scaleController);
-        this.addController(this.mouseController);
-        this.addController(this.dragController);
-    }
-    render() {
-        return html `<slot></slot>`;
-    }
-};
-MrBasic.styles = css `
+    static styles = css `
     :host {
       display: block;
       width: 150px;
@@ -44,15 +26,30 @@ MrBasic.styles = css `
       touch-action: none;
     }
   `;
+    scaleController;
+    mouseController;
+    dragController;
+    constructor() {
+        super();
+        // Resolve dependencies from the container
+        this.scaleController = container.resolve(ScaleController);
+        this.mouseController = container.resolve(MouseController);
+        this.dragController = container.resolve(DragController);
+        // Bind host after resolution
+        this.scaleController.setHost(this);
+        this.mouseController.setHost(this);
+        this.dragController.setHost(this);
+        // Add controllers to Lit lifecycle
+        this.addController(this.scaleController);
+        this.addController(this.mouseController);
+        this.addController(this.dragController);
+    }
+    render() {
+        return html `<slot></slot>`;
+    }
+};
 MrBasic = __decorate([
     customElement('mr-basic'),
-    autoInjectable(),
-    __param(0, inject(ScaleController)),
-    __param(1, inject(MouseController)),
-    __param(2, inject(DragController)),
-    __metadata("design:paramtypes", [ScaleController,
-        MouseController,
-        DragController])
+    __metadata("design:paramtypes", [])
 ], MrBasic);
 export { MrBasic };
-export { ScaleController, MouseController, DragController };

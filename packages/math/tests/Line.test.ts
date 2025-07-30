@@ -1,5 +1,5 @@
-import { Line } from '../src/implementations/Line';
-import { Vector3 } from '../src/implementations/Vector3';
+import { Line } from '../src/implementations/Line.js';
+import { Vector3 } from '../src/implementations/Vector3.js';
 
 import { describe, it, expect } from 'vitest';
 

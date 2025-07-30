@@ -1,8 +1,8 @@
-import { Vector3 } from "../src/implementations/Vector3";
-import { Vector3HermiteFn } from "../src/implementations/interpolation/hermiteInterpolation/vector3HermiteFn";
-import { HermiteInterpolationStrategy } from "../src/implementations/interpolation/hermiteInterpolation/HermiteInterpolationStrategy";
+import { Vector3 } from "../src/implementations/Vector3.js";
+import { Vector3HermiteFn } from "../src/implementations/interpolation/hermiteInterpolation/vector3HermiteFn.js";
+import { HermiteInterpolationStrategy } from "../src/implementations/interpolation/hermiteInterpolation/HermiteInterpolationStrategy.js";
 import { describe, it, expect } from "vitest";
-import { HermiteSpline } from "../src/implementations/interpolation/hermiteInterpolation/HermiteSpline";
+import { HermiteSpline } from "../src/implementations/interpolation/hermiteInterpolation/HermiteSpline.js";
 
 class FiniteDifferenceTangentStrategy {
   estimate(points: Vector3[], index: number): Vector3 {
