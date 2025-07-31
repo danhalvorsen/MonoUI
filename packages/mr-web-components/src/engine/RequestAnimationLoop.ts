@@ -1,4 +1,4 @@
-import { IAnimationLoop } from 'mr-abstract-components';
+import type { IAnimationLoop } from 'mr-abstract-components';
 
 export class RequestAnimationLoop implements IAnimationLoop {
   private running = false;

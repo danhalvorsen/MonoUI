@@ -6,7 +6,8 @@ export default defineConfig({
   publicDir: 'public',
   resolve: {
     alias: {
-      'mr-web-compoents': path.resolve(__dirname, '../../packages/mr-web-components/dist/index.js'),
+      'mr-web-components': path.resolve(__dirname, '../../packages/mr-web-components/dist/src/index.js'),
+      '@my-graphics/math': path.resolve(__dirname, '../../packages/math/dist/index.js'),
       '@': path.resolve(__dirname, 'src')
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.mjs'],

@@ -2,8 +2,8 @@
     "compilerOptions": {
       "outDir": "dist",
       "rootDir": "src",
-      "module": "ESNext",
-      "moduleResolution": "Node",
+      "module": "NodeNext",
+      "moduleResolution": "nodenext",
       "target": "ES2021",
       "lib": ["DOM", "ES2021"],
       "types": ["vite/client"],

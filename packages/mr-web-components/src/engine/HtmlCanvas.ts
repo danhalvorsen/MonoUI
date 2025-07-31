@@ -1,10 +1,10 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { IVisualObject } from 'mr-abstract-components';
+import { VisualRectangle } from '../visualObjects/VisualRectangle.js';
 import { RequestAnimationLoop } from "./RequestAnimationLoop.js";
- 
+import type { IVisualObject } from 'mr-abstract-components';
 import { DragController } from '../controllers/DragController.js';
-import { VisualRectangle } from "../VisualObjects/VisualRectangle.js";
+ 
 
 @customElement('html-canvas')
 export class HtmlCanvas extends LitElement
@@ -26,7 +26,7 @@ export class HtmlCanvas extends LitElement
   
   // Property to add visual objects declaratively or programmatically
   @property({ type: Array, attribute: false })
-  objects: IVisualObject[] = [];
+  objects: VisualRectangle[] = [];
   
   // String attribute for adding objects via JSON (for declarative HTML usage)
   @property({ type: String, attribute: 'objects-json' })
@@ -35,7 +35,7 @@ export class HtmlCanvas extends LitElement
   @query('canvas')
   private _canvas!: HTMLCanvasElement;
   private _ctx!: CanvasRenderingContext2D;
-  private _objects: IVisualObject[] = [];
+  private _objects: VisualRectangle[] = [];
   private _loop = new RequestAnimationLoop();
   private _dragController = new DragController();
   
@@ -49,7 +49,7 @@ export class HtmlCanvas extends LitElement
   // DragControllerHost interface implementation
   get canvas(): HTMLCanvasElement { return this._canvas; }
   
-  getObjectAt(x: number, y: number): IVisualObject | null {
+  getObjectAt(x: number, y: number): VisualRectangle | null {
     // Check objects in reverse order (top to bottom)
     for (let i = this._objects.length - 1; i >= 0; i--) {
       const obj = this._objects[i];
@@ -61,7 +61,7 @@ export class HtmlCanvas extends LitElement
           'position' in obj && 
           'size' in obj && 
           'isDraggable' in obj) {
-        const draggableObj = obj as unknown as IVisualObject;
+        const draggableObj = obj as unknown as VisualRectangle;
         
         // Only consider objects that are actually draggable
         if (draggableObj.isDraggable !== false) {
@@ -144,22 +144,22 @@ export class HtmlCanvas extends LitElement
     // this.add(rect2);
   }
 
-  add(obj: IVisualObject): void {
+  add(obj: VisualRectangle): void {
     this._objects.push(obj);
     // Keep the reactive property in sync
     this.objects = [...this._objects];
   }
 
   // Convenient method to add multiple objects at once
-  addObjects(objects: IVisualObject[]): void {
+  addObjects(objects: VisualRectangle[]): void {
     this._objects.push(...objects);
     this.objects = [...this._objects];
   }
 
   // Overloads to remain compatible with HTMLElement.remove()
   remove(): void;
-  remove(obj: IVisualObject): void;
-  remove(obj?: IVisualObject): void {
+  remove(obj: VisualRectangle): void;
+  remove(obj?: VisualRectangle): void {
     if (obj) {
       const idx = this._objects.indexOf(obj);
       if (idx >= 0) {
@@ -211,7 +211,7 @@ export class HtmlCanvas extends LitElement
         
         // Evaluate each condition separately
         const xMin = mouseX >= obj.position.x;
-        const xMax = mouseX <= obj.position.x + obj.size.width;
+        const xMax = mouseX <= obj.position.x + obj.width;
         const yMin = mouseY >= obj.position.y;
         const yMax = mouseY <= obj.position.y + obj.height;
         

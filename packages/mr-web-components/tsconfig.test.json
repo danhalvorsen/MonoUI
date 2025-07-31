@@ -1,16 +1,7 @@
 {
-    "compilerOptions": {
-      "target": "ESNext",
-      "module": "NodeNext",
-      "moduleResolution": "NodeNext",
-      "noEmit": true,
-      "types": ["vitest/globals"],
-      "esModuleInterop": true,
-      "strict": true,
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true
-    },
-    "include": ["src", "tests"],
-    "exclude": ["dist", "node_modules"]
-  }
-  
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["vitest/globals"]
+  },
+  "include": ["tests"]
+}

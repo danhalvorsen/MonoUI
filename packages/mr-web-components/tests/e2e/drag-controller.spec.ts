@@ -9,8 +9,6 @@ test.describe('DragController E2E Tests', () => {
     
     // Navigate to the demo app
     await page.goto('http://localhost:5174');
-    
-    // Wait for the canvas to be ready
     canvas = page.locator('html-canvas');
     await expect(canvas).toBeVisible();
     

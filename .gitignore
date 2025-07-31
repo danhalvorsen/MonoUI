@@ -19,7 +19,6 @@ Thumbs.db
 
 # Others
 .env
- 
 packages/mr-slider/dist/mr-slider.js
 **/tsconfig.build.tsbuildinfo
 .vscode/chrome-debug/
@@ -27,4 +26,6 @@ tsconfig.tsbuildinfo
 **./tsconfig.tsbuildinfo
 **./*.d.ts
 **./*.js
+
+**/chrome-debug-simple
 # Ignore all .d.ts files in 

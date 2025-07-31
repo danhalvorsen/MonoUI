@@ -1,7 +1,6 @@
 import { describe, it, expect, beforeEach, vi, type MockedFunction } from 'vitest';
-import { DragController, DragCapableHost } from '../src/controllers/DragController.js';
-import { ReactiveControllerHost } from 'lit';
-import { IVisualObject } from '@packages/mr-abstract-components';
+import { DragController, type DragCapableHost } from '../src/controllers/DragController.js';
+import { type IVisualObject } from 'mr-abstract-components';
 
 // Mock HTML elements
 class MockCanvas extends EventTarget {
@@ -133,23 +132,34 @@ describe('DragController', () => {
     });
 
     it('should start drag when clicking on draggable object', () => {
-      const mouseEvent = new MouseEvent('mousedown', {
+      const mouseDownEvent = new MouseEvent('mousedown', {
         clientX: 125, // Within object bounds (100-150)
         clientY: 125  // Within object bounds (100-150)
       });
 
-      // Simulate mouse down
+      const mouseMoveEvent = new MouseEvent('mousemove', {
+        clientX: 130, // Move 5 pixels (exceeds 3-pixel threshold)
+        clientY: 130  // Move 5 pixels (exceeds 3-pixel threshold)
+      });
+
+      // Get event handlers
       const addEventListenerMock = mockHost.canvas.addEventListener as any;
       const mouseDownHandler = addEventListenerMock.mock.calls
         .find((call: any) => call[0] === 'mousedown')?.[1];
+      const mouseMoveHandler = addEventListenerMock.mock.calls
+        .find((call: any) => call[0] === 'mousemove')?.[1];
 
+      // Simulate mouse down then move
       if (mouseDownHandler) {
-        mouseDownHandler(mouseEvent);
+        mouseDownHandler(mouseDownEvent);
+      }
+      if (mouseMoveHandler) {
+        mouseMoveHandler(mouseMoveEvent);
       }
 
       expect(dragController.isCurrentlyDragging).toBe(true);
       expect(dragController.currentDragTarget).toBe(mockObject);
-      expect(mockObject.onDragStart).toHaveBeenCalledWith(mouseEvent);
+      expect(mockObject.onDragStart).toHaveBeenCalledWith(mouseMoveEvent);
       expect(mockHost.canvas.style.cursor).toBe('grabbing');
     });
 
@@ -189,102 +199,136 @@ describe('DragController', () => {
         expect(dragController.isCurrentlyDragging).toBe(false);
         expect(dragController.currentDragTarget).toBe(null);
       }
-
-      it('should update object position during drag', () => {
-        // Start drag
-        dragController.startDrag(mockObject, 125, 125);
-
-        const initialX = mockObject.x;
-        const initialY = mockObject.y;
-
-        // Simulate mouse move
-        const mouseMoveEvent = new MouseEvent('mousemove', {
-          clientX: 135, // Move 10 pixels right
-          clientY: 135  // Move 10 pixels down
-        });
-
-        const addEventListenerMock = mockHost.canvas.addEventListener as any;
-        const mouseMoveHandler = addEventListenerMock.mock.calls
-          .find((call: any) => call[0] === 'mousemove')?.[1];
-
-        if (mouseMoveHandler) {
-          mouseMoveHandler(mouseMoveEvent);
-        }
-
-        expect(mockObject.x).toBe(initialX + 10);
-        expect(mockObject.y).toBe(initialY + 10);
-        expect(mockObject.onDrag).toHaveBeenCalledWith(mouseMoveEvent, 10, 10);
-        expect(mockHost.requestUpdate).toHaveBeenCalled();
-      });
-
-      it('should end drag on mouse up', () => {
-        // Start drag
-        dragController.startDrag(mockObject, 125, 125);
-
-        const mouseUpEvent = new MouseEvent('mouseup');
-
-        const mouseUpHandler = (mockHost.canvas.addEventListener as MockedFunction<any>).mock.calls
-          .find(call => call[0] === 'mouseup')?.[1];
-
-        if (typeof mouseUpHandler === 'function') {
-          mouseUpHandler(mouseUpEvent);
-
-          expect(dragController.isCurrentlyDragging).toBe(false);
-          expect(dragController.currentDragTarget).toBe(null);
-          expect(mockObject.onDragEnd).toHaveBeenCalledWith(mouseUpEvent);
-          expect(mockHost.canvas.style.cursor).toBe('default');
-        }
-      });
     });
 
-    describe('Public API', () => {
-      it('should allow programmatic drag start', () => {
-        dragController.startDrag(mockObject, 100, 100);
-        expect(dragController.isCurrentlyDragging).toBe(true);
-        expect(dragController.currentDragTarget).toBe(mockObject);
+    it('should update object position during drag', () => {
+      const initialX = mockObject.position.x;
+      const initialY = mockObject.position.y;
+
+      // Simulate proper drag sequence: mousedown → mousemove
+      const mouseDownEvent = new MouseEvent('mousedown', {
+        clientX: 125,
+        clientY: 125
       });
 
-      it('should allow programmatic drag stop', () => {
-        dragController.startDrag(mockObject, 100, 100);
-        dragController.stopDrag();
+      const mouseMoveEvent = new MouseEvent('mousemove', {
+        clientX: 135, // Move 10 pixels right
+        clientY: 135  // Move 10 pixels down
+      });
+
+      // Get event handlers
+      const addEventListenerMock = mockHost.canvas.addEventListener as any;
+      const mouseDownHandler = addEventListenerMock.mock.calls
+        .find((call: any) => call[0] === 'mousedown')?.[1];
+      const mouseMoveHandler = addEventListenerMock.mock.calls
+        .find((call: any) => call[0] === 'mousemove')?.[1];
+
+      // Simulate the drag sequence
+      if (mouseDownHandler) {
+        mouseDownHandler(mouseDownEvent);
+      }
+      if (mouseMoveHandler) {
+        mouseMoveHandler(mouseMoveEvent);
+      }
+
+      expect(mockObject.position.x).toBe(initialX + 10);
+      expect(mockObject.position.y).toBe(initialY + 10);
+      expect(mockObject.onDrag).toHaveBeenCalledWith(mouseMoveEvent, 10, 10);
+      expect(mockHost.requestUpdate).toHaveBeenCalled();
+    });
+
+    it('should end drag on mouse up', () => {
+      // Simulate proper drag sequence: mousedown → mousemove → mouseup
+      const mouseDownEvent = new MouseEvent('mousedown', {
+        clientX: 125,
+        clientY: 125
+      });
+
+      const mouseMoveEvent = new MouseEvent('mousemove', {
+        clientX: 130, // Move 5 pixels (exceeds 3-pixel threshold)
+        clientY: 130
+      });
+
+      const mouseUpEvent = new MouseEvent('mouseup');
+
+      // Get event handlers
+      const addEventListenerMock = mockHost.canvas.addEventListener as any;
+      const mouseDownHandler = addEventListenerMock.mock.calls
+        .find((call: any) => call[0] === 'mousedown')?.[1];
+      const mouseMoveHandler = addEventListenerMock.mock.calls
+        .find((call: any) => call[0] === 'mousemove')?.[1];
+      const mouseUpHandler = addEventListenerMock.mock.calls
+        .find((call: any) => call[0] === 'mouseup')?.[1];
+
+      // Simulate the complete drag sequence
+      if (mouseDownHandler) {
+        mouseDownHandler(mouseDownEvent);
+      }
+      if (mouseMoveHandler) {
+        mouseMoveHandler(mouseMoveEvent);
+      }
+      if (mouseUpHandler) {
+        mouseUpHandler(mouseUpEvent);
 
         expect(dragController.isCurrentlyDragging).toBe(false);
         expect(dragController.currentDragTarget).toBe(null);
-      });
+        expect(mockObject.onDragEnd).toHaveBeenCalledWith(mouseUpEvent);
+        expect(mockHost.canvas.style.cursor).toBe('default');
+      }
+    });
+  });
 
-      it('should not start drag programmatically if object is not draggable', () => {
-        mockObject.isDraggable = false;
-
-        dragController.startDrag(mockObject, 100, 100);
-
-        expect(dragController.isCurrentlyDragging).toBe(false);
-        expect(dragController.currentDragTarget).toBe(null);
-      });
+  describe('Public API', () => {
+    it('should allow programmatic drag start', () => {
+      dragController.startDrag(mockObject, 100, 100);
+      expect(dragController.isCurrentlyDragging).toBe(true);
+      expect(dragController.currentDragTarget).toBe(mockObject);
     });
 
-    describe('Coordinate Scaling', () => {
-      it('should handle canvas scaling correctly', () => {
-        // Set up scaled canvas
-        mockHost.canvas.width = 1600;  // 2x scale
-        mockHost.canvas.height = 1200; // 2x scale
-        (mockHost.canvas as any).clientWidth = 800;
-        (mockHost.canvas as any).clientHeight = 600;
+    it('should allow programmatic drag stop', () => {
+      dragController.startDrag(mockObject, 100, 100);
+      dragController.stopDrag();
 
-        const mouseEvent = new MouseEvent('mousedown', {
-          clientX: 100, // Screen coordinates
-          clientY: 100
-        });
+      expect(dragController.isCurrentlyDragging).toBe(false);
+      expect(dragController.currentDragTarget).toBe(null);
+    });
 
-        const mouseDownHandler = (mockHost.canvas.addEventListener as MockedFunction<any>).mock.calls
-          .find(call => call[0] === 'mousedown')?.[1];
+    it('should not start drag programmatically if object is not draggable', () => {
+      mockObject.isDraggable = false;
 
-        if (typeof mouseDownHandler === 'function') {
-          mouseDownHandler(mouseEvent);
-        }
+      dragController.startDrag(mockObject, 100, 100);
 
-        // Should call getObjectAt with scaled coordinates (200, 200)
-        expect(mockHost.getObjectAt).toHaveBeenCalledWith(200, 200);
+      expect(dragController.isCurrentlyDragging).toBe(false);
+      expect(dragController.currentDragTarget).toBe(null);
+    });
+  });
+
+  describe('Coordinate Scaling', () => {
+    it('should handle canvas scaling correctly', () => {
+      // Connect the drag controller to attach event listeners
+      dragController.hostConnected();
+      
+      // Set up scaled canvas
+      mockHost.canvas.width = 1600;  // 2x scale
+      mockHost.canvas.height = 1200; // 2x scale
+      (mockHost.canvas as any).clientWidth = 800;
+      (mockHost.canvas as any).clientHeight = 600;
+
+      const mouseEvent = new MouseEvent('mousedown', {
+        clientX: 100, // Screen coordinates
+        clientY: 100
       });
+
+      const mouseDownHandler = (mockHost.canvas.addEventListener as MockedFunction<any>).mock.calls
+        .find(call => call[0] === 'mousedown')?.[1];
+
+      if (typeof mouseDownHandler === 'function') {
+        mouseDownHandler(mouseEvent);
+      }
+
+      // Should call getObjectAt with scaled coordinates (200, 200)
+      expect(mockHost.getObjectAt).toHaveBeenCalledWith(200, 200);
     });
   });
 });
+

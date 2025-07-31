@@ -1,6 +1,7 @@
-import { ReactiveController, ReactiveControllerHost } from 'lit';
-import { IVisualObject } from 'mr-abstract-components';
+import type { ReactiveController, ReactiveControllerHost } from "lit";
+import type { IVisualObject } from 'mr-abstract-components';
 
+ 
 // Host type for canvas-enabled components
 export type DragCapableHost = ReactiveControllerHost & {
   canvas?: HTMLCanvasElement;
@@ -28,7 +29,7 @@ export class DragController implements ReactiveController {
 
   setHost(host: DragCapableHost) {
     this.host = host;
-    if (this.host) {
+    if (this.host && 'addController' in this.host && typeof this.host.addController === 'function') {
       this.host.addController(this);
     }
   }
@@ -69,7 +70,7 @@ export class DragController implements ReactiveController {
 
     const target = this.host.getObjectAt(mouseX, mouseY);
 
-    if (target) {
+    if (target && target.isDraggable !== false) {
       this.dragTarget = target;
       this.lastMouseX = mouseX;
       this.lastMouseY = mouseY;

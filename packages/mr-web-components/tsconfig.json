@@ -1,19 +1,19 @@
 {
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
+    "types": [],
+    "skipLibCheck": true,
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "declaration": true,
     "outDir": "dist",
-    "rootDir": "src",
-    "strict": true,
+    "declaration": true,
+    "declarationMap": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": false,
+    "useDefineForClassFields": false,
+    "verbatimModuleSyntax": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "tests"]
+
+  }
 }

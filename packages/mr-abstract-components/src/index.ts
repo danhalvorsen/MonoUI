@@ -10,3 +10,8 @@ export * from "./SelectionBehavior.js";
 export * from "./ICanvasEngine.js";
 export * from "./IVisualObject.js";
 export * from "./IDragBehavior.js";
+export * from "./Connectors/IConnector.js";
+export * from "./IRope.js";
+
+// Export IStyle from IVisualObject
+export type { IStyle } from "./IVisualObject.js";

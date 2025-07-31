@@ -1,29 +1,15 @@
+// vitest.config.ts
 import { defineConfig } from 'vitest/config';
-import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   test: {
-    environment: 'jsdom',
+    environment: 'chromium',
+    setupFiles: resolve(__dirname, './src/test-setup.ts'),
+    exclude: ['**/node_modules/**'],
     globals: true,
-    setupFiles: ['./src/test-setup.ts'],
-    include: ['src/**/*.{test,spec}.{js,ts}'],
-    coverage: {
-      reporter: ['text', 'json', 'html'],
-      include: ['src/**/*.{js,ts}'],
-      exclude: [
-        'src/**/*.{test,spec}.{js,ts}',
-        'src/test-setup.ts',
-        'src/**/__tests__/**',
-        'dist/**'
-      ]
-    }
   },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-    }
-  },
-  esbuild: {
-    target: 'es2022'
-  }
 });
