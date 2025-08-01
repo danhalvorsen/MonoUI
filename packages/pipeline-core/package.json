@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@mr/design-patterns": "workspace:*",
+    "mr-abstract-components": "workspace:*",
     "reflect-metadata": "^0.2.2",
     "tsyringe": "^4.10.0"
   },

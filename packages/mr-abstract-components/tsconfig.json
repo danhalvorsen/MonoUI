@@ -5,12 +5,14 @@
     "moduleResolution": "NodeNext",
     "outDir": "dist",
     "rootDir": "src",
-    "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "declaration": true,
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../mr-web-components/src/controllers/ReactiveController.ts"],
   "exclude": ["node_modules", "dist"]
 }

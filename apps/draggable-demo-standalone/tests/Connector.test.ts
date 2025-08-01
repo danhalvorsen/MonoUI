@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { Connector } from '../../../packages/mr-web-components/src/Connectors/Connector';
-import { VisualRectangle } from '../../../packages/mr-web-components/src/VisualObjects/VisualRectangle';
+import { VisualRectangle } from 'mr-web-components/src/visual/VisualRectangle';
 import { Vector2 } from '@my-graphics/math';
 
 describe('Connector', () => {

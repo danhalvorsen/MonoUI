@@ -1,0 +1,16 @@
+import { IController } from "../IController.js";
+import { IGridFeature } from "./IVisualGrid.js";
+
+export interface IGridController extends IController {
+    gridFeature: IGridFeature;
+    enabled: boolean;
+    
+    /** Enable/disable grid functionality */
+    setEnabled(enabled: boolean): void;
+    
+    /** Update grid configuration */
+    updateGridConfiguration(config: Partial<IGridFeature>): void;
+    
+    /** Check if point snaps to grid */
+    snapToGrid(x: number, y: number): { x: number; y: number } | null;
+}
