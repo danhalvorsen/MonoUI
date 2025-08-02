@@ -1,17 +1,18 @@
-import type { ChangedProperties, IConnector, IPhysicObject, IVisualObject } from "mr-abstract-components";
+import type { ChangedProperties, IConnector, IPhysicObject, IStyle, IVisualObject } from "mr-abstract-components";
 import { Vector2 } from '@my-graphics/math';
- import { ConnectorTokenService } from 'mr-style';
- 
+import { ConnectorTokenService } from 'mr-style';
+
 export class Connector implements IConnector {
     private connectedObject?: IVisualObject;
     private hostObject?: IVisualObject;
-    private relativePosition: { x: number; y: number; }; // Position relative to host
+    private relativePosition: Vector2; // Position relative to host
 
     physical: IPhysicObject;
     id: string;
     selected?: boolean;
-    position: { x: number; y: number; };
-    size: { width: number; height: number; };
+    isActive?: boolean;
+   
+    
     isDraggable?: boolean;
     
     // Style tokens for mr-design system
@@ -26,9 +27,9 @@ export class Connector implements IConnector {
     ) {
         this.id = id;
         this.hostObject = hostObject;
-        this.relativePosition = { x: relativeX, y: relativeY };
-        this.position = { x: 0, y: 0 };
-        this.size = { width: 12, height: 12 }; // Default connector size
+        this.relativePosition = new Vector2(relativeX, relativeY);
+        this.physical.Posistionosition = new Vector2(0, 0);
+        this.physical.size = { width: 12, height: 12 }; // Default connector size
         this.isDraggable = false; // Connectors should not be draggable
         this.physical = {} as IPhysicObject; // TODO: Implement proper physics object
         this.tokenService = tokenService || new ConnectorTokenService();
@@ -36,6 +37,22 @@ export class Connector implements IConnector {
         // Update initial position based on host
         this.updatePositionFromHost();
     }
+    isConnected: boolean;
+    relativeOffset?: { x: number; y: number; };
+    canConnectTo(target: any): boolean {
+        throw new Error("Method not implemented.");
+    }
+    connectTo(target: any): void {
+        throw new Error("Method not implemented.");
+    }
+    disconnect(): void {
+        throw new Error("Method not implemented.");
+    }
+    enabled?: boolean;
+    physicObject?: IPhysicObject;
+    position: Vector2;
+    style?: IStyle;
+    connectors?: IConnector[];
     onDragStart?: (event: MouseEvent) => void;
     onDrag?: (event: MouseEvent, dx: number, dy: number) => void;
     onDragEnd?: (event: MouseEvent) => void;
@@ -51,18 +68,18 @@ export class Connector implements IConnector {
         // TODO: Add any connector-specific update logic here
     }
     
-    private updatePositionFromHost(): void {
+    public updatePositionFromHost(): void {
         if (this.hostObject) {
             // Calculate absolute position based on host position + relative offset
-            this.position.x = this.hostObject.position.x + this.relativePosition.x;
-            this.position.y = this.hostObject.position.y + this.relativePosition.y;
+            this.physical.position.x = this.hostObject.position.x + this.relativePosition.x;
+            this.physical.position.y = this.hostObject.position.y + this.relativePosition.y;
         }
     }
     
     // Method to set or change the host object
     setHost(hostObject: IVisualObject, relativeX: number = 0, relativeY: number = 0): void {
         this.hostObject = hostObject;
-        this.relativePosition = { x: relativeX, y: relativeY };
+        this.relativePosition = new Vector2(relativeX, relativeY);
         this.updatePositionFromHost();
     }
     
@@ -90,8 +107,8 @@ export class Connector implements IConnector {
         const borderRadius = this.tokenService.borderRadius;
 
         // Calculate square position (centered on connector position)
-        const x = this.position.x - size / 2;
-        const y = this.position.y - size / 2;
+        const x = this.physical.position.x - size / 2;
+        const y = this.physical.position.y - size / 2;
 
         // Draw filled square with rounded corners
         ctx.fillStyle = fillColor;
@@ -109,8 +126,8 @@ export class Connector implements IConnector {
         // Draw connection indicator if connected
         if (this.IsConnected()) {
             const indicatorSize = size * 0.4;
-            const indicatorX = this.position.x - indicatorSize / 2;
-            const indicatorY = this.position.y - indicatorSize / 2;
+            const indicatorX = this.physical.position.x - indicatorSize / 2;
+            const indicatorY = this.physical.position.y - indicatorSize / 2;
             
             ctx.fillStyle = '#ffffff';
             ctx.beginPath();

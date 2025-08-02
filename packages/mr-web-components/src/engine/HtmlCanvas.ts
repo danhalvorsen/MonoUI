@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
-import { VisualRectangle } from '../visualObjects/VisualRectangle.js';
+import { VisualRectangle } from '../visual/VisualRectangle.js';
 import { RequestAnimationLoop } from "./RequestAnimationLoop.js";
 import type { IVisualObject } from 'mr-abstract-components';
 import { DragController } from '../controllers/DragController.js';

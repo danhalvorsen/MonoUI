@@ -1,4 +1,5 @@
-import { Vector3 } from "three";
+
+import { Vector3 } from "../implementations/Vector3.js";
 import { IInterpolator } from "../interfaces/IInterpolator.js";
  
 export class LinearInterpolator3D implements IInterpolator<Vector3> {

@@ -1,5 +1,5 @@
-import { ICoordinateSystem } from '../coordinates/ICoordinateSystem';
-import { IPoint } from '../coordinates/ICoordinateSystem';
+import { ICoordinateSystem } from '../Helpers/IMapCoordinateSystem';
+import { IPoint } from '../Helpers/IMapCoordinateSystem';
 
 /**
  * Utility class for common coordinate conversion operations

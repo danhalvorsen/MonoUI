@@ -1,7 +1,7 @@
 import { VisualRectangle } from 'mr-web-components';
 import { Vector2 } from '@my-graphics/math';
 import { CanvasDarkTheme } from 'mr-style';
-import { Rope } from '../objects/Rope';
+ 
 
 /**
  * Configuration service for the draggable demo

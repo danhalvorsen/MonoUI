@@ -1,5 +1,5 @@
 {
-  "name": "@mono/json-io",
+  "name": "json-operations",
   "type": "module",
   "version": "0.1.0",
   "main": "dist/index.js",

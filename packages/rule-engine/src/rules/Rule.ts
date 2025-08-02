@@ -11,6 +11,7 @@ export abstract class Rule<T> {
 
   /** Optional custom message template */
   public messageTemplate?: ITemplate;
+  public message?: string;
 
   constructor(name: string) {
     this.name = name;

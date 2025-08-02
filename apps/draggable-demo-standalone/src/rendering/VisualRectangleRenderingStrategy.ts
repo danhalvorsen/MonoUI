@@ -1,5 +1,5 @@
 import { BaseRenderingStrategy } from './IRenderingStrategy';
-import { VisualRectangle } from '../../../packages/mr-web-components/src/VisualObjects/VisualRectangle';
+import { VisualRectangle } from 'mr-web-components';
 
 /**
  * Rendering strategy specifically for VisualRectangle objects
@@ -36,13 +36,13 @@ export class VisualRectangleRenderingStrategy extends BaseRenderingStrategy<Visu
 
     // Draw the rectangle
     ctx.fillStyle = fillColor;
-    ctx.fillRect(rectangle.position.x, rectangle.position.y, rectangle.width, rectangle.height);
+    ctx.fillRect(rectangle.position.x, rectangle.position.y, rectangle.Width, rectangle.Height);
 
     // Draw border if specified
     if (borderWidth > 0) {
       ctx.strokeStyle = borderColor;
       ctx.lineWidth = borderWidth;
-      ctx.strokeRect(rectangle.position.x, rectangle.position.y, rectangle.width, rectangle.height);
+      ctx.strokeRect(rectangle.position.x, rectangle.position.y, rectangle.Width, rectangle.Height);
     }
 
     // Draw selection indicator if selected
@@ -56,8 +56,8 @@ export class VisualRectangleRenderingStrategy extends BaseRenderingStrategy<Visu
       ctx.strokeRect(
         rectangle.position.x - selectionOffset, 
         rectangle.position.y - selectionOffset, 
-        rectangle.width + (selectionOffset * 2), 
-        rectangle.height + (selectionOffset * 2)
+        rectangle.Width + (selectionOffset * 2), 
+        rectangle.Height + (selectionOffset * 2)
       );
     }
   }

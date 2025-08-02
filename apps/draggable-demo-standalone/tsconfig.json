@@ -13,6 +13,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
+    "sourceMap": true,
+    "inlineSources": true,
+    "declaration": true,
     "paths": {
       "@my-graphics/math": ["../../packages/math/src"]
     }

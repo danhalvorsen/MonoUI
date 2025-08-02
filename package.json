@@ -8,6 +8,7 @@
     "packages/*"
   ],
   "scripts": {
+   "generate-barrels": "barrelbot ./packages/mr-abstract-components/src",
     "build": "npm run build --workspaces",
     "build:packages": "npm run build --workspace packages/*",
     "build:apps": "npm run build --workspace apps/*",
@@ -17,12 +18,11 @@
   },
   "devDependencies": {
     "@babel/parser": "^7.24.0",
-
     "@types/node": "^20.19.9",
     "@typescript-eslint/eslint-plugin": "^6.18.0",
     "@typescript-eslint/parser": "^6.18.0",
+    "barrelsby": "^2.8.1",
     "chai": "^5.2.1",
-
     "cross-env": "^7.0.3",
     "eslint": "^8.56.0",
     "glob": "^10.1.0",

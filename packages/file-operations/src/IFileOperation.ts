@@ -3,3 +3,4 @@ export interface IFileOperation {
   write(path: string, content: string): void;
   exists(path: string): boolean;
 }
+

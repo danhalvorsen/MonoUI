@@ -1,13 +1,14 @@
-import { CanvasEngine } from './CanvasEngine.js';
+import { CanvasEngine } from './canvas/CanvasEngine.js';
 import { Vector2 } from '@my-graphics/math';
 
-import { DragHostService } from './services/DragHostService.js';
-import { DemoConfig } from './config/DemoConfig.js';
-import { CartesianDragController } from './controllers/CartesianDragController.js';
-import { ScreenCoordinateSystem } from './coordinates/ScreenCoordinateSystem.js';
+import { DragHostService } from './dragging/DragHostService.js';
+import { CartesianDragController } from './dragging/CartesianDragController.js';
+import { CartesianCoordinateSystem } from 'mr-web-components';
 import { SelectionService } from './services/SelectionService.js';
-import { Connector } from 'mr-web-components';
+import { Connector, VisualRectangle } from 'mr-web-components';
+import { CanvasDarkTheme } from 'mr-style';
 import type { IVisualObject } from 'mr-abstract-components';
+import { MapScreenCoordinateSystem } from './coordinateSystems/systems/MapScreenCoordinateSystem.js';
 
 /**
  * Main application class for the draggable demo
@@ -18,17 +19,19 @@ export class DemoApplication {
   private engine: CanvasEngine;
   private dragHostService!: DragHostService;
   private dragController!: CartesianDragController;
-  private draggableObjects: IVisualObject[] = [];
-  private coordinateSystem: ScreenCoordinateSystem;
+  private visualObjects: IVisualObject[] = [];
+  private coordinateSystem: MapScreenCoordinateSystem;
   private selectionService: SelectionService;
 
   constructor(canvasId: string) {
+    // Initialize core engine and coordinate system
     this.engine = new CanvasEngine(canvasId);
+    this.coordinateSystem = new MapScreenCoordinateSystem(this.engine.canvasWidth, this.engine.canvasHeight);
     
-    // Initialize screen coordinate system with canvas dimensions
-    this.coordinateSystem = new ScreenCoordinateSystem(this.engine.canvasWidth, this.engine.canvasHeight);
-    
+    // Initialize services
     this.selectionService = new SelectionService();
+    
+    // Create and setup visual objects (VisualObject -> IDraggableVisualObject -> IPhysicObject)
     this.setupDemo();
   }
 
@@ -40,6 +43,7 @@ export class DemoApplication {
     // Setup drag functionality AFTER all objects (including connectors) are created
     this.setupDragFunctionality();
     this.setupSelectionFunctionality();
+    this.setupConnectionRendering();
     this.startEngine();
   }
 
@@ -47,17 +51,58 @@ export class DemoApplication {
    * Creates all visual objects for the demo
    */
   private createObjects(): void {
-    // Create rectangles directly using library code
-    const config = DemoConfig.createAllRectangles();
+    // Create drop zone directly
+    const dropZone = new VisualRectangle(
+      'drop-zone',
+      { 
+        color: CanvasDarkTheme.dropZoneDefault,
+        borderColor: CanvasDarkTheme.borderDefault,
+        borderWidth: CanvasDarkTheme.borderMedium
+      },
+      CanvasDarkTheme.dropZoneWidth,
+      CanvasDarkTheme.dropZoneHeight
+    );
+    dropZone.position.x = -CanvasDarkTheme.dropZoneWidth / 2;
+    dropZone.position.y = -CanvasDarkTheme.dropZoneHeight / 2;
+    dropZone.isDraggable = false;
+    dropZone.connectors = []; // No connectors for drop zone
     
-    // Get drop zone and draggable rectangles
-    const dropZone = config.dropZone;
-    const draggableRectangles = config.draggableRectangles;
+    // Create draggable rectangles directly
+    const size = CanvasDarkTheme.objectSizeMedium;
+    const yPosition = 200; // Position above center (positive Y is up)
+    
+    const rect1 = new VisualRectangle(
+      'test-rect-1',
+      { color: CanvasDarkTheme.objectPrimary },
+      size, size
+    );
+    rect1.position.x = -150;
+    rect1.position.y = yPosition;
+    
+    const rect2 = new VisualRectangle(
+      'test-rect-2', 
+      { color: CanvasDarkTheme.objectSecondary },
+      size, size
+    );
+    rect2.position.x = 0;
+    rect2.position.y = yPosition;
+    
+    const rect3 = new VisualRectangle(
+      'test-rect-3',
+      { color: CanvasDarkTheme.objectAccent },
+      size, size
+    );
+    rect3.position.x = 150;
+    rect3.position.y = yPosition;
+    
+    const draggableRectangles = [rect1, rect2, rect3];
+    
+    // Add objects to engine and visualObjects array
     this.engine.addObject(dropZone);
-    this.draggableObjects = draggableRectangles;
-    this.draggableObjects.forEach(obj => this.engine.addObject(obj));
+    this.visualObjects = draggableRectangles;
+    this.visualObjects.forEach((obj: IVisualObject) => this.engine.addObject(obj));
     
-    // Add all connectors to draggable objects for hit testing
+    // Add all connectors to visual objects for hit testing
     // VisualRectangle automatically creates center connectors in constructor
     this.addConnectorsToHitTesting([dropZone, ...draggableRectangles]);
   }
@@ -72,7 +117,7 @@ export class DemoApplication {
           // Add connector to engine for rendering
           this.engine.addObject(connector);
           // Add connector to draggable objects for hit testing
-          this.draggableObjects.push(connector);
+          this.visualObjects.push(connector);
           // Setup click handler (cast to Connector type)
           this.setupConnectorClickHandler(connector as Connector);
           
@@ -100,7 +145,7 @@ export class DemoApplication {
     this.engine.addObject(centerConnector);
     
     // Add the connector to draggable objects so it can be hit tested
-    this.draggableObjects.push(centerConnector);
+    this.visualObjects.push(centerConnector);
     
     console.log('✅ CONNECTOR ADDED:', {
       id: centerConnector.id,
@@ -110,32 +155,127 @@ export class DemoApplication {
   }
   
   /**
-   * Sets up click handler for connector with offset behavior
+   * Sets up click handler for connector with simple line connection behavior
    */
   private setupConnectorClickHandler(connector: Connector): void {
     connector.onDragStart = (event: MouseEvent) => {
       console.log('🔗 CONNECTOR CLICKED:', {
         connectorId: connector.id,
-        position: connector.position,
-        offset: { x: connector.position.x, y: connector.position.y }
+        position: connector.position
       });
       
-      // Implement offset behavior - could start a connection line here
-      // For now, just highlight the connector
-      connector.selected = true;
+      const activeConnector = this.getActiveConnector();
+      
+      if (!activeConnector) {
+        // First click - start connection
+        (connector as any).isActive = true;
+        connector.selected = true;
+        console.log('🎯 Starting connection from:', connector.id);
+      } else if (activeConnector !== connector) {
+        // Second click - complete connection
+        this.createConnection(activeConnector, connector);
+        activeConnector.selected = false;
+        (activeConnector as any).isActive = false;
+        console.log('✅ Connection completed to:', connector.id);
+      } else {
+        // Same connector clicked - cancel connection
+        activeConnector.selected = false;
+        (activeConnector as any).isActive = false;
+        console.log('❌ Connection cancelled');
+      }
+      
       this.engine.requestRender();
     };
+  }
+
+  /**
+   * Gets the currently active connector (if any)
+   */
+  private getActiveConnector(): Connector | null {
+    const connectors = this.visualObjects.filter((obj): obj is Connector => 
+      obj.id.includes('connector') && (obj as any).isActive === true
+    );
+    return connectors.length > 0 ? connectors[0] as Connector : null;
+  }
+
+  /**
+   * Creates a simple line connection between two connectors
+   */
+  private createConnection(fromConnector: Connector, toConnector: Connector): void {
+    // Check if connection already exists by checking if they're already connected
+    if (fromConnector.IsConnected() && fromConnector.GetConnectedObject() === toConnector) {
+      console.log('⚠️ Connection already exists between these connectors');
+      return;
+    }
     
-    connector.onDragEnd = (event: MouseEvent) => {
-      console.log('🔗 CONNECTOR RELEASED:', {
-        connectorId: connector.id,
-        finalPosition: connector.position
-      });
+    // Mark connectors as connected
+    fromConnector.SetConnectedObject(toConnector as any);
+    toConnector.SetConnectedObject(fromConnector as any);
+    
+    console.log('🔗 Created connection:', {
+      from: fromConnector.id,
+      to: toConnector.id
+    });
+  }
+
+  /**
+   * Renders all connection lines between connectors
+   */
+  public renderConnections(ctx: CanvasRenderingContext2D): void {
+    // Get all connected connectors from visualObjects
+    const connectors = this.visualObjects.filter((obj): obj is Connector => 
+      obj.id.includes('connector') && (obj as any).IsConnected?.()
+    ) as Connector[];
+    
+    if (connectors.length === 0) return;
+    
+    // Set line style for connections
+    ctx.strokeStyle = '#8b5cf6'; // Purple color
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.setLineDash([]); // Solid line
+    
+    // Draw connections between connected connectors
+    const drawnConnections = new Set<string>();
+    connectors.forEach(connector => {
+      if (connector.IsConnected()) {
+        const connectedObj = connector.GetConnectedObject();
+        if (connectedObj && connectedObj.id.includes('connector')) {
+          const connectionKey = [connector.id, connectedObj.id].sort().join('-');
+          if (!drawnConnections.has(connectionKey)) {
+            drawnConnections.add(connectionKey);
+            
+            ctx.beginPath();
+            ctx.moveTo(connector.position.x, connector.position.y);
+            ctx.lineTo(connectedObj.position.x, connectedObj.position.y);
+            ctx.stroke();
+          }
+        }
+      }
+    });
+    
+    // Draw active connection preview if starting a connection
+    const activeConnector = this.getActiveConnector();
+    if (activeConnector) {
+      ctx.strokeStyle = '#f59e0b'; // Amber color for preview
+      ctx.lineWidth = 2;
+      ctx.setLineDash([5, 5]); // Dashed line for preview
       
-      // Reset connector selection
-      connector.selected = false;
-      this.engine.requestRender();
-    };
+      // Draw a small indicator around the active connector
+      const pos = activeConnector.position;
+       ctx.beginPath();
+      ctx.arc(pos.x, pos.y, 15, 0, 2 * Math.PI);
+      ctx.stroke();
+    }
+  }
+
+  /**
+   * Sets up connection rendering by registering the render callback with the engine
+   */
+  private setupConnectionRendering(): void {
+    this.engine.setCustomRenderCallback((ctx: CanvasRenderingContext2D) => {
+      this.renderConnections(ctx);
+    });
   }
 
   /**
@@ -144,7 +284,7 @@ export class DemoApplication {
   private setupDragFunctionality(): void {
     this.dragHostService = new DragHostService(
       this.engine.getCanvas(),
-      this.draggableObjects,
+      this.visualObjects,
       this.coordinateSystem
     );
     
@@ -212,7 +352,7 @@ export class DemoApplication {
    * Gets all draggable objects (for testing or external access)
    */
   getDraggableObjects(): IVisualObject[] {
-    return [...this.draggableObjects]; // Return copy to prevent external mutation
+    return [...this.visualObjects]; // Return copy to prevent external mutation
   }
 
   /**
@@ -220,19 +360,19 @@ export class DemoApplication {
    * Follows Open/Closed Principle - allows extension without modification
    */
   addDraggableObject(object: IVisualObject): void {
-    this.draggableObjects.push(object);
+    this.visualObjects.push(object);
     this.engine.addObject(object);
-    this.dragHostService.updateDraggableObjects(this.draggableObjects);
+    this.dragHostService.updateDraggableObjects(this.visualObjects);
   }
 
   /**
    * Removes a draggable object from the demo
    */
   removeDraggableObject(objectId: string): boolean {
-    const index = this.draggableObjects.findIndex(obj => obj.id === objectId);
+    const index = this.visualObjects.findIndex((obj: IVisualObject) => obj.id === objectId);
     if (index !== -1) {
-      this.draggableObjects.splice(index, 1);
-      this.dragHostService.updateDraggableObjects(this.draggableObjects);
+      this.visualObjects.splice(index, 1);
+      this.dragHostService.updateDraggableObjects(this.visualObjects);
       return true;
     }
     return false;

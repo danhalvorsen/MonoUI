@@ -85,7 +85,7 @@ export class ContainsRule extends Rule<string> {
 
 // Date rules
 export class AfterDateRule extends Rule<Date> {
-  message: string;
+  message: string = `Must be after the specified date`;  // Initialize with default
   constructor(private minDate: Date) { super("AfterDate"); }
   validate(value: Date, path: string): RuleResult {
     const ok = value instanceof Date && value.getTime() > this.minDate.getTime();
@@ -95,7 +95,7 @@ export class AfterDateRule extends Rule<Date> {
 
 export class BeforeDateRule extends Rule<Date> {
   message: string;
-  constructor(private maxDate: Date) { super("BeforeDate"); }
+  constructor(private maxDate: Date) { super("BeforeDate"); this.message = `Must be before ${this.maxDate.toISOString()}`;   }
   validate(value: Date, path: string): RuleResult {
     const ok = value instanceof Date && value.getTime() < this.maxDate.getTime();
     return { isValid: ok, ruleName: this.name, path, message: this.message ?? `Must be before ${this.maxDate.toISOString()}` };
