@@ -1,4 +1,4 @@
-import type { IAnimationLoop } from "../../mr-abstract-components/src/canvas/AnimationLoop.js";
+import type { IAnimationLoop } from "mr-abstract-components/src/features/animation/AnimationLoop";
 
 export class RAFLoop implements IAnimationLoop {
   private last = 0;

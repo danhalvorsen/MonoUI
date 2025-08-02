@@ -1,7 +1,6 @@
-import { ReactiveController } from "lit";
+
 import { IReactiveController } from "./IReactiveController.js";
 
- 
 export interface IReactiveControllerHost {
  
     addController(controller: IReactiveController): void;

@@ -1,18 +1,22 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "outDir": "dist",
-    "rootDir": "src",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
     "strict": true,
     "skipLibCheck": true,
-    "sourceMap": true,
-    "inlineSources": true,
-    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "composite": true,
+    "paths": {
+      "@mr/web-components/*": ["../mr-web-components/src/*"]
+    },
+    "baseUrl": "."
   },
-  "include": ["src/**/*", "../mr-web-components/src/controllers/ReactiveController.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"],
+  
 }

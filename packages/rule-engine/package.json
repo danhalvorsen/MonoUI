@@ -11,6 +11,7 @@
   "dependencies": {
     "abstract-template": "workspace:*",
     "reflect-metadata": "^0.2.2",
+    "rule-engine": "^0.1.0",
     "tsyringe": "^4.8.0"
   },
   "devDependencies": {

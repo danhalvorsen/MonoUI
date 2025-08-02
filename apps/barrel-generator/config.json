@@ -1,0 +1,5 @@
+{
+  "packagesPath": "C:/APPL/source/repro/MonoUI/packages",
+  "packages": ["mr-abstract-components" ],
+  "dryRun": true
+}
