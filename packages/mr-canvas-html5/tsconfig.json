@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "types": [],
+    "skipLibCheck": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": false,
+    "sourceMap": true,
+    "inlineSources": true,
+    "declaration": true,
+    "useDefineForClassFields": false,
+    "verbatimModuleSyntax": true,
+    "experimentalDecorators": true,
+
+  }
+}

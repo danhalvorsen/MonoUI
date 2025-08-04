@@ -1,10 +1,10 @@
 
 import { VisualRectangleTokenService } from 'mr-style';
-import type { IConnector, IStyle } from 'mr-abstract-components';
 import { VisualObject } from './visual/VisualObject.js';
 import { Vector2 } from '@my-graphics/math';
 import { Connector } from './connectors/Connector.js';
 import { Draggable } from './visual/Draggable.js';
+import type { IStyle } from './visual/IStyle.js';
 
 export class VisualRectangle extends VisualObject {
   declare public id: string;

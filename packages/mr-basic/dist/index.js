@@ -1,1 +1,1 @@
-export * from './mr-basic';
+export * from './mr-basic.js';

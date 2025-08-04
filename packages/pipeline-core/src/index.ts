@@ -1,19 +1,19 @@
 // Core interfaces & classes
-export * from './core/IData';
-export * from './core/IPipe';
-export * from './core/IPipeline';
-export * from './core/IPipelineHost';
-export * from './core/Pipe';
-export * from './core/Pipeline';
-export * from './core/PipelineHost';
+export * from './core/IData.js';
+export * from './core/IPipe.js';
+export * from './core/IPipeline.js';
+export * from './core/IPipelineHost.js';
+export * from './core/Pipe.js';
+export * from './core/Pipeline.js';
+export * from './core/PipelineHost.js';
 
 // Contracts
-export * from './contracts/IHealthCheck';
-export * from './contracts/ISchemaValidator';
+export * from './contracts/IHealthCheck.js';
+export * from './contracts/ISchemaValidator.js';
 
 // Decorators
-export * from './decorators/HealthCheck';
-export * from './decorators/Route';
+export * from './decorators/HealthCheck.js';
+export * from './decorators/Route.js';
 
 // Setup (ensures reflect-metadata is loaded)
-export * from './setup';
+export * from './setup.js';

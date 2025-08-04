@@ -1,2 +1,2 @@
-export * from './GenerateBarrelPipe';
-export * from './BarrelExportValidator';
+export * from './GenerateBarrelPipe.js';
+export * from './BarrelExportValidator.js';
