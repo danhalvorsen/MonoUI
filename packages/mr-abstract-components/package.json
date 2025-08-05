@@ -19,10 +19,11 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "tsyringe": "^4.10.0",
-    "reflect-metadata": "^0.2.2",
     "@my-graphics/math": "workspace:*",
-    "mr-style": "workspace:*"
+    "jsdom": "^25.0.1",
+    "mr-style": "workspace:*",
+    "reflect-metadata": "^0.2.2",
+    "tsyringe": "^4.10.0"
   },
   "devDependencies": {
     "rimraf": "^6.0.1",
@@ -36,4 +37,3 @@
     "abstraction"
   ]
 }
-

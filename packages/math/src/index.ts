@@ -1,6 +1,7 @@
 export { Vector2 } from './implementations/Vector2.js';
 export { Vector3 } from './implementations/Vector3.js';
-export { Matrix } from './implementations/Matrix4.js';
+export { Matrix3 } from './implementations/Matrix3.js';
+export { Matrix as Matrix4 } from './implementations/Matrix4.js';
 export { Transform as ImplTransform } from './implementations/Transform.js';
 export { Transform as Transformer } from './implementations/Transform.js';
 

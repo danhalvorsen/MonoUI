@@ -120,6 +120,19 @@ importers:
         specifier: ^5.4.19
         version: 5.4.19(@types/node@24.1.0)(terser@5.43.1)
 
+  apps/demo-node-canvas:
+    dependencies:
+      mr-abstract-components:
+        specifier: workspace:*
+        version: link:../../packages/mr-abstract-components
+    devDependencies:
+      typescript:
+        specifier: ^5.5.0
+        version: 5.8.3
+      vite:
+        specifier: ^5.4.0
+        version: 5.4.19(@types/node@24.1.0)(terser@5.43.1)
+
   apps/draggable-demo-standalone:
     dependencies:
       '@my-graphics/math':
@@ -309,6 +322,9 @@ importers:
       '@my-graphics/math':
         specifier: workspace:*
         version: link:../math
+      jsdom:
+        specifier: ^25.0.1
+        version: 25.0.1
       mr-style:
         specifier: workspace:*
         version: link:../mr-style
@@ -8895,9 +8911,15 @@ snapshots:
   mr-abstract-components@file:packages/mr-abstract-components:
     dependencies:
       '@my-graphics/math': link:packages/math
+      jsdom: 25.0.1
       mr-style: link:packages/mr-style
       reflect-metadata: 0.2.2
       tsyringe: 4.10.0
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - supports-color
+      - utf-8-validate
 
   mrmime@2.0.1: {}
 

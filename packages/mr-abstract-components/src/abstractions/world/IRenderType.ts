@@ -1,18 +1,15 @@
 import { IVisualObject } from "src/index.js";
 
 export interface IRenderType {
-  /** Prepare the rendering environment */
-  initialize(): void;
+    /** Initialize rendering context (e.g., set up WebGL state, clear buffers) */
+    initialize(): void;
 
-  /** Clear frame buffer before rendering */
-  clear(): void;
+    /** Clear the scene before rendering */
+    clear(): void;
 
-  /** Render one object */
-  renderObject(obj: IVisualObject): void;
+    /** Render a single object */
+    renderObject(obj: IVisualObject): void;
 
-  /** Resize the rendering viewport */
-  resize(width: number, height: number): void;
-
-  /** Optional: Object picking / hit-testing */
-  getObjectAt?(x: number, y: number): IVisualObject | undefined;
+    /** Resize the rendering viewport */
+    resize(width: number, height: number): void;
 }

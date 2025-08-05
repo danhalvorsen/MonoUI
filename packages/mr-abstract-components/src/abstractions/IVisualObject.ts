@@ -1,19 +1,24 @@
 import { Vector2 } from "@my-graphics/math";
-import { ChangedProperties, IObject, IVisualConnector, IVisualObjectConfiguration } from "src/index.js";
+import {
+  ChangedProperties,
+  IObject,
+  IVisualConnector,
+  IVisualObjectConfiguration,
+} from "src/index.js";
 
 export interface IVisualObject extends IObject {
   /** Configuration object that encapsulates all data and parameters */
   configuration: IVisualObjectConfiguration;
-  
+
   // Legacy properties for backward compatibility (these should be accessed via configuration)
   id: string;
   selected?: boolean;
   enabled?: boolean;
   position: Vector2;
-
+  size: { width: number; height: number };
   // Connectors (0 to many anchor points)
   connectors?: IVisualConnector[];
-
+  metadata?: { [key: string]: any }; // e.g., { color: 'red' }
   // Dragging support
   isDraggable?: boolean;
   onDragStart?: (event: MouseEvent) => void;
@@ -23,7 +28,7 @@ export interface IVisualObject extends IObject {
   // Core render/update methods
 
   // Lifecycle methods (inspired by Lit3)
-  
+
   /**
    * Called when the visual object is added to the canvas/scene.
    * Use this to set up event listeners, initialize resources, or perform
@@ -41,7 +46,7 @@ export interface IVisualObject extends IObject {
   /**
    * Called to determine whether an update cycle should proceed.
    * Return false to skip the update/render cycle for performance optimization.
-   * 
+   *
    * @param changedProperties Map of properties that have changed
    * @returns true if the object should update, false to skip
    */
@@ -51,7 +56,7 @@ export interface IVisualObject extends IObject {
    * Called before update() to compute values needed during the update.
    * Use this to calculate derived properties or prepare state based on
    * changed properties.
-   * 
+   *
    * @param changedProperties Map of properties that have changed
    */
   willUpdate?(changedProperties: ChangedProperties): void;
@@ -60,7 +65,7 @@ export interface IVisualObject extends IObject {
    * Called after the object's first update cycle completes.
    * Use this for one-time initialization that requires the object
    * to be fully set up (e.g., focusing elements, setting up observers).
-   * 
+   *
    * @param changedProperties Map of properties that changed in first update
    */
   firstUpdated?(changedProperties: ChangedProperties): void;
@@ -69,7 +74,7 @@ export interface IVisualObject extends IObject {
    * Called after every update cycle completes.
    * Use this to perform tasks that depend on the object's current state
    * after rendering (e.g., DOM measurements, animations).
-   * 
+   *
    * @param changedProperties Map of properties that changed in this update
    */
   updated?(changedProperties: ChangedProperties): void;

@@ -1,2 +1,2 @@
 
-export type ChangedProperties = Map<string, any>;
+export type ChangedProperties = Map<string, any>; 

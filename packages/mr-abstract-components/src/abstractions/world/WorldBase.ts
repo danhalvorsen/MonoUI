@@ -7,7 +7,7 @@ export class WorldBase extends NodeBase implements IWorld {
     cameras: ICamera[] = [];
     screens: IScreen[] = [];
     activeCameraId?: string;
-
+   
     constructor(id: string = `world-${++worldCounter}`) {
         super(id);
     }
