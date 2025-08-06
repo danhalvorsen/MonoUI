@@ -1,4 +1,5 @@
-import { IRenderType,INodeVisitor } from "src/index.js";
+import { IRenderType } from "./IRenderType.js";
+import { INodeVisitor } from "./INodeVisitor.js";
 
 export interface INode {
     /** Unique ID */

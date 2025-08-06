@@ -1,6 +1,15 @@
 import { defineConfig } from 'vite';
+import path from 'path';
 
 export default defineConfig({
-  server: { port: 5173 },
-  root: '.',
+  resolve: {
+    alias: [
+      { find: '@my-graphics/math', replacement: path.resolve(__dirname, '../../packages/math/src') },
+    ]
+  },
+  build: {
+    rollupOptions: {
+      external: [],
+    }
+  }
 });

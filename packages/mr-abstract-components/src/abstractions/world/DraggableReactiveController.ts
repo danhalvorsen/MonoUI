@@ -1,15 +1,16 @@
- import { IReactiveController, IReactiveControllerHost } from  'src/index.js';
-import { IDraggable } from './Draggable.js';
-import { IMouseReactiveController } from './IMouseReactiveController.js';
+import { IMouseReactiveController } from "./IMouseReactiveController.js";
+import { IReactiveController } from "../../controllers/IReactiveController.js";
+import { IDraggableFeature } from "./IDraggableFeature.js";
+
 export class DraggableReactiveController implements IReactiveController {
-  private host!: IDraggable;
+  private host!: IDraggableFeature;
   private isDragging = false;
   private lastX = 0;
   private lastY = 0;
 
   constructor(private mouse: IMouseReactiveController) {}
 
-  attach(host: IDraggable) {
+  attach(host: IDraggableFeature) {
     this.host = host;
   }
 
@@ -51,7 +52,8 @@ export class DraggableReactiveController implements IReactiveController {
   };
 
   private hitTest(x: number, y: number): boolean {
-    const { position, size } = this.host;
+    if (!this.host?.target) return false;
+    const { position, size } = this.host.target;
     return (
       x >= position.x &&
       x <= position.x + size.width &&

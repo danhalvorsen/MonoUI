@@ -1,5 +1,6 @@
-import { IVisualObject } from "src/index.js";
+import { IVisualObject } from "./../../abstractions/IVisualObject.js";
 
+ 
 export interface ISnapFeature extends IVisualObject {
     snapToGrid: boolean;
     snapToOrigin: boolean;

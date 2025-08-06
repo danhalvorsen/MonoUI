@@ -122,9 +122,15 @@ importers:
 
   apps/demo-node-canvas:
     dependencies:
+      '@my-graphics/math':
+        specifier: workspace:*
+        version: link:../../packages/math
       mr-abstract-components:
         specifier: workspace:*
         version: link:../../packages/mr-abstract-components
+      reflect-metadata:
+        specifier: ^0.2.2
+        version: 0.2.2
     devDependencies:
       typescript:
         specifier: ^5.5.0
@@ -322,28 +328,15 @@ importers:
       '@my-graphics/math':
         specifier: workspace:*
         version: link:../math
-      jsdom:
-        specifier: ^25.0.1
-        version: 25.0.1
-      mr-style:
+      mr-abstract-components:
         specifier: workspace:*
-        version: link:../mr-style
+        version: 'link:'
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
       tsyringe:
         specifier: ^4.10.0
         version: 4.10.0
-    devDependencies:
-      rimraf:
-        specifier: ^6.0.1
-        version: 6.0.1
-      typescript:
-        specifier: ^5.5.0
-        version: 5.8.3
-      vitest:
-        specifier: ^2.1.9
-        version: 2.1.9(@types/node@24.1.0)(@vitest/browser@2.1.9)(@vitest/ui@2.1.9)(jsdom@25.0.1)(msw@2.10.4(@types/node@24.1.0)(typescript@5.8.3))(terser@5.43.1)
 
   packages/mr-basic:
     dependencies:
@@ -7316,7 +7309,7 @@ snapshots:
       sirv: 3.0.1
       tinyglobby: 0.2.14
       tinyrainbow: 1.2.0
-      vitest: 2.1.9(@types/node@24.1.0)(@vitest/browser@2.1.9)(@vitest/ui@2.1.9)(jsdom@25.0.1)(msw@2.10.4(@types/node@24.1.0)(typescript@5.8.3))(terser@5.43.1)
+      vitest: 2.1.9(@types/node@20.19.9)(@vitest/browser@2.1.9)(@vitest/ui@2.1.9)(jsdom@25.0.1)(msw@2.10.4(@types/node@20.19.9)(typescript@5.8.3))(terser@5.43.1)
 
   '@vitest/utils@2.1.9':
     dependencies:
@@ -8911,15 +8904,9 @@ snapshots:
   mr-abstract-components@file:packages/mr-abstract-components:
     dependencies:
       '@my-graphics/math': link:packages/math
-      jsdom: 25.0.1
-      mr-style: link:packages/mr-style
+      mr-abstract-components: link:packages/mr-abstract-components
       reflect-metadata: 0.2.2
       tsyringe: 4.10.0
-    transitivePeerDependencies:
-      - bufferutil
-      - canvas
-      - supports-color
-      - utf-8-validate
 
   mrmime@2.0.1: {}
 

@@ -1,22 +1,18 @@
 // packages/mr-abstract-components/src/abstractions/world/ObjectBase.ts
 import { Vector2, Matrix3 } from '@my-graphics/math';
-import { 
-    IRenderType, NodeBase, IVisualObject, ChangedProperties, 
-    IVisualConnector, IVisualObjectConfiguration 
-} from 'src/index.js';
+
+import { IRenderType } from "./IRenderType.js";
+import { IVisualObjectConfiguration } from "../IVisualObjectConfiguration.js";
+import { NodeBase } from "./NodeBase.js";
+import { IVisualObject } from "../IVisualObject.js";
+import { IChangedProperties } from "../IChangedProperties.js";
+import { IVisualConnector } from './../../connector/IVisualConnector.js';
+import { EmptyChangedProperties } from '../EmptyChangedProperties.js';
+// packages/mr-abstract-components/src/abstractions/world/ObjectBase.ts
  
 export abstract class ObjectBase extends NodeBase implements IVisualObject {
-    // --- Transform properties ---
     position: Vector2 = new Vector2(0, 0);
-    rotation: number = 0;
-    scale: Vector2 = new Vector2(1, 1);
-    
-    // --- Matrices ---
-    localMatrix: Matrix3 = Matrix3.identity();
-    worldMatrix: Matrix3 = Matrix3.identity();
-
-    // --- Visual properties ---
-    size = { width: 0, height: 0 };
+    size:Vector2 = new Vector2(50,50);
     isDraggable?: boolean;
     selected?: boolean;
     enabled?: boolean;
@@ -27,38 +23,13 @@ export abstract class ObjectBase extends NodeBase implements IVisualObject {
 
     connectedCallback?(): void;
     disconnectedCallback?(): void;
-    shouldUpdate?(changedProperties: ChangedProperties): boolean;
-    willUpdate?(changedProperties: ChangedProperties): void;
-    firstUpdated?(changedProperties: ChangedProperties): void;
-    updated?(changedProperties: ChangedProperties): void;
+    shouldUpdate?(changedProperties: IChangedProperties): boolean;
+    willUpdate?(changedProperties: IChangedProperties): void;
+    firstUpdated?(changedProperties: IChangedProperties): void;
+    updated?(changedProperties: IChangedProperties): void;
 
     constructor(id: string) {
         super(id);
-    }
-
-    /** --- Transform updates --- */
-    updateLocalMatrix(): void {
-        this.localMatrix = Matrix3.fromTransform(
-            this.position.x,
-            this.position.y,
-            this.scale.x,
-            this.scale.y,
-            this.rotation
-        );
-    }
-
-    updateWorldMatrix(force = false): void {
-        this.updateLocalMatrix();
-        if (this.parent && 'worldMatrix' in this.parent) {
-            this.worldMatrix = (this.parent as ObjectBase).worldMatrix.multiply(this.localMatrix) as Matrix3;
-        } else {
-            this.worldMatrix = this.localMatrix.clone() as Matrix3;
-        }
-        this.children?.forEach(child => {
-            if ('updateWorldMatrix' in child) {
-                (child as ObjectBase).updateWorldMatrix(true);
-            }
-        });
     }
 
     /** Per-frame update hook */
@@ -68,32 +39,19 @@ export abstract class ObjectBase extends NodeBase implements IVisualObject {
 
     /** Must be implemented by subclasses */
     abstract draw(ctx: IRenderType): void;
-// Inside ObjectBase
-addChild(child: ObjectBase): void {
-    if (!this.children) this.children = [];
-    this.children.push(child);
-    (child as any).parent = this;
-    child.updateWorldMatrix(true);
-}
-
-removeChild(child: ObjectBase): void {
-    if (!this.children) return;
-    this.children = this.children.filter(c => c !== child);
-    (child as any).parent = undefined;
-}
 
     /** Render object + children */
     render(ctx: IRenderType): void {
-        if (this.shouldUpdate && !this.shouldUpdate(new Map())) return;
+        const emptyProps = EmptyChangedProperties.instance;
 
-        this.updateWorldMatrix();
+        if (this.shouldUpdate && !this.shouldUpdate(emptyProps)) return;
 
-        this.willUpdate?.(new Map());
+        this.willUpdate?.(emptyProps);
         this.draw(ctx);
         ctx.renderObject?.(this);
 
         if (!this.hasRendered) {
-            this.firstUpdated?.(new Map());
+            this.firstUpdated?.(emptyProps);
             this.hasRendered = true;
         }
 
@@ -106,6 +64,6 @@ removeChild(child: ObjectBase): void {
             }
         });
 
-        this.updated?.(new Map());
+        this.updated?.(emptyProps);
     }
 }

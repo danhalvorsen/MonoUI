@@ -1,4 +1,6 @@
-import { IAxisConfiguration, IGridConfiguration, ISnapConfiguration, IVisualObjectConfiguration } from "src/index.js";
+import { IVisualObjectConfiguration } from "./../abstractions/IVisualObjectConfiguration.js";
+import { IAxisConfiguration } from "./axis/IAxisConfiguration.js";
+import { IGridConfiguration } from "./grid/IGridConfiguration.js";
 
 export interface ICartesianCoordinateControllerConfiguration extends IVisualObjectConfiguration {
   /** Configuration for the X-axis */
@@ -11,7 +13,7 @@ export interface ICartesianCoordinateControllerConfiguration extends IVisualObje
   gridConfig: IGridConfiguration;
   
   /** Configuration for snap functionality */
-  snapConfig: ISnapConfiguration;
+ 
   
   /** Canvas dimensions for coordinate transformations */
   canvasWidth: number;

@@ -1,3 +1,4 @@
-import { ISystemController } from "src/index.js";
+import { ISystemController } from "./../abstractions/ISystemController.js";
 
+ 
 export interface IConnectorController extends ISystemController  { }

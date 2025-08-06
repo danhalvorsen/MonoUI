@@ -1,29 +1,25 @@
-import { Canvas2DRenderer } from 'mr-abstract-components';
-import { DemoObject } from './DemoObject';
+// DemoObject.ts
+import "reflect-metadata";
 
-const canvas = document.getElementById('app') as HTMLCanvasElement;
+// File: apps/demo-node-canvas/src/main.ts
+import { Canvas2DRenderer } from "./Canvas2DRenderer.js";
+import { DemoObject } from "./DemoObject.js";
+
+const canvas = document.getElementById("app") as HTMLCanvasElement;
 const renderer = new Canvas2DRenderer(canvas);
 
-// Create a few demo objects
-const box1 = new DemoObject('box1', '#ff5555');
-box1.position.x = 150;
-box1.position.y = 150;
+const obj = new DemoObject("rect1", "#00ff00");
 
-const box2 = new DemoObject('box2', '#55ff55');
-box2.position.x = 400;
-box2.position.y = 300;
+let lastTime = performance.now();
+function loop(time: number) {
+    const dt = time - lastTime;
+    lastTime = time;
 
-const objects = [box1, box2];
+    obj.update(dt);
 
-function loop() {
-  renderer.clear();
-  objects.forEach(obj => {
-    obj.rotation += 0.01;
-    obj.updateWorldMatrix();
+    renderer.clear();
     renderer.renderObject(obj);
-  });
-  requestAnimationFrame(loop);
-}
 
-renderer.initialize();
-loop();
+    requestAnimationFrame(loop);
+}
+loop(lastTime);

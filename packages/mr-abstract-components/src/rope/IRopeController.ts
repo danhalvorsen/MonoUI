@@ -1,5 +1,7 @@
-import { IControllerConfiguration, ISystemController } from "src/index.js";
-
+import { ISystemController } from "../abstractions/ISystemController.js";
+import { IControllerConfiguration } from "../abstractions/IControllerConfiguration.js";
+ 
+ 
 export interface IRopeControllerConfiguration  {
     id: string;
     configValues?: Record<string, unknown>;

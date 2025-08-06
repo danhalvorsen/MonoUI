@@ -1,6 +1,6 @@
  
 import { Vector2 } from "@my-graphics/math";
-import { IVisualObjectConfiguration } from "src/index.js";
+import { IVisualObjectConfiguration } from "./../abstractions/IVisualObjectConfiguration.js";
 
 export interface IConnectorConfiguration extends IVisualObjectConfiguration {
   isConnected: boolean;

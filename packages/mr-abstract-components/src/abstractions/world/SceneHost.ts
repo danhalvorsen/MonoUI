@@ -1,15 +1,13 @@
 import "reflect-metadata";
 import { injectable, inject, injectAll } from "tsyringe";
-import {
-  IReactiveController,
-  IRenderTechBundle,
-  ISceneGraph,
-  IVisualObject,
-  ReactiveControllerBase,
-} from "src/index.js";
 import { IRenderType } from "./IRenderType.js";
+import {IVisualObject} from '../IVisualObject.js'
+import { IReactiveController } from "../../controllers/IReactiveController.js";
+import {ISceneGraph} from './ISceneGraph.js'
+import {IRenderTechBundle} from './IRenderTechBundle.js'
+import { ReactiveControllerBase } from "./ReactiveControllerBase.js";
 
-type SceneHostEvents = {
+export type SceneHostEvents = {
   "render-tech-changed": { tech: string };
 };
 

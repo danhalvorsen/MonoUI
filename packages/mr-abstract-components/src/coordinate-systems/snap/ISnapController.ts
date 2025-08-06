@@ -1,5 +1,7 @@
 import { Vector2 } from "@my-graphics/math";
-import {  IVisualObjectConfiguration, ISystemController, ISnapFeature} from "src/index.js";
+import { ISystemController } from "./../../abstractions/ISystemController.js";
+import { ISnapFeature } from "./IVisualSnap.js";
+  
 
 export interface ISnapController extends ISystemController {
     snapFeature: ISnapFeature;

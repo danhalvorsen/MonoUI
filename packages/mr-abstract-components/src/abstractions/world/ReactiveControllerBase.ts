@@ -1,5 +1,5 @@
-import { IReactiveController } from "src/index.js";
-
+import { IReactiveController } from "../../controllers/IReactiveController.js";
+ 
 export abstract class ReactiveControllerBase {
   private controllers: IReactiveController[] = [];
 

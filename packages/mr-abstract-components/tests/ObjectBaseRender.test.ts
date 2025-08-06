@@ -1,10 +1,13 @@
 import { describe, it, expect, vi } from 'vitest';
-import { ObjectBase } from './../src/index.js';
+ 
+import { ObjectBase } from '../src/abstractions/world/ObjectBase.js';
+import { IRenderType } from '../src/abstractions/world/IRenderType.js';
+ 
 
 class TestObject extends ObjectBase {
     drawCalled = false;
     children: TestObject[] = [];
-    draw(ctx: CanvasRenderingContext2D) {
+    draw(ctx: IRenderType) {
         this.drawCalled = true;
         ctx.fillRect(this.position.x, this.position.y, this.size.width, this.size.height);
     }
@@ -12,7 +15,7 @@ class TestObject extends ObjectBase {
 
 describe('ObjectBase lifecycle', () => {
     it('should call draw on parent and children', () => {
-        const ctx = { fillRect: vi.fn() } as unknown as CanvasRenderingContext2D;
+        const ctx = { fillRect: vi.fn() } as unknown as IRenderType;
         const parent = new TestObject('parent');
         const child = new TestObject('child');
         parent.children = [child];
@@ -25,7 +28,7 @@ describe('ObjectBase lifecycle', () => {
     });
 
     it('should trigger willUpdate and updated lifecycle hooks in order', () => {
-        const ctx = { fillRect: vi.fn() } as unknown as CanvasRenderingContext2D;
+        const ctx = { fillRect: vi.fn() } as unknown as IRenderType;
 
         const parent = new TestObject('parent');
         const willUpdateSpy = vi.fn();

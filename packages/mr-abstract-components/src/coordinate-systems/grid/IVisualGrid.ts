@@ -1,5 +1,6 @@
 import { Vector2 } from "@my-graphics/math";
-import { GridConfiguration, IVisualObject } from "src/index.js";
+import { IVisualObject } from "./../../abstractions/IVisualObject.js";
+import { GridConfiguration } from "./GridConfiguration.js";
  
 export interface IGridFeature extends IVisualObject {
     configuration: GridConfiguration;

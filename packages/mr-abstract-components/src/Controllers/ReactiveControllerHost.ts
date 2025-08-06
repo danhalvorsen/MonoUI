@@ -1,5 +1,6 @@
-import { IReactiveController } from "src/index.js";
+import { IReactiveController } from "./IReactiveController.js";
 
+ 
 export interface IReactiveControllerHost {
     addController(controller: IReactiveController): void;
     removeController(controller: IReactiveController): void;

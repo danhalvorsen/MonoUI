@@ -1,6 +1,7 @@
+import { IVisualObjectConfiguration } from "./../../abstractions/IVisualObjectConfiguration.js";
 import { Vector2 } from "@my-graphics/math";
-import { IVisualObjectConfiguration } from "src/index.js";
 
+ 
 export interface GridConfiguration extends IVisualObjectConfiguration {
     cellSize: number;
     spacing?: number;

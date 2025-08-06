@@ -1,7 +1,8 @@
 // tests/ObjectBaseTransform.test.ts
 import { describe, it, expect } from 'vitest';
-import { ObjectBase, IRenderType} from '../src/index.js';
-
+import { ObjectBase } from '../src/abstractions/world/ObjectBase';
+import { IRenderType } from '../src/abstractions/world/IRenderType';
+ 
 class TestObject extends ObjectBase {
     draw(ctx: IRenderType): void {
         // no-op for testing

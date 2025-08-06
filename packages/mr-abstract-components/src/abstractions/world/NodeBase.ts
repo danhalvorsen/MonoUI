@@ -1,4 +1,6 @@
-import { INode, INodeVisitor, IRenderType } from "src/index.js";
+import { INodeVisitor,  } from './INodeVisitor.js';
+import { INode,  } from './INode.js';
+import  { IRenderType } from './IRenderType.js';
 
 export abstract class NodeBase implements INode {
   id: string;

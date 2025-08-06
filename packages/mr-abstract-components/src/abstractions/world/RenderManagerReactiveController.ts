@@ -1,4 +1,8 @@
-import { IReactiveController, IRenderTechBundle, RenderTechType, SceneHost } from "src/index.js";
+ 
+import { SceneHost } from "./SceneHost.js";
+import { IRenderTechBundle } from "./IRenderTechBundle.js";
+import { RenderTechType } from "./IRenderTech.js";
+import { IReactiveController } from "../../controllers/IReactiveController.js";
 
 export class RenderManagerReactiveController implements IReactiveController {
   private bundles = new Map<RenderTechType, IRenderTechBundle>();

@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "mr-abstract-components": "workspace:*"
+    "mr-abstract-components": "workspace:*",
+    "@my-graphics/math":"workspace:*",
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "typescript": "^5.5.0",

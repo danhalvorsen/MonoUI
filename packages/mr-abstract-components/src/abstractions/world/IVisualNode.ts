@@ -1,4 +1,7 @@
-import {INode, IVisualObject, IRenderType } from "src/index.js";
+import {INode} from "./INode.js";
+import {IVisualObject } from "../IVisualObject.js";
+import {IRenderType } from "./IRenderType.js";  
+
 
 /** A scene graph node that is renderable */
 export interface IVisualNode extends INode, IVisualObject {

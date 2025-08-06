@@ -1,4 +1,5 @@
-import { INode } from 'src/index.js';
+import { INode } from "./world/INode.js";
+
 export interface IObject extends INode {
     id: string;
     position: { x: number; y: number };

@@ -1,11 +1,9 @@
 import { Vector2 } from "@my-graphics/math";
-import {
-  ChangedProperties,
-  IObject,
-  IVisualConnector,
-  IVisualObjectConfiguration,
-} from "src/index.js";
-
+import  {IChangedProperties} from "./IChangedProperties.js"
+import type { IVisualObjectConfiguration } from "./IVisualObjectConfiguration.js";
+import { IObject } from "./IObject.js";
+import { IVisualConnector } from "./../connector/IVisualConnector.js"
+ 
 export interface IVisualObject extends IObject {
   /** Configuration object that encapsulates all data and parameters */
   configuration: IVisualObjectConfiguration;
@@ -15,7 +13,7 @@ export interface IVisualObject extends IObject {
   selected?: boolean;
   enabled?: boolean;
   position: Vector2;
-  size: { width: number; height: number };
+  size: Vector2;
   // Connectors (0 to many anchor points)
   connectors?: IVisualConnector[];
   metadata?: { [key: string]: any }; // e.g., { color: 'red' }
@@ -50,7 +48,7 @@ export interface IVisualObject extends IObject {
    * @param changedProperties Map of properties that have changed
    * @returns true if the object should update, false to skip
    */
-  shouldUpdate?(changedProperties: ChangedProperties): boolean;
+  shouldUpdate?(changedProperties: IChangedProperties): boolean;
 
   /**
    * Called before update() to compute values needed during the update.
@@ -59,7 +57,7 @@ export interface IVisualObject extends IObject {
    *
    * @param changedProperties Map of properties that have changed
    */
-  willUpdate?(changedProperties: ChangedProperties): void;
+  willUpdate?(changedProperties: IChangedProperties): void;
 
   /**
    * Called after the object's first update cycle completes.
@@ -68,7 +66,7 @@ export interface IVisualObject extends IObject {
    *
    * @param changedProperties Map of properties that changed in first update
    */
-  firstUpdated?(changedProperties: ChangedProperties): void;
+  firstUpdated?(changedProperties: IChangedProperties): void;
 
   /**
    * Called after every update cycle completes.
@@ -77,5 +75,5 @@ export interface IVisualObject extends IObject {
    *
    * @param changedProperties Map of properties that changed in this update
    */
-  updated?(changedProperties: ChangedProperties): void;
+  updated?(changedProperties: IChangedProperties): void;
 }

@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
     "baseUrl": ".",
     "paths": {
-      "mr-abstract-components": ["../../packages/mr-abstract-components/src/index.ts"]
+      "@my-graphics/math": ["../../packages/math/src/index.ts"]
     }
-  },
-  "include": ["src"]
+  }
 }

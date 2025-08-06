@@ -1,6 +1,11 @@
 // packages/mr-abstract-components/src/abstractions/world/WorldBase.ts
-import { ICamera, INode, IScreen, IWorld, NodeBase } from 'src/index.js';
 
+import { ICamera } from '../../CommonTypes/ICamera.js';
+import { IScreen } from '../../CommonTypes/IScreen.js';
+import { INode } from './INode.js';   
+import { IWorld } from './IWorld.js';
+import { NodeBase } from './NodeBase.js';
+ 
 let worldCounter = 0;
 
 export class WorldBase extends NodeBase implements IWorld {

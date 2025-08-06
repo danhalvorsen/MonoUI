@@ -1,6 +1,7 @@
 // packages/mr-abstract-components/tests/TransformNode.test.ts
 import { describe, it, expect, vi } from "vitest";
-import { TransformNode } from "../../src/index.js";
+ 
+import { TransformNode } from "../../src/abstractions/world/TransformNode.js";
 
 describe("TransformNode", () => {
     it("should trigger onParentChanged when added to a parent", () => {

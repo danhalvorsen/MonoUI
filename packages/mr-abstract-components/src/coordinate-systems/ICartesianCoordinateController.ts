@@ -1,7 +1,9 @@
-import { IAxisController, ISystemController, IGridController, ISnapController, ICartesianCoordinateControllerConfiguration} from "src/index.js";
+import { ISystemController } from "../abstractions/ISystemController.js";
+import { IAxisController } from "./axis/IAxisController.js";
+import { IGridController } from "./grid/IGridController.js";
+import { ICartesianCoordinateControllerConfiguration } from "./ICartesianCoordinateControllerConfiguration.js";
+import { ISnapController } from "./snap/ISnapController.js";
 
-//Controller is the mother of the object where an object can have visual objects and other objects in a composistion
-//
 export interface ICartesianCoordinateController extends ISystemController {
     configuration: ICartesianCoordinateControllerConfiguration;
     xAxis: IAxisController;

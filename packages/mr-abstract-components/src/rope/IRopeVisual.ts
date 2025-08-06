@@ -1,7 +1,7 @@
-import { IVisualConnector, IVisualObject } from "src/index.js";
- import { Vector2 } from "@my-graphics/math";
- 
-export interface IRopeVisual extends IVisualObject {
+import { IVisualConnector } from "./../connector/IVisualConnector.js";
+import { IVisualObject } from "./../abstractions/IVisualObject.js";
+import { Vector2 } from "@my-graphics/math";
+ export interface IRopeVisual extends IVisualObject {
   /** Unique identifier for the rope */
   id: string;
   

@@ -1,6 +1,6 @@
 import { Result } from "@mr/design-patterns";
 import { BaseSpecification } from "rule-engine";
-import { IFileOperations } from "src/file-operations/IFileOperations.js";
+import { IFileOperations } from "../../file-operations/IFileOperations.js";
 
 export interface TsConfigCheckContext {
   packagePath: string;

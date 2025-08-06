@@ -1,5 +1,7 @@
+import { IReactiveController } from "../../controllers/IReactiveController.js";
+import { IVisualObject } from "../IVisualObject.js";
 
-import { IReactiveController, IVisualObject } from "src/index.js";
+ 
 
 export interface IPickingReactiveController extends IReactiveController {
   /**

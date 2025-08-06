@@ -1,4 +1,4 @@
-import { IControllerConfiguration } from "src/index.js";
+import { IControllerConfiguration } from "./IControllerConfiguration.js";
 
 export interface ISystemController {
     configuration: IControllerConfiguration;

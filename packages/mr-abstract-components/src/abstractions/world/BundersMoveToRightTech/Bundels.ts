@@ -1,4 +1,4 @@
-// import { IReactiveController } from "src/controllers/IReactiveController.js";
+// import { IReactiveController } from "sr  zc/controllers/IReactiveController.js";
 // import { RenderTechType } from "../IRenderTech.js";
 // import { IRenderTechBundle } from "../IRenderTechBundle.js";
 // import { IRenderType } from "../IRenderType.js";

@@ -1,12 +1,5 @@
-import {
-  IInteractionConfiguration,
-  IConnector,
-  IVisualStyle,
-} from "src/index.js";
-
 export interface IVisualObjectConfiguration {
-    id: string;
-
+    id: string; 
     visual: {
         visible: boolean;
         opacity: number;

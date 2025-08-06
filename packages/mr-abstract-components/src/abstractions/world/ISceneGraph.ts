@@ -1,4 +1,4 @@
-import { IObject } from "src/index.js";
+import { IObject } from "../IObject.js";
 
 export interface ISceneGraph {
   /** Add an object to the scene */

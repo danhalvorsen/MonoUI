@@ -1,4 +1,4 @@
-import { IVisualObjectConfiguration } from "src/index.js";
+import { IVisualObjectConfiguration } from "./../../abstractions/IVisualObjectConfiguration.js";
 
 export interface IVisualAxisConfiguration extends IVisualObjectConfiguration {
     /** Whether to show the axis line */

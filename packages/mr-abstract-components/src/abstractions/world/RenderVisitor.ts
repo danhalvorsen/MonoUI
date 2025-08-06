@@ -1,4 +1,9 @@
-import { INode, INodeVisitor, IRenderType, IVisualNode } from "src/index.js";
+ 
+
+import {INode}  from './INode.js';
+import {INodeVisitor} from './INodeVisitor.js';
+import {IRenderType} from './IRenderType.js';
+import {IVisualNode} from './IVisualNode.js';
 
 function isVisualNode(node: INode): node is IVisualNode {
     return typeof (node as IVisualNode).draw === "function";

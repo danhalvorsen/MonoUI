@@ -1,14 +1,13 @@
 import { ReactiveControllerBase } from "./ReactiveControllerBase.js";
-import type {
-  ChangedProperties,
-  INodeVisitor,
-  IRenderType,
-  IVisualConnector,
-  IVisualObject,
-  IVisualObjectConfiguration,
-} from "src/index.js";
+ 
+import { IVisualConnector } from "../../connector/IVisualConnector.js";
+import { IVisualObjectConfiguration } from "../IVisualObjectConfiguration.js";
 import { Vector2 } from "@my-graphics/math";
-
+import { IVisualObject } from "../IVisualObject.js";
+import { IChangedProperties } from "../IChangedProperties.js";
+import { INodeVisitor } from "./INodeVisitor.js";
+import { IRenderType } from "./IRenderType.js";
+ 
 export class VisualObject
   extends ReactiveControllerBase
   implements IVisualObject
@@ -21,7 +20,7 @@ export class VisualObject
   children: IVisualObject[] = [];
 
   position: Vector2 = new Vector2(0, 0);
-  size = { width: 100, height: 100 };
+  size: Vector2 = new Vector2(100, 100);  
   isVisible = true;
 
   configuration: IVisualObjectConfiguration;
@@ -67,12 +66,12 @@ export class VisualObject
   // Lifecycle (no-ops by default)
   connectedCallback?(): void {}
   disconnectedCallback?(): void {}
-  shouldUpdate?(changedProperties: ChangedProperties): boolean {
+  shouldUpdate?(changedProperties: IChangedProperties): boolean {
     return true;
   }
-  willUpdate?(changedProperties: ChangedProperties): void {}
-  firstUpdated?(changedProperties: ChangedProperties): void {}
-  updated?(changedProperties: ChangedProperties): void {}
+  willUpdate?(changedProperties: IChangedProperties): void {}
+  firstUpdated?(changedProperties: IChangedProperties): void {}
+  updated?(changedProperties: IChangedProperties): void {}
   onAdded?(): void {}
   onRemoved?(): void {}
 
@@ -88,3 +87,4 @@ export class VisualObject
     this.update(0);
   }
 }
+

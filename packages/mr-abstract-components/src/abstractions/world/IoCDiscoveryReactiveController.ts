@@ -1,4 +1,5 @@
-import { IReactiveController } from "src/index.js";
+
+import { IReactiveController } from "./../../controllers/IReactiveController.js";
 import { injectable } from "tsyringe";
 import { container } from "tsyringe";
 

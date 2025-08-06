@@ -1,6 +1,6 @@
 // packages/mr-abstract-components/src/canvas/Canvas2DRenderer.ts
-import { IVisualObject } from '../abstractions/IVisualObject.js';
-import { IRenderType } from 'src/abstractions/world/IRenderType.js';
+import { IRenderType } from "./../abstractions/world/IRenderType.js";
+import { IVisualObject } from "./../abstractions/IVisualObject.js";
 
 export class Canvas2DRenderer implements IRenderType {
     private ctx: CanvasRenderingContext2D;
@@ -29,8 +29,12 @@ export class Canvas2DRenderer implements IRenderType {
 
         this.ctx.save();
         // Apply world matrix directly
-        const m = worldMatrix.toFloat32Array();
+        const m = worldMatrix?.toFloat32Array?.() ?? [1, 0, 0, 1, 0, 0];
         this.ctx.setTransform(m[0], m[3], m[1], m[4], m[2], m[5]);
+
+        const [a, b, c, d, e, f] = worldMatrix.toCanvasTransform();
+        this.ctx.setTransform(a, b, c, d, e, f);
+
 
         const style = configuration?.resolvedStyles ?? configuration?.visual?.style;
         if (style) {
@@ -42,6 +46,9 @@ export class Canvas2DRenderer implements IRenderType {
                 this.ctx.strokeStyle = style.stroke ?? style.strokeStyle;
                 this.ctx.lineWidth = style.strokeWidth ?? style.lineWidth;
                 this.ctx.strokeRect(0, 0, size.width, size.height);
+            }
+            if (style.opacity !== undefined) {
+                this.ctx.globalAlpha = style.opacity;
             }
         }
 

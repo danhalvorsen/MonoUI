@@ -1,4 +1,4 @@
-import { IVisualObject } from "src/index.js";
+import { IVisualObject } from "../IVisualObject.js";
 
 export interface IRenderType {
     /** Initialize rendering context (e.g., set up WebGL state, clear buffers) */

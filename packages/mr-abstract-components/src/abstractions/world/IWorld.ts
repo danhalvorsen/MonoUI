@@ -1,7 +1,9 @@
 // packages/mr-abstract-components/src/abstractions/world/IWorld.ts
-import { INode, INodeVisitor } from 'src/index.js';
-import { ICamera } from 'src/CommonTypes/ICamera.js';
-import { IScreen } from 'src/CommonTypes/IScreen.js';
+
+import { ICamera } from '../../CommonTypes/ICamera.js';
+import { IScreen } from '../../CommonTypes/IScreen.js';
+import { INodeVisitor } from './INodeVisitor.js';
+import { INode } from './INode.js';
 
 export interface IWorld extends INode {
     /** All cameras in the world */
