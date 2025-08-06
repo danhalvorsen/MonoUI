@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { snap, snapVec2 } from '../src/index.js';
+import { snap, snapVec2 } from '../src/utils/snap';
+ 
+  
 
 describe('snap utilities', () => {
   it('should snap values to the nearest grid', () => {

@@ -31,6 +31,22 @@ export class Transform implements ITransform {
     return this;
   }
 
+  public static fromTransform(
+  x: number,
+  y: number,
+  scaleX: number,
+  scaleY: number,
+  rotation: number
+): Matrix {
+  const cos = Math.cos(rotation);
+  const sin = Math.sin(rotation);
+  return new Matrix([
+    [cos * scaleX, -sin * scaleY, x],
+    [sin * scaleX,  cos * scaleY, y],
+    [0, 0, 1]
+  ]);
+}
+
   setFrom(matrix: IMatrix): this {
     this.matrix = matrix.clone();
     return this;

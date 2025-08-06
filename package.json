@@ -8,8 +8,8 @@
     "packages/*"
   ],
   "scripts": {
-   "generate-barrels": "barrelbot ./packages/mr-abstract-components/src",
-   "fix-barrels": "node scripts/fix-barrel-exports.mjs ./packages/mr-abstract-components/src/index.ts",
+    "generate-barrels": "barrelbot ./packages/mr-abstract-components/src",
+    "fix-barrels": "node scripts/fix-barrel-exports.mjs ./packages/mr-abstract-components/src/index.ts",
     "build": "npm run build --workspaces",
     "build:packages": "npm run build --workspace packages/*",
     "build:apps": "npm run build --workspace apps/*",
