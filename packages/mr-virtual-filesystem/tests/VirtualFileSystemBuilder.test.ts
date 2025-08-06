@@ -1,8 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { InMemoryFileSystemStorage } from '../src/InMemoryFileSystemStorage.js';
 // If using TypeScript, ensure tsconfig.json has "module": "NodeNext" or "Node16" for .js imports, or use .ts extension if needed
-import { VirtualFileSystemBuilder } from '../src/VirtualFileSystemBuilder.js';
-
+import { VirtualFileSystemBuilder } from '../src/VirtualFileSystemBuilder.ts';
+ 
 describe('VirtualFileSystemBuilder', () => {
   const createBuilder = () => new VirtualFileSystemBuilder();
 

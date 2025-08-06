@@ -1,19 +1,16 @@
-import { Project, QuoteKind } from 'ts-morph';
 import fs from 'fs';
 import path from 'path';
-import { BarrelContentGenerator, BarrelContentOptions } from './BarrelContentGenerator.js';
+import { Project, QuoteKind } from 'ts-morph';
+import { BarrelContentGenerator } from './BarrelContentGenerator.1.js';
+import { IBarrelServiceOptions } from './IBarrelServiceOptions.js';
 
-export interface BarrelServiceOptions extends BarrelContentOptions {
-    rootDir: string;
-    dryRun?: boolean;
-}
 
 export class BarrelService {
     private readonly generator: BarrelContentGenerator;
     private readonly project: Project;
-    private readonly options: Required<Pick<BarrelServiceOptions, 'barrelName' | 'dryRun'>> & { rootDir: string };
+    private readonly options: Required<Pick<IBarrelServiceOptions, 'barrelName' | 'dryRun'>> & { rootDir: string; };
 
-    constructor(opts: BarrelServiceOptions) {
+    constructor(opts: IBarrelServiceOptions) {
         this.project = new Project({ manipulationSettings: { quoteKind: QuoteKind.Single } });
         this.generator = new BarrelContentGenerator(opts);
         this.options = {

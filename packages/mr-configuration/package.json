@@ -1,0 +1,40 @@
+{
+  "name": "mr-configuration",
+  "version": "1.0.0",
+  "description": "Flexible hierarchical configuration system with IOptions<T> pattern for TypeScript projects, supporting JSON, IoC, and virtual filesystem.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "configuration",
+    "options",
+    "ioc",
+    "virtual-filesystem",
+    "typescript",
+    "json"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "styrilng": "^1.0.0",
+    "reflect-metadata": "^0.2.2",
+    "mr-filesystem": "workspace:*"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0",
+    "typescript": "^5.0.0"
+  }
+}

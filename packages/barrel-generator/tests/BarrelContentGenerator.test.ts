@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { BarrelContentGenerator } from '../src/BarrelContentGenerator.js';
+import { BarrelContentGenerator } from '../src/BarrelContentGenerator.1';
 
 describe('BarrelContentGenerator', () => {
     it('generates star exports excluding tests', () => {

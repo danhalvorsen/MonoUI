@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
+    "rootDir": ".",
+    "declaration": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+  
+    "types": ["node"]
+  },
+  "include": ["src/**/*", "src/impl/Filesystem.ts", "src/impl/File.ts", "InMemory/InMemDirectory.ts", "InMemory/InMemoryFileSystem.ts", "InMemory/InMemFile.ts"],
+  "exclude": ["node_modules", "dist", "tests"]
+}

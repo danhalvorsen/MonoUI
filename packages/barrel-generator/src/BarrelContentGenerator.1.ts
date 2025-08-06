@@ -1,15 +1,12 @@
-export interface BarrelContentOptions {
-    barrelName?: string;
-    exclude?: RegExp[];
-    exportStyle?: 'star' | 'named';
-}
+import { IBarrelContentOptions } from "./IBarrelContentOptions.js";
+
 
 export class BarrelContentGenerator {
     private readonly barrelName: string;
     private readonly exclude: RegExp[];
     private readonly exportStyle: 'star' | 'named';
 
-    constructor(options?: BarrelContentOptions) {
+    constructor(options?: IBarrelContentOptions) {
         this.barrelName = options?.barrelName ?? 'index.ts';
         this.exclude = options?.exclude ?? [/\.test\.ts$/, /\.spec\.ts$/, /\.d\.ts$/];
         this.exportStyle = options?.exportStyle ?? 'star';
