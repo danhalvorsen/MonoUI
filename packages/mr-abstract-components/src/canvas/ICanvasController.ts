@@ -1,6 +1,7 @@
-import { ISystemController } from "./../abstractions/ISystemController.js";
-import { IVisualObjectConfiguration } from "./../abstractions/IVisualObjectConfiguration.js";
-import { ICartesianCoordinateController } from "./../coordinate-systems/ICartesianCoordinateController.js";
+
+import { ICartesianCoordinateController } from "src/coordinate-systems/ICartesianCoordinateController.js";
+import { IVisualObjectConfiguration } from "src/core/configuration/IVisualObjectConfiguration.js";
+import { ISystemController } from "src/ISystemController.js";
 import { IDatastore } from "./../store/IDatastore.js";
  
 export interface ICanvasController extends ISystemController {

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
  
-import { ObjectBase } from '../src/abstractions/world/ObjectBase.js';
+import { ObjectBase } from '../src/abstractions/core/ObjectBase.js';
 import { IRenderType } from '../src/abstractions/world/IRenderType.js';
  
 

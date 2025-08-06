@@ -1,6 +1,6 @@
 // tests/ObjectBaseTransform.test.ts
 import { describe, it, expect } from 'vitest';
-import { ObjectBase } from '../src/abstractions/world/ObjectBase';
+import { ObjectBase } from '../src/abstractions/core/ObjectBase';
 import { IRenderType } from '../src/abstractions/world/IRenderType';
  
 class TestObject extends ObjectBase {

@@ -1,6 +1,6 @@
 // packages/mr-abstract-components/src/canvas/Canvas2DRenderer.ts
-import { IRenderType } from "./../abstractions/world/IRenderType.js";
-import { IVisualObject } from "./../abstractions/IVisualObject.js";
+import { IRenderType } from "../render/rendering/IRenderType.js";
+import { IVisualObject } from "../abstractions/core/IVisualObject.js";
 
 export class Canvas2DRenderer implements IRenderType {
     private ctx: CanvasRenderingContext2D;
@@ -34,7 +34,6 @@ export class Canvas2DRenderer implements IRenderType {
 
         const [a, b, c, d, e, f] = worldMatrix.toCanvasTransform();
         this.ctx.setTransform(a, b, c, d, e, f);
-
 
         const style = configuration?.resolvedStyles ?? configuration?.visual?.style;
         if (style) {
