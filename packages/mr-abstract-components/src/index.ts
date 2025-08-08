@@ -46,7 +46,6 @@ export * from './abstractions/sceneGraph/node/TransformNode.js';
 export * from './abstractions/sceneGraph/traversal/Traversal.js';
 export * from './abstractions/core/VisualObject.js';
 export * from './abstractions/world/WorldBase.js';
- 
 export * from './core/bootStrap/bootstrap.js';
 export * from './canvas/ICanvasController.js';
 export * from './canvas/IConnectorConfiguration.js';
@@ -79,4 +78,4 @@ export * from './sceneObjects/rope/IRopeVisualConfiguration.js';
 export * from './store/IDatastore.js';
 export * from './core/style/IStyle.js';
 export * from './utils/snap.js';
-
+export * from './animation/AnimationLoop.js';

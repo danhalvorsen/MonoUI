@@ -190,7 +190,6 @@ export * from "./packages/mr-abstract-components/dist/features/abstractions/IPhy
 export * from "./packages/mr-abstract-components/dist/features/abstractions/ISystemController";
 export * from "./packages/mr-abstract-components/dist/features/abstractions/IVisualObject";
 export * from "./packages/mr-abstract-components/dist/features/abstractions/IVisualObjectConfiguration";
-export * from "./packages/mr-abstract-components/dist/features/animation/AnimationLoop";
 export * from "./packages/mr-abstract-components/dist/features/canvas/ICanvasController";
 export * from "./packages/mr-abstract-components/dist/features/canvas/ICanvasEngine";
 export * from "./packages/mr-abstract-components/dist/features/canvas/IConnectorConfiguration";
@@ -309,7 +308,6 @@ export * from "./packages/mr-web-components/playwright.config";
 export * from "./packages/mr-web-components/test-setup";
 export * from "./packages/mr-web-components/vitest.browser.config";
 export * from "./packages/mr-web-components/vitest.config";
-export * from "./packages/mr-web-components/dist/mr-abstract-components/src/canvas/AnimationLoop";
 export * from "./packages/mr-web-components/dist/mr-web-components/playwright.config";
 export * from "./packages/mr-web-components/dist/mr-web-components/test-setup";
 export * from "./packages/mr-web-components/dist/mr-web-components/vitest.browser.config";
