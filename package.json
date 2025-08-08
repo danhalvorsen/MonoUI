@@ -8,8 +8,8 @@
     "packages/*"
   ],
   "scripts": {
-   "generate-barrels": "barrelbot ./packages/mr-abstract-components/src",
-   "fix-barrels": "node scripts/fix-barrel-exports.mjs ./packages/mr-abstract-components/src/index.ts",
+    "generate-barrels": "barrelbot ./packages/mr-abstract-components/src",
+    "fix-barrels": "node scripts/fix-barrel-exports.mjs ./packages/mr-abstract-components/src/index.ts",
     "build": "npm run build --workspaces",
     "build:packages": "npm run build --workspace packages/*",
     "build:apps": "npm run build --workspace apps/*",
@@ -26,6 +26,10 @@
     "chai": "^5.2.1",
     "cross-env": "^7.0.3",
     "eslint": "^8.56.0",
+    "eslint-plugin-boundaries": "^5.0.1",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-lit": "^2.1.1",
+    "eslint-plugin-lit-a11y": "^5.1.1",
     "glob": "^10.1.0",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",

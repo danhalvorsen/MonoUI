@@ -1,7 +1,8 @@
-import { ICartesianCoordinateController, IDatastore, ISystemController, IVisualObjectConfiguration } from "src/index.js";
-export interface ICanvasController extends ISystemController {
-  readonly context: CanvasRenderingContext2D;
-  coordinateSystem: ICartesianCoordinateController;
-  store: IDatastore;
+import { IReactiveControllerHost } from "../controllers/ReactiveControllerHost.js"
+import { IRenderType } from "../Renders/IRenderType.js"
+  import { IVisualObjectConfiguration } from "../world/visualObjects/IVisualObjectConfiguration.js"
+export interface ICanvasController  {
+  readonly context: IRenderType;
+  controllerHost: IReactiveControllerHost;
   visualConfig: IVisualObjectConfiguration;
 }

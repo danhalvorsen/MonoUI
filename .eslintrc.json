@@ -2,8 +2,22 @@
   "root": true,
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
+  "overrides": [
+    {
+      "files": [
+        "scripts/**/*.ts",
+        "scripts/**/*.js",
+        "scripts/**/*.mjs",
+        "scripts/**/*.cjs"
+      ],
+      "env": {
+        "node": true
+      }
+    }
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2021,
@@ -11,16 +25,25 @@
   },
   "plugins": [
     "@typescript-eslint",
-    "lit",
-    "lit-a11y"
+    "import"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:lit/recommended",
-    "plugin:lit-a11y/recommended"
+    "plugin:import/typescript"
   ],
   "rules": {
-    // Add custom rules here if needed
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "import/no-unresolved": "error"
   }
 }

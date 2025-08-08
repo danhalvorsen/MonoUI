@@ -2,7 +2,7 @@
 import "reflect-metadata";
 import { describe, it, expect } from "vitest";
 import { BetweenRule } from "../src/rules/BetweenRule.js";
-import { RuleValidator } from "../src/validation/RuleValidator.js";
+import { RuleValidator } from "../src//validation/RuleValidator.js";
 import { FakeTemplateEngine } from "./FakeTemplateEngine.js";
 import { ITemplate, TemplateType } from "@packages/abstract-template";
  
@@ -11,7 +11,7 @@ describe("RuleValidator with RuleFor", () => {
     const engine = new FakeTemplateEngine();
     const validator = new RuleValidator<any>(engine);
 
-    const template: ITemplate = { content: "", type: "text" };
+    const template: ITemplate = { content: "", type: TemplateType.Text };
 
     const betweenAge = new BetweenRule<number>(18, 65, template, engine);
     const betweenScore = new BetweenRule<number>(0, 100, template, engine);

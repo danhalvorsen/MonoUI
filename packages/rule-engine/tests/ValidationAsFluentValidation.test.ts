@@ -1,8 +1,8 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { Result } from '@mr/design-patterns';
-import { BarrelGenerationStrategy } from './src/processing/work/strategies/barrel/BarrelGenerationStrategy.js';
-import { IWorkContext } from '../src/processing/work/strategies/IWorkDefinition.js';
-import { MockFileOperations } from '../src/file-operations/MockFileOperations.js';
+
+import { MockFileOperations } from '../../../apps//barrel-generator/src/file-operations/MockFileOperations';
+import { BarrelGenerationStrategy } from '../../../apps//barrel-generator/src/processing/work/strategies/Barrel/BarrelGenerationStrategy';
+import { IWorkContext } from '../../../apps/barrel-generator/src/processing/work/strategies/IWorkDefinition';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 describe('BarrelGenerationStrategy', () => {
   let mockFileOps: MockFileOperations;

@@ -1,0 +1,27 @@
+{
+  "name": "fix-imports",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "fix-imports": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "dev": "vitest",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "fast-glob": "^3.3.2",
+    "ts-morph": "^23.0.0",
+    "file-operations": "workspace:*",
+    "virtual-filesystem": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}

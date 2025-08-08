@@ -1,19 +1,12 @@
 import { defineConfig } from 'vitest/config';
-import { resolve } from 'path';
+import path from 'node:path';
 
 export default defineConfig({
-  test: {
-    globals: true,
-    environment: 'node',
-    include: ['tests/**/*.test.ts'],
-    coverage: {
-      provider: 'v8',
-      reporter: ['text', 'json', 'html']
-    }
-  },
+  test: { environment: 'node', include: ['tests/**/*.test.ts'] },
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
-  }
+      // point directly at the TS source of file-operations
+      'file-operations': path.resolve(__dirname, '../file-operations/src/index.ts'),
+    },
+  },
 });

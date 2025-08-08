@@ -1,5 +1,5 @@
 import { IReactiveController } from "./IReactiveController.js";
-import { IRenderType } from "../abstractions/world/IRenderType.js";
+import { IRenderType } from "../Renders/IRenderType.js";
 
 /**
  * A controller that depends on the rendering backend (RenderTech).

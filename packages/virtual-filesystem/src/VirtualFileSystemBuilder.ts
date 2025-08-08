@@ -1,12 +1,5 @@
-export interface IMutableFileSystem {
-  files: Map<string, string>;
-  directories: Set<string>;
-}
-
-export interface IFileSystem {
-  readonly files: ReadonlyMap<string, string>;
-  readonly directories: ReadonlySet<string>;
-}
+ 
+ import type { IMutableFileSystem, IFileSystem } from "./Filesystem.js";
 
 export class VirtualFileSystemBuilder {
   private fs: IMutableFileSystem = { files: new Map(), directories: new Set() };
