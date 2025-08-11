@@ -1,2 +1,4 @@
 
-export type ChangedProperties = Map<string, any>;
+export interface IChangedProperties {
+  [key: string]: { oldValue: unknown; newValue: unknown };
+}   

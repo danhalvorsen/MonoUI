@@ -7,11 +7,11 @@ This package is a simple example of a Lit web component using IoC via [tsyringe]
 Install the package dependencies and run the TypeScript compiler:
 
 ```bash
-npm install
-npm run build
+pnpm install
+pnpm run build
 ```
 
-Running `npm run build` before installing dependencies can lead to errors such as:
+Running `pnpm run build` before installing dependencies can lead to errors such as:
 
 ```
 Cannot find module 'tsyringe' or its corresponding type declarations

@@ -1,10 +1,11 @@
- import { IReactiveControllerHost, IVisualObject } from 'src/index.js';        
-import { IMouseReactiveController } from './ReactiveControllers/IMouseReactiveController.js';
+ import { IReactiveControllerHost } from '../../controllers/ReactiveControllerHost.js';        
+import { IVisualObject } from '../../core/IVisualObject.js';
+import { IMouseController } from '../../controllers/reactiveControllers/mouse/IMouseController.js';
 
-export interface ISceneHost extends IReactiveControllerHost {
+export interface ISceneHost<THost> extends IReactiveControllerHost<THost> {
   addObject(obj: IVisualObject): void;
   removeObject(obj: IVisualObject): void;
-  getMouse(): IMouseReactiveController;
+  getMouse(): IMouseController;
   start(): void;
   stop(): void;
 }

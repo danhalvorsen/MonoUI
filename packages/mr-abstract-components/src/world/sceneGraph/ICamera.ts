@@ -1,34 +1,22 @@
-
-export interface ICamera {
-  /** Unique identifier */
-  id?: string;
-
-  /** Camera position in world space */
-  position: { x: number; y: number; z?: number };
-
-  /** Where the camera is looking */
-  target?: { x: number; y: number; z?: number };
-
-  /** Zoom (2D) or field of view in degrees (3D) */
-  zoomOrFov: number;
-
-  /** Near & far clipping planes (3D) */
-  near?: number;
-  far?: number;
-
-  /** Up direction (default Y-up) */
-  up?: { x: number; y: number; z: number };
-
-  /** Orthographic or Perspective (for 3D) */
-  projection: 'orthographic' | 'perspective' | 'none';
-
-  /** Viewport size (for aspect ratio calculations) */
-  viewport?: { width: number; height: number };
-
-  /** Optional: Controls flags (e.g., allowPan, allowRotate, etc.) */
-  controls?: {
-    allowPan?: boolean;
-    allowZoom?: boolean;
-    allowRotate?: boolean;
-  };
+import { IReactiveController } from "../../controllers/IReactiveController.js";
+import { Vector2, Vector3 } from "@my-graphics/math";
+export interface ICamera extends IReactiveController {
+  getPosition(): Vector2 | Vector3;
+  setPosition(position: Vector2 | Vector3): void;
+  getTarget(): Vector2 | Vector3;
+  setTarget(target: Vector2 | Vector3): void;
+  getZoomOrFov(): number;
+  setZoomOrFov(zoomOrFov: number): void;
+  getNear(): number;
+  setNear(near: number): void;
+  getFar(): number;
+  setFar(far: number): void;
+  getUp(): Vector3;
+  setUp(up: Vector3): void;
+  getProjection(): 'orthographic' | 'perspective' | 'none';
+  setProjection(projection: 'orthographic' | 'perspective' | 'none'): void;
+  getViewport(): Vector2;
+  setViewport(viewport: Vector2): void;
+  getControls(): { allowPan?: boolean; allowZoom?: boolean; allowRotate?: boolean };
+  setControls(controls: { allowPan?: boolean; allowZoom?: boolean; allowRotate?: boolean }): void;
 }

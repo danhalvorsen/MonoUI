@@ -22,6 +22,7 @@ function walk(targetPath, callback) {
 }
 
 function fixBarrel(filePath) {
+  console.log(`Fixing barrel exports in: ${filePath}`);
   let content = fs.readFileSync(filePath, 'utf8');
   const fixed = content.replace(
     /(export\s+\*\s+from\s+['"])(\.\/[^'"]+?)(['"])/g,

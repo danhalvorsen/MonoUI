@@ -1,6 +1,5 @@
 import { IEventDispatchStrategy } from "./IEventDispatchStrategy.js";
 
-
 export class DefaultEventDispatchStrategy implements IEventDispatchStrategy {
     private target = new EventTarget();
 

@@ -1,4 +1,3 @@
-
 export interface IInteractionConfiguration {
   selected?: boolean;
   enabled?: boolean;

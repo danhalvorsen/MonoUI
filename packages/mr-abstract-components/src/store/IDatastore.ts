@@ -4,4 +4,3 @@
    delete(key: string): void;
    clear(): void;
  }
- 

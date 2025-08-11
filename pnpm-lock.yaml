@@ -321,12 +321,21 @@ importers:
       '@my-graphics/math':
         specifier: workspace:*
         version: link:../math
+      mr-event-base:
+        specifier: workspace:*
+        version: link:../mr-event-base
+      mr-event-rxjs:
+        specifier: workspace:*
+        version: link:../mr-event-rxjs
       mr-style:
         specifier: workspace:*
         version: link:../mr-style
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
+      rxjs:
+        specifier: ^7.8.2
+        version: 7.8.2
       tsyringe:
         specifier: ^4.10.0
         version: 4.10.0
@@ -432,6 +441,34 @@ importers:
       vite:
         specifier: ^5.4.19
         version: 5.4.19(@types/node@22.17.0)(terser@5.43.1)
+      vitest:
+        specifier: ^2.1.9
+        version: 2.1.9(@types/node@22.17.0)(@vitest/browser@2.1.9)(@vitest/ui@2.1.9)(jsdom@25.0.1)(msw@2.10.4(@types/node@22.17.0)(typescript@5.8.3))(terser@5.43.1)
+
+  packages/mr-event-base:
+    devDependencies:
+      '@types/node':
+        specifier: ^22.5.0
+        version: 22.17.0
+      typescript:
+        specifier: ^5.5.0
+        version: 5.8.3
+      vitest:
+        specifier: ^2.1.9
+        version: 2.1.9(@types/node@22.17.0)(@vitest/browser@2.1.9)(@vitest/ui@2.1.9)(jsdom@25.0.1)(msw@2.10.4(@types/node@22.17.0)(typescript@5.8.3))(terser@5.43.1)
+
+  packages/mr-event-rxjs:
+    dependencies:
+      mr-event-base:
+        specifier: workspace:*
+        version: link:../mr-event-base
+      rxjs:
+        specifier: ^7.8.1
+        version: 7.8.2
+    devDependencies:
+      '@types/node':
+        specifier: ^22.5.0
+        version: 22.17.0
       vitest:
         specifier: ^2.1.9
         version: 2.1.9(@types/node@22.17.0)(@vitest/browser@2.1.9)(@vitest/ui@2.1.9)(jsdom@25.0.1)(msw@2.10.4(@types/node@22.17.0)(typescript@5.8.3))(terser@5.43.1)
@@ -800,16 +837,10 @@ importers:
         version: link:../file-operations
     devDependencies:
       '@types/node':
-        specifier: ^20.19.9
+        specifier: ^20.11.0
         version: 20.19.9
-      typescript:
-        specifier: ^5.8.3
-        version: 5.8.3
-      vite:
-        specifier: ^5.4.19
-        version: 5.4.19(@types/node@20.19.9)(terser@5.43.1)
       vitest:
-        specifier: ^2.1.9
+        specifier: ^2.1.0
         version: 2.1.9(@types/node@20.19.9)(@vitest/browser@2.1.9)(@vitest/ui@2.1.9)(jsdom@25.0.1)(msw@2.10.4(@types/node@20.19.9)(typescript@5.8.3))(terser@5.43.1)
 
 packages:
@@ -9222,8 +9253,11 @@ snapshots:
   mr-abstract-components@file:packages/mr-abstract-components:
     dependencies:
       '@my-graphics/math': link:packages/math
+      mr-event-base: link:packages/mr-event-base
+      mr-event-rxjs: link:packages/mr-event-rxjs
       mr-style: link:packages/mr-style
       reflect-metadata: 0.2.2
+      rxjs: 7.8.2
       tsyringe: 4.10.0
 
   mrmime@2.0.1: {}

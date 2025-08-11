@@ -1,5 +1,4 @@
 // packages/mr-abstract-components/src/abstractions/world/ArrayIterator.ts
-
 import { IIterator } from "../IIterator.js";
 
 export class ArrayIterator<T> implements IIterator<T> {

@@ -12,17 +12,20 @@
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.json",
     "clean": "rimraf dist",
     "dev": "tsc --watch",
     "test": "vitest --config vitest.config.ts",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "tsyringe": "^4.10.0",
-    "reflect-metadata": "^0.2.2",
     "@my-graphics/math": "workspace:*",
-    "mr-style": "workspace:*"
+    "mr-style": "workspace:*",
+    "mr-event-rxjs": "workspace:*",
+    "@mr/design-patterns": "workspace:*",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "tsyringe": "^4.10.0"
   },
   "devDependencies": {
     "rimraf": "^6.0.1",
@@ -36,4 +39,3 @@
     "abstraction"
   ]
 }
-

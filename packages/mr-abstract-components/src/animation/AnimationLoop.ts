@@ -1,4 +1,3 @@
-
 export interface IAnimationLoop {
   start(): void;
   stop(): void;

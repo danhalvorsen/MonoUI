@@ -1,8 +1,9 @@
+// packages/mr-abstract-components/tsconfig.test.json  (TESTS, NO EMIT)
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noEmit": true,
-    "types": ["vitest/globals"]
+    "types": ["vitest", "node"]
   },
-  "include": ["tests/**/*"]
+  "include": ["tests/**/*.ts", "src/**/*.ts"]
 }

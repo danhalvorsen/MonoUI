@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { NodeBase } from '../../src/index.js';
-import { Traversal } from '../../src/Datastructures/Node/Traversal.js';
+import { Traversal } from '../../src/datastructures/node/Traversal.js';
 
 class TestNode extends NodeBase { draw() {} }
 

@@ -1,6 +1,4 @@
-import {  IVisualObjectConfiguration} from "src/index.js";
-
+import { IVisualObjectConfiguration } from "../IVisualObjectConfiguration.js";
 export interface IRopeVisualConfiguration extends IVisualObjectConfiguration {
-
     id:string;
- }
+}
