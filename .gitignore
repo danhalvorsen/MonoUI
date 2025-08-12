@@ -29,3 +29,4 @@ tsconfig.tsbuildinfo
 
 **/chrome-debug-simple
 # Ignore all .d.ts files in 
+/.vs
