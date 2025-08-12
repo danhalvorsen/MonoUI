@@ -318,12 +318,12 @@ importers:
 
   packages/mr-abstract-components:
     dependencies:
+      '@mr/design-patterns':
+        specifier: workspace:*
+        version: link:../design-patterns
       '@my-graphics/math':
         specifier: workspace:*
         version: link:../math
-      mr-event-base:
-        specifier: workspace:*
-        version: link:../mr-event-base
       mr-event-rxjs:
         specifier: workspace:*
         version: link:../mr-event-rxjs
@@ -457,21 +457,7 @@ importers:
         specifier: ^2.1.9
         version: 2.1.9(@types/node@22.17.0)(@vitest/browser@2.1.9)(@vitest/ui@2.1.9)(jsdom@25.0.1)(msw@2.10.4(@types/node@22.17.0)(typescript@5.8.3))(terser@5.43.1)
 
-  packages/mr-event-rxjs:
-    dependencies:
-      mr-event-base:
-        specifier: workspace:*
-        version: link:../mr-event-base
-      rxjs:
-        specifier: ^7.8.1
-        version: 7.8.2
-    devDependencies:
-      '@types/node':
-        specifier: ^22.5.0
-        version: 22.17.0
-      vitest:
-        specifier: ^2.1.9
-        version: 2.1.9(@types/node@22.17.0)(@vitest/browser@2.1.9)(@vitest/ui@2.1.9)(jsdom@25.0.1)(msw@2.10.4(@types/node@22.17.0)(typescript@5.8.3))(terser@5.43.1)
+  packages/mr-event-rxjs: {}
 
   packages/mr-fix-import:
     dependencies:
@@ -545,6 +531,31 @@ importers:
         version: 3.2.4(@types/node@24.1.0)(terser@5.43.1)
       vitest:
         specifier: ^2.1.9
+        version: 2.1.9(@types/node@24.1.0)(@vitest/browser@2.1.9)(@vitest/ui@2.1.9)(jsdom@25.0.1)(msw@2.10.4(@types/node@24.1.0)(typescript@5.8.3))(terser@5.43.1)
+
+  packages/mr-node-core:
+    devDependencies:
+      typescript:
+        specifier: ^5.5.4
+        version: 5.8.3
+      vitest:
+        specifier: ^2.1.1
+        version: 2.1.9(@types/node@24.1.0)(@vitest/browser@2.1.9)(@vitest/ui@2.1.9)(jsdom@25.0.1)(msw@2.10.4(@types/node@24.1.0)(typescript@5.8.3))(terser@5.43.1)
+
+  packages/mr-node-html5:
+    dependencies:
+      '@my-graphics/math':
+        specifier: workspace:*
+        version: link:../math
+      mr-node-core:
+        specifier: workspace:*
+        version: link:../mr-node-core
+    devDependencies:
+      typescript:
+        specifier: ^5.5.4
+        version: 5.8.3
+      vitest:
+        specifier: ^2.1.1
         version: 2.1.9(@types/node@24.1.0)(@vitest/browser@2.1.9)(@vitest/ui@2.1.9)(jsdom@25.0.1)(msw@2.10.4(@types/node@24.1.0)(typescript@5.8.3))(terser@5.43.1)
 
   packages/mr-piano:
@@ -9252,8 +9263,8 @@ snapshots:
 
   mr-abstract-components@file:packages/mr-abstract-components:
     dependencies:
+      '@mr/design-patterns': link:packages/design-patterns
       '@my-graphics/math': link:packages/math
-      mr-event-base: link:packages/mr-event-base
       mr-event-rxjs: link:packages/mr-event-rxjs
       mr-style: link:packages/mr-style
       reflect-metadata: 0.2.2

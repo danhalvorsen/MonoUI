@@ -10,7 +10,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "mr-node-core": "^0.1.0"
+    "mr-node-core": "workspace:*",
+    "@my-graphics/math": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.5.4",

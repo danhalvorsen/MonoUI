@@ -64,16 +64,17 @@ export class Node<T> implements IMutableNode<T> {
     if (child._parent) child._parent.remove(child);
     child._parent = this;
     this._children.splice(index, 0, child);
-    if (hasCycle(this)) {
+    if (this.hasCycle(this)) {
       this._children.splice(index, 1);
       child._parent = null;
       throw new Error("Cycle detected.");
     }
   }
+  hasCycle<T>(node: Node<T>): boolean {
+    let p: Node<T> | null = node._parent;
+    while (p) { if (p === node) return true; p = p._parent; }
+    return false;
+  }
 }
 
-function hasCycle<T>(node: Node<T>): boolean {
-  let p: Node<T> | null = node._parent;
-  while (p) { if (p === node) return true; p = p._parent; }
-  return false;
-}
+

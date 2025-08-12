@@ -30,8 +30,5 @@ class MockDraggableObject implements IVisualObject {
   render(ctx: unknown): void { throw new Error('Method not implemented.'); }
   connectedCallback?(): void { throw new Error('Method not implemented.'); }
   disconnectedCallback?(): void { throw new Error('Method not implemented.'); }
-  shouldUpdate?(changedProperties: ChangedProperties): boolean { throw new Error('Method not implemented.'); }
-  willUpdate?(changedProperties: ChangedProperties): void { throw new Error('Method not implemented.'); }
-  firstUpdated?(changedProperties: ChangedProperties): void { throw new Error('Method not implemented.'); }
-  updated?(changedProperties: ChangedProperties): void { throw new Error('Method not implemented.'); }
+     updated?(changedProperties: ChangedProperties): void { throw new Error('Method not implemented.'); }
 }

@@ -17,12 +17,12 @@ export class CanvasRenderer {
 
   render(root: INode<any>, ctx: CanvasRenderingContext2D): void {
     visit(root, {
-      enter: (node) => {
+      enter: (node : INode<any>) => {
         const kind = (node as any).kind as string | undefined;
         const b = kind ? this.behaviors.get(kind) : undefined;
         b?.enter?.(node, ctx);
       },
-      leave: (node) => {
+      leave: (node : INode<any>) => {
         const kind = (node as any).kind as string | undefined;
         const b = kind ? this.behaviors.get(kind) : undefined;
         b?.leave?.(node, ctx);

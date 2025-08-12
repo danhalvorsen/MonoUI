@@ -33,7 +33,7 @@ export function visit<T, R = void>(
     if (stopped) return;
 
     const ctx: VisitContext<T> = { depth, index, parent, stop };
-    let ret: R | void;
+    let ret: R | void = undefined;
 
     if (visitor.enter) ret = visitor.enter(node, ctx);
     if (stopped) return ret;
