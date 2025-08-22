@@ -28,4 +28,6 @@ tsconfig.tsbuildinfo
 **./*.js
 
 **/chrome-debug-simple
-# Ignore all .d.ts files in 
+# Ignore all .d.ts files in
+**/bin/
+**/obj/
